@@ -1,0 +1,69 @@
+function doGet(data) {
+  var result = {};
+  try {
+    var spreadSheet = SpreadsheetApp.openById("1k83ikqTfyLG_5SsNNaEr7861ZrhjwXN-f-VHdlSBJzA");
+    
+    var sheet = spreadSheet.getSheetByName("統計資料");
+    
+    var range = newRowRange(sheet);
+    
+    var no = getNewNo(sheet);
+    
+    var rowData = parseData(no, data);
+    
+    range.setValues([rowData]);
+  } catch (e) {
+    result.error = e;
+  }
+  return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+}
+
+//  取得最後一列的編號，並累加回傳
+function getNewNo(sheet) {
+  var lastRowIndex = sheet.getLastRow();
+  var lastRowRange = sheet.getRange("A" + lastRowIndex);
+  var newRowNo = 1;
+  if (lastRowIndex != 1) {
+    newRowNo = parseInt(lastRowRange.getValue()) + 1;
+  }
+  return newRowNo;
+}
+
+//  建立新的 Row，並回傳
+function newRowRange(sheet) {
+  var lastRowIndex = sheet.getLastRow();
+  var newRowIndex = lastRowIndex + 1;
+  var newRowRange = sheet.getRange("A" + newRowIndex + ":M" + newRowIndex);
+  return newRowRange;
+}
+
+//  將上傳的資料格式化，並加上最新記錄編號
+function parseData(no, e) {
+  var data = e.parameter;
+  Logger.log(data);
+  data.name = data.name || null;
+  data.phone = data.phone || null;
+  data.joinOrNot = data.joinOrNot || null;
+  data.address = data.address || null;
+  data.email = data.email || null;
+  data.relation = data.relation || null;
+  data.adult = data.adult || 0;
+  data.kid = data.kid || 0;
+  data.vegetarian = ((data.vegetarian || false) == 'true') ? "需要" : "不需要";
+  data.vegetarianCount = data.vegetarianCount || 0;
+  data.comment = data.comment || null;
+  if (data.relation == 'Tina-Friend') {
+    data.relation = '女方朋友';
+  } else if (data.relation == 'Tina-Colleague') {
+    data.relation = '女方同事';
+  } else if (data.relation == 'Kai-Friend') {
+    data.relation = '男方朋友';
+  } else if (data.relation == 'Kai-Colleague') {
+    data.relation = '男方同事';
+  } else if (data.relation == 'Both-Friend') {
+    data.relation = '雙方朋友';
+  } else if (data.relation == 'Both-Colleague') {
+    data.relation = '雙方同事';
+  }
+  return [no, data.name, data.phone, data.joinOrNot, data.address, data.email, data.relation, data.adult, data.kid, data.vegetarian, data.vegetarianCount, data.comment, Date.now()];
+}
