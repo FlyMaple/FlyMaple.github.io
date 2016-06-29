@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html ng-app="MarryApp">
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/swipebox/jquery.swipebox.js"></script>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/swipebox/swipebox.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        });
+        $(document).ready(function () {
+                
+            var $show = $('.step-home .content .show');
+
+            var str = 'p各位帥哥美女，很高興你(妳)賞臉來到這個小小的婚宴人數統計頁面，應該沒有人不知道這個地方是做什麼的吧!?p以防萬一，還是跟各位介紹一下我們~p不管你(妳)是認識 智楷 還是認識 郁琳，我在這裡告訴你(妳)，我們即將結婚了^_^p誠摯的邀請你(妳)，繼續看下去，幫我們填填資料，寫下最感人的祝福!!!!!p感謝感謝~ 拜託拜託~ 神聖的一票!! 投給台灣的未來與希望!!'
+            setInterval(function () {
+                var str_arr = str.split('');
+                var char = str_arr.splice(0, 1);
+                if (char == 'p') {
+                    $show.find('.cursor').remove();
+
+                    var $p = $('<p/>');
+                    var $text = $('<span/>', {class: 'text'});
+                    var $cursor = $('<span/>', {class: 'cursor'});
+                    $p.append($text).append($cursor);
+                    $show.append($p);
+                } else {
+                    var $p = $show.find('p').last();
+                    var $text = $p.find('.text');
+                    $text.append(char);
+                }
+                str = str_arr.join('');
+            }, 150);
+        });
+    </script>
+    <body ng-controller="indexController">
+        <div class="wrapper">
+            <div class="menu">
+                <ul class="nav">
+                    <li class="home" ng-class="{active: isHomeStep()}" ng-click="switchHomePage()"></li>
+                    <li class="pen" ng-class="{active: isPenStep()}" ng-click="switchPenPage()"></li>
+                    <li class="albums" ng-class="{active: isAlbumsStep()}" ng-click="switchAlbumsPage()"></li>
+                    <li class="traffic" ng-class="{active: isTrafficStep()}" ng-click="switchTrafficPage()"></li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="left">
+                    <div class="photo"></div>   
+                    <div class="area">
+                        <div class="label">時間</div>
+                        <span class="text">2017/05/06 (六) 12:00 ~</span>
+                    </div>
+                    
+                    <div class="area">
+                        <div class="label">宴客資訊</div>
+                        <span class="text"><b>連絡人:</b>吳智楷</span>
+                        <span class="text"><b>連絡電話:</b>0972142360</span>
+                        <span class="text"><b>宴客地址:</b>新竹縣新豐鄉松林村1鄰49號</span>
+                    </div>
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3622.620261819479!2d121.01856616999073!3d24.774205864643864!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1467020578140" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="right">
+                    <!-- home -->
+                    <div class="step-home" ng-show="isHomeStep()">
+                        <div class="header">智楷 & 郁琳 終身大事</div>
+                        <div class="content">
+                            <div class="show"></div>
+                        </div>
+                        <div class="go" ng-click="switchPenPage()">填寫</div>
+                    </div>
+
+                    <!-- pen -->
+                    <div class="step-pen" ng-show="isPenStep()">
+                        <div class="row name-phone">
+                            <div class="no">1</div>
+                            <div class="kv_group">
+                                <div class="label">您的大名是?</div>
+                                <div class="input-wrp">
+                                    <input type="text" placeholder="吳智楷" ng-model="penDataObj.name">
+                                </div>
+                            </div>
+                            <div class="kv_group">
+                                <div class="label">連絡電話呢?</div>
+                                <div class="input-wrp">
+                                    <input type="text" placeholder="0972142360" ng-model="penDataObj.phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row joinOrNot">
+                            <div class="no">2</div>
+                            <div class="kv_group">
+                                <div class="label">您想不想來參加一下?</div>
+                                <span class="h_radio" ng-class="{checked: getJoinOrNot() == '參加'}" ng-click="setJoinOrNot('參加')">絕對會到的阿!!</span>
+                                <span class="h_radio" ng-class="{checked: getJoinOrNot() == '不參加'}" ng-click="setJoinOrNot('不參加')">種種原因無法參加...</span>
+                                <span class="h_radio" ng-class="{checked: getJoinOrNot() == '寄喜帖'}" ng-click="setJoinOrNot('寄喜帖')">無法到場阿T_T，但是寄喜帖給我~</span>
+                            </div>
+                        </div>
+                        <div class="row wedding-card">
+                            <div class="no">3</div>
+                            <div class="kv_group">
+                                <div class="label">喜帖寄送地址~</div>
+                                <div class="input-wrp" ng-class="{disabled: weddingCardIsDisabled()}">
+                                    <input type="text" ng-class="{disabled: weddingCardIsDisabled()}" ng-disabled="weddingCardIsDisabled()" placeholder="新竹縣新豐鄉松林村1鄰49號" style="width: 240px;" ng-model="penDataObj.address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row e-wedding-card">
+                            <div class="no">4</div>
+                            <div class="kv_group">
+                                <div class="label">我想索取電子喜帖~</div>
+                                <div class="input-wrp" ng-class="{disabled: eWeddingCardIsDisabled()}">
+                                    <input type="text" ng-class="{disabled: eWeddingCardIsDisabled()}" ng-disabled="eWeddingCardIsDisabled()" placeholder="rottensociety1987@gmail.com" style="width: 240px;" ng-model="penDataObj.email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row relations" ng-class="{disabled: relationIsDisabled()}">
+                            <div class="no">5</div>
+                            <div class="kv_group">
+                                <div class="label">請問您和我們是什麼關係呢^^</div>
+                                <div class="h-radio-group">
+                                    <span class="v_radio female" ng-class="{checked: getRelation() == 'Tina-Friend'}" ng-click="!relationIsDisabled() && setRelation('Tina-Friend')">女方朋友</span>
+                                    <span class="v_radio female" ng-class="{checked: getRelation() == 'Tina-Colleague'}" ng-click="!relationIsDisabled() && setRelation('Tina-Colleague')">女方同事</span>
+                                </div>
+                                <div class="h-radio-group">
+                                    <span class="v_radio male" ng-class="{checked: getRelation() == 'Kai-Friend'}" ng-click="!relationIsDisabled() && setRelation('Kai-Friend')">男方朋友</span>
+                                    <span class="v_radio male" ng-class="{checked: getRelation() == 'Kai-Colleague'}" ng-click="!relationIsDisabled() && setRelation('Kai-Colleague')">男方同事</span>
+                                </div>
+                                <div class="h-radio-group">
+                                    <span class="v_radio both" ng-class="{checked: getRelation() == 'Both-Friend'}" ng-click="!relationIsDisabled() && setRelation('Both-Friend')">雙方朋友</span>
+                                    <span class="v_radio both" ng-class="{checked: getRelation() == 'Both-Colleague'}" ng-click="!relationIsDisabled() && setRelation('Both-Colleague')">雙方同事</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row people-count">
+                            <div class="no">6</div>
+                            <div class="kv_group">
+                                <div class="label">大人和小孩數量(不用兒童座椅的)</div>
+                                <div class="input-wrp" ng-class="{disabled: peopleCountIsDisabled()}">
+                                    <input type="text" ng-class="{disabled: peopleCountIsDisabled()}" ng-disabled="peopleCountIsDisabled()" ng-model="penDataObj.adult">
+                                </div>
+                            </div>
+                            <div class="kv_group">
+                                <div class="label">小小孩數量(需要兒童座椅的)</div>
+                                <div class="input-wrp" ng-class="{disabled: peopleCountIsDisabled()}">
+                                    <input type="text" ng-class="{disabled: peopleCountIsDisabled()}" ng-disabled="peopleCountIsDisabled()" ng-model="penDataObj.kid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row vegetarian" ng-class="{disabled: vegetarianIsDisabled()}">
+                            <div class="no">7</div>
+                            <div class="kv_group">
+                                <div class="label">是否吃素呢?</div>
+                                <span class="h_radio" ng-class="{checked: !isVegetarian()}" ng-click="!vegetarianIsDisabled() && setVegetarian(false)">否</span>
+                                <span class="h_radio" ng-class="{checked: isVegetarian()}" ng-click="!vegetarianIsDisabled() && setVegetarian(true)">是</span>
+                                <div class="input-wrp inline" ng-class="{disabled: vegetarianIsDisabled()}">
+                                    <input type="text" value="0" ng-class="{disabled: !isVegetarian()}" ng-disabled="!isVegetarian()" ng-model="penDataObj.vegetarianCount">
+                                </div>
+                                <span>/人</span>
+                            </div>
+                        </div>
+                        <div class="row congratulate">
+                            <div class="no">8</div>
+                            <div class="kv_group">
+                                <div class="label">你會寫些祝福我們的話嗎? 或是寫一些麻吉弟弟的話??</div>
+                                <textarea name="" id="" class="comment" ng-model="penDataObj.comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="send" ng-click="sendData()"></div>
+                    </div>
+
+                    <!-- albums -->
+                    <div class="step-albums" ng-show="isAlbumsStep()">
+                        <a ng-href="{{ 'images/wall/' + (n+1) + '.jpg' }}" class="swipebox" title="{{ (n+1) }}" ng-repeat="n in [] | range:23">
+                            <img ng-src="{{ 'images/wall/' + (n+1) + '.jpg' }}">
+                        </a>
+                    </div>
+
+                    <!-- traffic -->
+                    <div class="step-traffic" ng-show="isTrafficStep()">
+                        <div class="info">
+                            <div class="header">到達方式</div>
+                            <div class="content">
+                                <div class="method">
+                                    <div class="label">【機車族】新竹市光復路方向：</div>
+                                    <div class="text">光復路一段，轉科學園區大門前慈雲路直走往竹北方向 過經國橋後為自強南路再左轉福興東路、右轉自強六路再左轉成功二街。</div>
+                                </div>
+                                <div class="method">
+                                    <div class="label">【開車族】國道一號(中山高)：</div>
+                                    <div class="text">下竹北交流道後往芎林方向，直行光明六路東一段前進300米，右轉自強五路再左轉成功二街。</div>
+                                </div>
+                                <div class="method">
+                                    <div class="label">【搭乘高鐵】：</div>
+                                    <div class="text">高鐵新竹站下車後搭免費接駁巴士 (竹北火車站線) 至竹北喜來登飯店下車，再步行5分鐘即達。</div>
+                                </div>
+                                <div class="method">
+                                    <div class="label">【搭乘台鐵】：</div>
+                                    <div class="text">
+                                        <p>台鐵竹北站下車，轉搭計程車約10分鐘可達，或搭竹北市民免費公車。</p>
+                                        <p>台鐵新竹站下車，轉搭新竹客運芎林線在鹿場站下車，約25分鐘可達。</p>
+                                        <p>台鐵新竹站轉搭內灣/六家線，至六家站下車後轉搭高鐵免費接駁巴士至竹北喜來登飯店下車，再步行5分鐘即達。</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div class="header">地圖資訊</div>
+                            <div class="content">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3622.620261819479!2d121.01856616999073!3d24.774205864643864!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1467020578140" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" ng-click="overlayHidden($event)">
+            <div class="modal" ng-click="modalClick($event)">
+                <div class="content">
+                    <span>資料寫入中...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AngularJS -->
+		<script src="js/angularjs/angular.min.js"></script>
+		<script src="js/angularjs/angular-ui-router.min.js"></script>
+
+		<!-- AngularJS Controller-->
+		<script src="js/config.js"></script>
+		<script src="controller/index.js"></script>
+    </body>
+</html>
