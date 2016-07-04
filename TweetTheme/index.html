@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="TweetThemeApp">
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/style.css">
+		<script src="js/highcharts.js"></script>
+    </head>
+    <script>
+        $(document).ready(function () {
+            //  收合側邊攔
+            $('.wrapper .menu-wrp .switch-menu').on('click', function (ev) {
+                var $homeInfo = $('.wrapper .main-wrp .container .content .home-info');
+                var $homeInfoHeader = $('.wrapper .main-wrp .container .content .home-info.userWall .home-header');
+                if ($('.wrapper').hasClass('open-menu')) {
+                    $homeInfo.width($homeInfo.width() + 150);
+                    $homeInfoHeader.width($homeInfoHeader.width() + 150);
+                } else {
+                    $homeInfo.width($homeInfo.width() - 150);
+                    $homeInfoHeader.width($homeInfoHeader.width() - 150);
+                }
+                $('.wrapper').toggleClass('open-menu');
+            });
+
+            //  切換導覽列選項
+            $('.wrapper .menu-wrp .menu-nav li').on('click', function (ev) {
+                var li_list = $('.wrapper .menu-wrp .menu-nav li');
+                li_list.removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+    <body ng-controller="indexController">
+        <div class="wrapper open-menu">
+            <!-- 菜單 -->
+            <div class="menu-wrp">
+                <div class="switch-menu"></div>
+
+                <div class="clearfix"></div>
+
+                <div class="user">
+                    <img class="photo" src="https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/s960x960/13048192_1174133852605190_8230343815256516645_o.jpg" alt="">
+                    <span class="name">吳智楷</span>
+                </div>
+
+                <div class="info">
+                    <div class="following">
+                        <div class="content">
+                            <h1>84</h1>
+                            <h2>追蹤人數</h2>
+                        </div>
+                    </div>
+                    <div class="followers">
+                        <div class="content">
+                            <h1>823</h1>
+                            <h2>已追蹤</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="menu-nav">
+                    <li class="home active" ng-click="switchHomePage()">HOME</li>
+                    <li class="connect">CONNECT</li>
+                    <li class="discover">DISCOVER</li>
+                    <li class="profile" ng-click="switchUserWallPage()">PROFILE</li>
+                    <li class="statistics" ng-click="switchStatisticsPage()">STATISTICS</li>
+                </ul>
+            </div>
+            <div class="main-wrp">
+                <div class="container">
+                    <div class="header">
+                        <div class="logo"></div>
+                        <ul class="header-nav">
+                            <li class="pen"></li>
+                            <li class="message"></li>
+                            <li class="search"></li>
+                            <li class="settings"></li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <div ui-view></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- AngularJS -->
+		<script src="js/angularjs/angular.min.js"></script>
+		<script src="js/angularjs/angular-ui-router.min.js"></script>
+        
+		<!-- AngularJS Controller-->
+		<script src="js/config.js"></script>
+        <script src="controller/index.js"></script>
+        <script src="controller/home.js"></script>
+        <script src="controller/userWall.js"></script>
+        <script src="controller/statistics.js"></script>
+    </body>
+</html>
