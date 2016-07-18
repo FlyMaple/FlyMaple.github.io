@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery.fullPage.js"></script>
+        <script src="js/jquery-mousewheel/jquery.mousewheel.js"></script>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <script>
+        $(document).ready(function () {
+            $('.wrapper > .body .container .index').height(window.innerHeight - 66);
+
+            $(window).on('resize', function (ev) {
+                $('.wrapper > .body .container .index').height(window.innerHeight - 66);
+            });
+
+            $('.wrapper > .body .container .index .index-body .start').on('click', function (ev) {
+                if (!window.isScrolling) {
+                    window.isScrolling = true;
+                    $('html, body').animate({scrollTop: window.innerHeight - 66}, 700, function () {
+                        window.isScrolling = false;
+                    });
+                }
+            });
+
+            $('.wrapper > .header .nav-wrp .nav li').on('click', function (ev) {
+                var $li_list = $('.wrapper > .header .nav-wrp .nav li');
+                var $li = $(this);
+
+                $li_list.removeClass('active');
+                var scrollTop = 0;
+                if ($li.hasClass('index')) {
+                    $li.addClass('active');
+                } else if ($li.hasClass('collections')) {
+                    var $collections = $('.wrapper > .body .container .collections');
+                    scrollTop = $collections.offset().top;
+                } else if ($li.hasClass('contacts')) {
+                    var $contacts = $('.wrapper > .body .container .contacts');
+                    scrollTop = $contacts.offset().top;
+                }
+
+                if (!window.isScrolling) {
+                    window.isScrolling = true;
+                    $('html, body').animate({scrollTop: scrollTop}, 700, function () {
+                        window.isScrolling = false;
+                    });
+                }
+                //$('.wrapper > .body .container .contacts')
+            });
+
+            /*
+            $('body').on('mousewheel', function (ev) {
+                if (!window.isScrolling) {
+                    window.isScrolling = true;
+                    if(ev.deltaY == -1) {
+                        var scrollTop = window.scrollY + window.innerHeight - 66;
+                        $('html, body').animate({scrollTop: scrollTop}, 700, function () {
+                            window.isScrolling = false;
+                            window.scrollY = scrollTop;
+                        });
+                    } else {
+                        var scrollTop = window.scrollY - window.innerHeight + 66;
+                        $('html, body').animate({scrollTop: scrollTop}, 700, function () {
+                            window.isScrolling = false;
+                            window.scrollY = scrollTop;
+                        });
+                    }
+                }
+            });
+            */
+
+            //  Search Click Event
+            $('.wrapper > .body .container .collections .coll-controls .search').on('click', function (ev) {
+                var $searchMask = $('.mask.search');
+                var isInit = $searchMask.data('isInit');
+                if (!isInit) {
+                    $searchMask.on('click', function (ev) {
+                        $(this).fadeToggle(300);
+                    });
+                    $searchMask.find('.container').on('click', function (ev) {
+                        ev.stopPropagation();
+                    });
+                    $searchMask.data('isInit', true);
+                }
+
+                $searchMask.fadeToggle(300);
+                $searchMask.find('input').val('').focus();
+            });            
+        });
+    </script>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="nav-wrp">
+                    <ul class="nav">
+                        <li data-menuanchor="index" class="index active"><a href="#index">首頁</a></li>
+                        <!-- <li>精彩好文</li> -->
+                        <li data-menuanchor="collections" class="collections"><a href="#collections">作品集</a></li>
+                        <!-- <li>我的服務</li> -->
+                        <li data-menuanchor="contacts" class="contacts"><a href="#contacts">與我連絡</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="body">
+                <div class="container">
+                    <!-- 首頁 -->
+                    <div data-anchor="index" class="index section">
+                        <div class="index-body">
+                            <div class="text">Creating the future</div>
+                            <a href="#collections" class="start"></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 作品集 -->
+                    <div data-anchor="collections" class="collections section">
+                        <div class="coll-content">
+                            <div class="coll-controls">
+                                <div class="search"></div>
+                            </div>
+                            <div class="coll-header">
+                                <div class="categorys">
+                                    <ul class="cate">
+                                        <li>網站Layout</li>
+                                        <li>DM</li>
+                                        <li>名片</li>
+                                        <li>E-Portal</li>
+                                        <li>電子商務</li>
+                                        <li>其他</li>
+                                    </ul>
+                                </div>
+                                <div class="filters"><span class="text">過濾條件: 電子商務</span><span class="close"></span></div>
+                            </div>
+                            <ul class="coll">
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                                <li>
+                                    <img src="images/Collections/001.png" class="cover">
+                                    <div class="name">推特 Style</div>
+                                    <div class="date">2016-06-29</div>
+                                    <a href="#" class="demosite" title="Demo"></a>
+                                </li>
+                            </ul>
+                            <div class="coll-footer">
+                                <div class="paginations">
+                                    <ul class="pagination">
+                                        <li class="prev">Prev</li>
+                                        <li class="next">Next</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 與我連絡 -->
+                    <div data-anchor="contacts" class="contacts section">
+                        <div class="contacts-content">
+                            <div class="contacts-header"></div>
+                            <div class="contacts-body">
+                                <div class="info">
+                                    <p>哈囉~</p>
+                                    <p>如果您有任何案子或想法，歡迎留下您的基本資料與簡短的描述，好讓我們能快速的為您服務。</p>
+                                    <p>也可以藉由下方的電話、Email、Line 的方式與我們直接做聯絡。</p>
+                                </div>
+                                <div class="form">
+                                    <div class="left">
+                                        <div class="group">
+                                            <div class="label">公司/學校</div>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group">
+                                            <div class="label need">姓名</div>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group">
+                                            <div class="label need">電話</div>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group">
+                                            <div class="label need">Email</div>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group">
+                                            <div class="label need">主旨</div>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group">
+                                            <textarea id="comment"></textarea>
+                                            <button id="submit">送出</button>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="about">
+                                            <ul class="studio_contact_info">
+                                                <li class="tel">0972-142-360</li>
+                                                <li class="email">kaithwu2016@gmail.com</li>
+                                                <li class="line">flymaple</li>
+                                            </ul>
+                                            <div class="sp">●</div>
+                                            <ul class="ext-link">
+                                                <li class="facebook"></li>
+                                                <li class="ig"></li>
+                                                <li class="_518"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contacts-footer">
+                                <div class="cc-wrp">
+                                    <h1>©2016 版權所有 開創未來工作室</h1>
+                                    <h1>©2016 Copyright, Creating the future studio. All rights reserved</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MASK -->
+        <div class="mask search">
+            <div class="container">
+                <input type="text" class="search_input">
+                <span class="search_input_after"></span>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,744 @@
+@import "compass/css3";
+@import 'https://fonts.googleapis.com/css?family=Galada';
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  font-family: arial, sans-serif;
+}
+
+*,
+::before,
+::after {
+  position: relative;
+  box-sizing: border-box; 
+}
+
+::before,
+::after {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+body {
+  background: url('http://www.asuitthatfits.com/shop/images/Style_Guide/colours/large/Black-Collection-4.jpg');
+}
+
+.wrapper {
+  height: 100%;
+
+  & > .header {
+        position: fixed;
+        height: 66px;
+        width: 100%;
+        background: url("http://www.asuitthatfits.com/shop/images/Style_Guide/colours/large/Black-Collection-4.jpg");
+        z-index: 5000;
+
+    .nav-wrp {
+      position: absolute;
+      display: inline-block;
+      left: 50%;
+      bottom: 18px;
+      @include transform(translate(-50%, 0));
+
+      .nav {
+        font: {
+          size: 15px;
+        }
+        cursor: default;
+
+        li {
+          display: inline-block;
+          margin: 0 6px 0 0;
+          width: 80px;
+          line-height: 15px;
+          letter-spacing: 1.2px;
+          text-align: center;
+          cursor: pointer;
+          z-index: 2;
+          &:hover {
+            &::after {
+              background: rgba(138, 83, 61, 0.52);
+            }
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(216, 191, 181, 0.15);
+            z-index: -1;
+            @include border-radius(4px);
+            @include box-shadow(0 0 2px 1px #040404);
+          }
+          &.active::after {
+              background: rgba(138, 83, 61, 0.52);
+          }
+
+          a {
+            display: block;
+            padding: 8px 0;
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  & > .body {
+    padding: 66px 0 0 0;
+    z-index: 4999;
+    
+    .container {
+      height: 100%;
+      background: rgba(14, 4, 0, 0.28);
+      @include box-shadow(0 0 10px 1px #000);
+
+      /*  首頁 */
+      .index {
+        height: 100%;
+        overflow: hidden;
+        z-index: 2;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: url('http://www.acceler8.ph/images/coworking.jpg?format=2500w');
+          z-index: -1;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: url("http://joetutalo.com/images/dot_background.gif");
+          opacity: .2;
+          z-index: 1;
+        }
+
+        .index-body {
+            height: 100%;
+            width: 1024px;
+            margin: 0 auto;
+            padding: 270px 0 0 0;
+            text-align: center;
+
+            .text {
+                display: inline-block;
+                font-size: 66px;
+                font-family: 'Galada';
+                color: rgba(255, 255, 255, 0.94);
+                text-shadow: 8px 8px 0px #000;
+                padding: 30px 20px 15px 20px;
+                border: 4px solid rgba(255, 255, 255, 0.47);
+                border-radius: 20px;
+                letter-spacing: 1.2px;
+            }
+            .start {
+              position: absolute;
+              display: block;
+              width: 40px;
+              height: 40px;
+              left: 50%;
+              bottom: 80px;
+              border: 2px solid rgba(255, 255, 255, 0.47);
+              background: rgba(255, 255, 255, 0.47);
+              z-index: 5;
+              @include box-shadow(0 -1px 4px 2px rgba(185, 185, 185, 0.68));
+              @include border-radius(50px);
+              @include transform(translate(-50%, 0));
+              &::before {
+                content: '\f103';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                top: 0px;
+                left: 2px;
+                text-align: center;
+                color: #797979;
+                font: {
+                  size: 30px;
+                  weight: 600;
+                }
+                @include animation(flowDown 1.5s ease infinite);
+              }
+              @keyframes flowDown {
+                50% {
+                  top: 8px;
+                  color: #000;
+                }
+                100%{
+                  top: 0px;
+                  color: lighten(#797979, 5%);
+                }
+              }
+            }
+        }
+      }
+      @media (max-width: 1024px) {
+        .index {
+          &::before {
+            background-size: cover;
+          }
+          &::after {
+            background-size: cover;
+          }
+          .index-body {
+            .start {
+              width: 80px;
+              height: 80px;
+              &::before {
+                top: 0px;
+                left: 2px;
+                color: #797979;
+                font: {
+                  size: 70px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      
+      /* 作品集 */
+      .collections {
+        height: 100%;
+        overflow: hidden;
+        z-index: 2;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: url('http://storage.googleapis.com/wzukusers/user-13267536/images/55625b343e216jEu2ayv/spotlight%20(1).jpg');
+          z-index: -1;
+          @include opacity(.5);
+        }
+        
+        .coll-content {
+          width: 1024px;
+          margin: 0 auto;
+        }
+        .coll-controls {
+          display: none;
+          position: absolute;
+          right: 20px;
+          bottom: 20px;
+          width: 40px;
+          height: 140px;
+          text-align: center;
+          cursor: pointer;
+          z-index: 5001;
+
+          .search {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background: #ff0000;
+            @include box-shadow(0 0 0 4px rgba(68, 17, 14, 0.71), 1px 1px 4px 5px #000000);
+            @include border-radius(50%);
+            &::before {
+              content: '\f002';
+              font: {
+                size: 20px;
+              }
+              line-height: 40px;
+              color: #fff;
+            }
+          }
+        }
+        .coll-header {
+          padding: 20px 0 0 25px;
+          z-index: 2;
+
+          .categorys {
+            position: absolute;
+            display: inline-block;
+
+            .cate {
+              font-size: 12px;
+              color: #fff;
+              cursor: default;
+              
+              li {
+                display: inline-block;
+                padding: 2px 4px;
+                margin: 0 6px 0 0;
+                min-width: 40px;
+                line-height: 15px;
+                letter-spacing: 1.2px;
+                text-align: center;
+                cursor: pointer;
+                background: #845b4d;
+                @include border-radius(4px);
+                @include box-shadow(0 0 0 2px #442519);
+              }
+            }
+          }
+          .filters {
+            position: absolute;
+            right: 36px;
+            top: 22px;
+            width: 220px;
+            font: {
+              size: 12px;
+            }
+            color: #fff;
+            overflow: hidden;
+            z-index: 2;
+
+            .text {
+              display: inline-block;
+              max-width: 200px;
+              overflow: hidden;
+            }
+            .close {
+              width: 20px;
+              &::after {
+                content: '\f00d';
+                position: absolute;
+                right: -14px;
+                font: {
+                  size: 12px;
+                }
+                color: red;
+                cursor: pointer;
+                z-index: -1;
+              }
+            }
+          }
+        }
+        .coll {
+          padding: 25px 10px 10px;
+          font: {
+            size: 0;
+          }
+
+          li {
+            display: inline-block;
+            width: 220px;
+            padding: 15px 0 10px 0;
+            margin: 14px 14px 0 14px;
+            background: rgba(121, 121, 121, 0.02);
+            cursor: pointer;
+            @include box-shadow(0 0 4px 1px #000);
+
+            .cover {
+              display: block;
+              width: 192px;
+              height: 108px;
+              margin: 0 auto 10px;
+              @include box-shadow(0 0 2px 2px rgba(255, 255, 255, 0.24), 0 0 7px 1px rgb(0, 0, 0));
+            }
+            .name, .date {
+              color: #fff;
+              text-align: center;
+            }
+            .name {
+              margin: 0 0 8px;
+              font: {
+                size: 13px;
+              }
+            }
+            .date {
+              font: {
+                size: 12px;
+                weight: 600;
+              }
+              color: #7f4735;
+            }
+            .demosite {
+              position: absolute;
+              bottom: 10px;
+              right: 20px;
+              text-decoration: none;
+              z-index: 2;
+
+              &:hover {
+                &::before {
+                  color: #ecde62;
+                }
+                &::after {
+                  border: 1px solid #ecde62;
+                }
+              }
+              &::before {
+                content: '\f0c1';
+                top: -3px;
+                font: {
+                  size: 16px;
+                }
+                color: #fff;
+                z-index: -1;
+              }
+              &::after {
+                content: '';
+                position: absolute;
+                right: -4px;
+                top: -7px;
+                width: 24px;
+                height: 24px;
+                border: 1px solid #fff;
+                @include border-radius(50%); 
+              }
+            }
+          }
+        }
+        @media (max-width: 1024px) { 
+          .coll-header {
+            display: none;
+          }
+          .coll {
+            li {
+              width: 45%;
+              margin: 14px 14px 32px 14px;
+              
+              .cover {
+                width: 100%;
+                height: 100%;
+              }
+              .name {
+                padding: 4px 0;
+                font: {
+                  size: 30px;
+                }
+              }
+              .date {
+                font: {
+                  size: 24px;
+                }
+              }
+            }
+          }
+        }
+        .coll-footer {
+          // position: absolute;
+          // right: 0;
+          // bottom: 0;
+          // left: 0;
+          height: 80px;
+
+          .paginations {
+            top: 50%;
+            text-align: center;
+            cursor: default;
+            @include transform(translate(0, -50%));
+
+            .pagination {
+              li {
+                display: inline-block;
+                width: 80px;
+                padding: 6px 0;
+                margin: 0 10px 0 0;
+                font: {
+                  size: 16px;
+                  weight: 600;
+                }
+                color: #dedede;
+                background: #845b4d;
+                letter-spacing: 1.2px;
+                cursor: pointer;;
+                @include border-radius(4px);
+                @include box-shadow(0 0 0 2px #422216);
+                &:hover {
+                  color: #fff;
+                }
+              }
+              .prev {
+
+              }
+              .next {
+
+              }
+            }
+          }
+        }
+        @media (max-width: 1024px) { 
+          .coll-footer {
+            visibility: hidden;
+          }
+        }
+      }
+
+      //  與我連絡
+      .contacts {
+        min-height: 895px;
+        padding: 35px 0px;
+        overflow: hidden;
+        z-index: 2;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: url('http://www.gkci.com/wp-content/uploads/2015/08/Worldmap-bg3.jpg') 0 / cover;
+          z-index: -1;
+          @include opacity(.3);
+        }
+        
+        .contacts-content {
+          width: 700px;
+          margin: 0 auto;
+        }
+        .contacts-body {
+          .info {
+            margin: 0 0 30px 0;
+            font: {
+              size: 13px;
+            }
+            line-height: 26px;
+            color: #ccc;
+          }
+          .form {
+            .left {
+              z-index: 3;
+
+              .group {
+                margin: 0 0 20px 0;
+                
+                .label {
+                  margin: 0 0 6px 0px;
+                  font: {
+                    size: 13px;
+                  }
+                  color: #fff;
+                  &.need {
+                    &::after {
+                      content: '*';
+                      color: red;
+                    }
+                  }
+                }
+                input {
+                  border: none;
+                  outline: none;
+                  width: 350px;
+                  padding: 5px;
+                  font: {
+                    size: 16px;
+                  }
+                  color: #fff;
+                  background: rgba(0, 0, 0, 0.72);
+                  @include box-shadow(inset 0 -2px 1px 0 #250d05);
+                  @include border-radius(2px);
+                }
+              }
+              #comment {
+                border: none;
+                outline: none;
+                width: 100%;
+                height: 240px;
+                padding: 5px;
+                font: {
+                  size: 16px;
+                }
+                color: #fff;
+                background: rgba(0, 0, 0, 0.72);
+                resize: none;
+                @include box-shadow(inset 0 -2px 1px 0 #250d05);
+                @include border-radius(2px);
+              }
+              #submit {
+                position: absolute;
+                right: 3px;
+                bottom: 7px;
+                width: 80px;
+                height: 30px;
+                padding: 4px 0;
+                border: none;
+                outline: none;
+                font: {
+                  size: 13px;
+                }
+                cursor: pointer;
+                @include background(linear-gradient(rgba(175, 132, 124, 0.78), rgba(86, 45, 39, 0.55)));
+                @include box-shadow(0 0 4px 2px #2d1d1a);
+                &:hover {
+                }
+              }
+            }
+            .right {
+              position: absolute;
+              height: 320px;
+              width: 100%;
+              top: 0;
+              right: 0;
+              padding: 0 0 0 360px;
+              z-index: 2;
+
+              .about {
+                padding: 4px 20px;
+                height: 100%;
+                background: rgba(0, 226, 255, 0.58);
+                border: 4px #1aa7b9 solid;
+                @include box-shadow(inset 0 0 8px 0 #084d56);
+                @include border-radius(10px); 
+
+                .studio_contact_info {
+                  font: {
+                    size: 16px;
+                  }
+                  color: #dbfbff;
+
+                  li {
+                    padding: 15px 0;
+                    vertical-align: middle;
+                    letter-spacing: 1.2px;
+                  }
+                  .tel:before, .email:before, .line:before {
+                    content: '';
+                    display: inline-block;
+                    margin: 0 10px 0 0;
+                    width: 22px;
+                    height: 22px;
+                    vertical-align: middle;
+                  }
+                  .tel:before {
+                    background: url("http://envc.ncu.edu.tw/images/ces_images/tel.png");
+                  }
+                  .email:before {
+                    background: url('https://zeitguide.com/wp-content/themes/zeitguide/images/email-icon.png');
+                  }
+                  .line:before {
+                    background: url('http://tomchun.tw/tomchun/wp-content/uploads/line-icon.png')0 / 22px;
+                  }
+                }
+                .sp {
+                  margin: 54px 0 14px 0;
+                  text-align: center;
+                  color: #36a0b3;
+                  z-index: 2;
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+                    width: 120px;
+                    height: 3px;
+                    background: #36a0b3;
+                    z-index: -1;
+                    @include border-radius(50%);
+                  }
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 7px;
+                    right: 0;
+                    width: 120px;
+                    height: 3px;
+                    background: #36a0b3;
+                    z-index: -1;
+                    @include border-radius(50%);
+                  }
+                }
+                .ext-link {
+                  text-align: center;
+
+                  li {
+                    display: inline-block;
+                    width: 48px;
+                    height: 48px;
+                    margin:  0 10px;
+                  }
+                  .facebook {
+                    background: url('http://www.anping88.com/img/fb.png') 0 / 48px;
+                  }
+                  .ig {
+                    background: url('https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300') 0 / 48px;
+                  }
+                  ._518 {
+                    background: url('http://findicons.com/files/icons/2455/web_icons/48/briefcase.png') 0 / 48px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .contacts-footer {
+          height: 100px;
+          .cc-wrp {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            font: {
+              size: 13px;
+            }
+            line-height: 13px;
+            text-align: center;
+            color: #fff;
+            white-space: nowrap;
+            
+            h1 {
+              padding: 4px 0;
+            }
+          }
+        } 
+      }
+    }
+  }
+}
+
+/* MASK */
+.mask {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    @include transform(translate(-50%, -50%));
+
+    .search_input {
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 80px;
+      padding: 0 10px;
+      font: {
+        size: 70px;
+      }
+      color: #fff;
+      background: rgba(0, 0, 0, 0.61);
+      border-bottom: 2px solid #848484;
+    }
+    .search_input_after {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      height: 100%;
+      &::after {
+        content: '\f002';
+        font: {
+          size: 70px;
+        }
+        line-height: 80px;
+        color: #f9f9f9;
+      }
+    }
+  }
+}
