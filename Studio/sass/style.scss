@@ -400,10 +400,14 @@ body {
           .coll-header {
             display: none;
           }
+          .coll-content {
+            width: auto;
+          }
           .coll {
             li {
-              width: 45%;
-              margin: 14px 14px 32px 14px;
+              width: 100%;
+              margin: 0 0 5%;
+              padding: 5% 5% 2% 5%;
               
               .cover {
                 width: 100%;
@@ -411,6 +415,7 @@ body {
               }
               .name {
                 padding: 4px 0;
+                margin: 2% 0;
                 font: {
                   size: 30px;
                 }
@@ -419,6 +424,9 @@ body {
                 font: {
                   size: 24px;
                 }
+              }
+              .demosite {
+                display: none;
               }
             }
           }
@@ -689,6 +697,70 @@ body {
             }
           }
         } 
+      }
+      @media (max-width: 1024px) {
+        .contacts {
+          .contacts-body {
+            .info {
+              font: {
+                size: 42px;
+              } 
+              line-height: 60px;
+            }
+            .form {
+              .left {
+                padding: 280px 0 0 0;
+
+                .group {
+                  .label {
+                    margin: 0 0 2%;
+                    font: {
+                      size: 42px;
+                    } 
+                    &.need {
+                      &::after {
+                        font: {
+                          size: 42px;
+                        } 
+                      }
+                    }
+                  }
+                  input {
+                    width: 100%;
+                    font: {
+                      size: 42px;
+                    } 
+                  }
+                }
+                #comment {
+                    font: {
+                      size: 42px;
+                    } 
+                }
+                #submit {
+                  width: 120px;
+                  height: 50px;
+                  font: {
+                    size: 30px;
+                  }
+                  color: #fff;
+                }
+              }
+              .right {
+                padding: 0;
+                height: auto;
+
+                .about {
+                  padding: 4px 20px 10px;
+
+                  .sp {
+                    margin: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -438,31 +438,41 @@ body {
   .wrapper > .body .container .collections .coll-header {
     display: none;
   }
-  /* line 404, ../sass/style.scss */
-  .wrapper > .body .container .collections .coll li {
-    width: 45%;
-    margin: 14px 14px 32px 14px;
+  /* line 403, ../sass/style.scss */
+  .wrapper > .body .container .collections .coll-content {
+    width: auto;
   }
-  /* line 408, ../sass/style.scss */
+  /* line 407, ../sass/style.scss */
+  .wrapper > .body .container .collections .coll li {
+    width: 100%;
+    margin: 0 0 5%;
+    padding: 5% 5% 2% 5%;
+  }
+  /* line 412, ../sass/style.scss */
   .wrapper > .body .container .collections .coll li .cover {
     width: 100%;
     height: 100%;
   }
-  /* line 412, ../sass/style.scss */
+  /* line 416, ../sass/style.scss */
   .wrapper > .body .container .collections .coll li .name {
     padding: 4px 0;
+    margin: 2% 0;
     font-size: 30px;
   }
-  /* line 418, ../sass/style.scss */
+  /* line 423, ../sass/style.scss */
   .wrapper > .body .container .collections .coll li .date {
     font-size: 24px;
   }
+  /* line 428, ../sass/style.scss */
+  .wrapper > .body .container .collections .coll li .demosite {
+    display: none;
+  }
 }
-/* line 426, ../sass/style.scss */
+/* line 434, ../sass/style.scss */
 .wrapper > .body .container .collections .coll-footer {
   height: 80px;
 }
-/* line 433, ../sass/style.scss */
+/* line 441, ../sass/style.scss */
 .wrapper > .body .container .collections .coll-footer .paginations {
   top: 50%;
   text-align: center;
@@ -472,7 +482,7 @@ body {
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
-/* line 440, ../sass/style.scss */
+/* line 448, ../sass/style.scss */
 .wrapper > .body .container .collections .coll-footer .paginations .pagination li {
   display: inline-block;
   width: 80px;
@@ -491,24 +501,24 @@ body {
   -webkit-box-shadow: 0 0 0 2px #422216;
   box-shadow: 0 0 0 2px #422216;
 }
-/* line 455, ../sass/style.scss */
+/* line 463, ../sass/style.scss */
 .wrapper > .body .container .collections .coll-footer .paginations .pagination li:hover {
   color: #fff;
 }
 @media (max-width: 1024px) {
-  /* line 469, ../sass/style.scss */
+  /* line 477, ../sass/style.scss */
   .wrapper > .body .container .collections .coll-footer {
     visibility: hidden;
   }
 }
-/* line 476, ../sass/style.scss */
+/* line 484, ../sass/style.scss */
 .wrapper > .body .container .contacts {
   min-height: 895px;
   padding: 35px 0px;
   overflow: hidden;
   z-index: 2;
 }
-/* line 482, ../sass/style.scss */
+/* line 490, ../sass/style.scss */
 .wrapper > .body .container .contacts::before {
   content: '';
   position: absolute;
@@ -520,38 +530,38 @@ body {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
 }
-/* line 493, ../sass/style.scss */
+/* line 501, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-content {
   width: 700px;
   margin: 0 auto;
 }
-/* line 498, ../sass/style.scss */
+/* line 506, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .info {
   margin: 0 0 30px 0;
   font-size: 13px;
   line-height: 26px;
   color: #ccc;
 }
-/* line 507, ../sass/style.scss */
+/* line 515, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left {
   z-index: 3;
 }
-/* line 510, ../sass/style.scss */
+/* line 518, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left .group {
   margin: 0 0 20px 0;
 }
-/* line 513, ../sass/style.scss */
+/* line 521, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left .group .label {
   margin: 0 0 6px 0px;
   font-size: 13px;
   color: #fff;
 }
-/* line 520, ../sass/style.scss */
+/* line 528, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left .group .label.need::after {
   content: '*';
   color: red;
 }
-/* line 526, ../sass/style.scss */
+/* line 534, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left .group input {
   border: none;
   outline: none;
@@ -567,7 +577,7 @@ body {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 540, ../sass/style.scss */
+/* line 548, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left #comment {
   border: none;
   outline: none;
@@ -585,7 +595,7 @@ body {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 555, ../sass/style.scss */
+/* line 563, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .left #submit {
   position: absolute;
   right: 3px;
@@ -606,7 +616,7 @@ body {
   -webkit-box-shadow: 0 0 4px 2px #2d1d1a;
   box-shadow: 0 0 4px 2px #2d1d1a;
 }
-/* line 574, ../sass/style.scss */
+/* line 582, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right {
   position: absolute;
   height: 320px;
@@ -616,7 +626,7 @@ body {
   padding: 0 0 0 360px;
   z-index: 2;
 }
-/* line 583, ../sass/style.scss */
+/* line 591, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about {
   padding: 4px 20px;
   height: 100%;
@@ -629,18 +639,18 @@ body {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 591, ../sass/style.scss */
+/* line 599, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info {
   font-size: 16px;
   color: #dbfbff;
 }
-/* line 597, ../sass/style.scss */
+/* line 605, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info li {
   padding: 15px 0;
   vertical-align: middle;
   letter-spacing: 1.2px;
 }
-/* line 602, ../sass/style.scss */
+/* line 610, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .tel:before, .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .email:before, .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .line:before {
   content: '';
   display: inline-block;
@@ -649,26 +659,26 @@ body {
   height: 22px;
   vertical-align: middle;
 }
-/* line 610, ../sass/style.scss */
+/* line 618, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .tel:before {
   background: url("http://envc.ncu.edu.tw/images/ces_images/tel.png");
 }
-/* line 613, ../sass/style.scss */
+/* line 621, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .email:before {
   background: url("https://zeitguide.com/wp-content/themes/zeitguide/images/email-icon.png");
 }
-/* line 616, ../sass/style.scss */
+/* line 624, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .studio_contact_info .line:before {
   background: url("http://tomchun.tw/tomchun/wp-content/uploads/line-icon.png") 0/22px;
 }
-/* line 620, ../sass/style.scss */
+/* line 628, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .sp {
   margin: 54px 0 14px 0;
   text-align: center;
   color: #36a0b3;
   z-index: 2;
 }
-/* line 625, ../sass/style.scss */
+/* line 633, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .sp::before {
   content: '';
   position: absolute;
@@ -682,7 +692,7 @@ body {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 636, ../sass/style.scss */
+/* line 644, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .sp::after {
   content: '';
   position: absolute;
@@ -696,34 +706,34 @@ body {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 648, ../sass/style.scss */
+/* line 656, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .ext-link {
   text-align: center;
 }
-/* line 651, ../sass/style.scss */
+/* line 659, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .ext-link li {
   display: inline-block;
   width: 48px;
   height: 48px;
   margin: 0 10px;
 }
-/* line 657, ../sass/style.scss */
+/* line 665, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .ext-link .facebook {
   background: url("http://www.anping88.com/img/fb.png") 0/48px;
 }
-/* line 660, ../sass/style.scss */
+/* line 668, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .ext-link .ig {
   background: url("https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300") 0/48px;
 }
-/* line 663, ../sass/style.scss */
+/* line 671, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-body .form .right .about .ext-link ._518 {
   background: url("http://findicons.com/files/icons/2455/web_icons/48/briefcase.png") 0/48px;
 }
-/* line 671, ../sass/style.scss */
+/* line 679, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-footer {
   height: 100px;
 }
-/* line 673, ../sass/style.scss */
+/* line 681, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-footer .cc-wrp {
   position: absolute;
   display: inline-block;
@@ -739,13 +749,62 @@ body {
   color: #fff;
   white-space: nowrap;
 }
-/* line 687, ../sass/style.scss */
+/* line 695, ../sass/style.scss */
 .wrapper > .body .container .contacts .contacts-footer .cc-wrp h1 {
   padding: 4px 0;
 }
+@media (max-width: 1024px) {
+  /* line 704, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .info {
+    font-size: 42px;
+    line-height: 60px;
+  }
+  /* line 711, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left {
+    padding: 280px 0 0 0;
+  }
+  /* line 715, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left .group .label {
+    margin: 0 0 2%;
+    font-size: 42px;
+  }
+  /* line 721, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left .group .label.need::after {
+    font-size: 42px;
+  }
+  /* line 728, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left .group input {
+    width: 100%;
+    font-size: 42px;
+  }
+  /* line 735, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left #comment {
+    font-size: 42px;
+  }
+  /* line 740, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .left #submit {
+    width: 120px;
+    height: 50px;
+    font-size: 30px;
+    color: #fff;
+  }
+  /* line 749, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .right {
+    padding: 0;
+    height: auto;
+  }
+  /* line 753, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .right .about {
+    padding: 4px 20px 10px;
+  }
+  /* line 756, ../sass/style.scss */
+  .wrapper > .body .container .contacts .contacts-body .form .right .about .sp {
+    margin: 0;
+  }
+}
 
 /* MASK */
-/* line 698, ../sass/style.scss */
+/* line 770, ../sass/style.scss */
 .mask {
   position: fixed;
   display: none;
@@ -757,7 +816,7 @@ body {
   background: rgba(0, 0, 0, 0.65);
   z-index: 9999;
 }
-/* line 709, ../sass/style.scss */
+/* line 781, ../sass/style.scss */
 .mask .container {
   position: absolute;
   top: 50%;
@@ -768,7 +827,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 716, ../sass/style.scss */
+/* line 788, ../sass/style.scss */
 .mask .container .search_input {
   border: none;
   outline: none;
@@ -780,14 +839,14 @@ body {
   background: rgba(0, 0, 0, 0.61);
   border-bottom: 2px solid #848484;
 }
-/* line 729, ../sass/style.scss */
+/* line 801, ../sass/style.scss */
 .mask .container .search_input_after {
   position: absolute;
   right: 10px;
   top: 0;
   height: 100%;
 }
-/* line 734, ../sass/style.scss */
+/* line 806, ../sass/style.scss */
 .mask .container .search_input_after::after {
   content: '\f002';
   font-size: 70px;

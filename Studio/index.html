@@ -35,13 +35,12 @@
                 $li_list.removeClass('active');
                 var scrollTop = 0;
                 if ($li.hasClass('index')) {
-                    $li.addClass('active');
                 } else if ($li.hasClass('collections')) {
                     var $collections = $('.wrapper > .body .container .collections');
-                    scrollTop = $collections.offset().top;
+                    scrollTop = $collections.offset().top - 66;
                 } else if ($li.hasClass('contacts')) {
                     var $contacts = $('.wrapper > .body .container .contacts');
-                    scrollTop = $contacts.offset().top;
+                    scrollTop = $contacts.offset().top - 66;
                 }
 
                 if (!window.isScrolling) {
@@ -50,7 +49,7 @@
                         window.isScrolling = false;
                     });
                 }
-                //$('.wrapper > .body .container .contacts')
+                $li.addClass('active');
             });
 
             /*
