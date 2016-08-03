@@ -2625,7 +2625,7 @@
         },
         "level2": {
           "hp": "1166",
-          "dps": "46",
+          "dps": "146",
           "hurt": "176",
           "tower_of_damagey": "71",
           "hit_speed": "1.2秒",
