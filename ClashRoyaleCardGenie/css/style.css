@@ -107,18 +107,22 @@ body {
 .navbar-fixed-top {
   height: 40px;
   font-size: 16px;
+  font-weight: 600;
   line-height: 40px;
   text-align: center;
+  letter-spacing: 2px;
+  color: #fff;
   background: #488bf4;
+  text-shadow: 0 0 5px #000;
 }
-/* line 91, ../sass/style.scss */
+/* line 95, ../sass/style.scss */
 .navbar-fixed-top .filter-button {
   position: absolute;
   top: 0px;
   right: 25px;
   z-index: 2222;
 }
-/* line 96, ../sass/style.scss */
+/* line 100, ../sass/style.scss */
 .navbar-fixed-top .filter-button::before {
   content: '\f0b0';
   display: block;
@@ -132,7 +136,7 @@ body {
   text-shadow: 1px 1px 5px #000;
 }
 
-/* line 112, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 .card-filter-wrp {
   padding: 15px 0;
   margin: 10px 0;
@@ -145,7 +149,7 @@ body {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 }
-/* line 122, ../sass/style.scss */
+/* line 126, ../sass/style.scss */
 .card-filter-wrp span {
   display: inline-block;
   margin: 0 0 4px 0;
@@ -158,17 +162,17 @@ body {
 }
 
 @media (max-width: 1920px) {
-  /* line 134, ../sass/style.scss */
+  /* line 138, ../sass/style.scss */
   .card-filter-wrp {
     display: none;
   }
 }
-/* line 138, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .card-cate, .card-rare, .card-unlock {
   padding: 0;
   list-style: none;
 }
-/* line 142, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 .card-cate li, .card-rare li, .card-unlock li {
   display: inline-block;
   margin: 0 0 3px 0;
@@ -181,32 +185,32 @@ body {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 151, ../sass/style.scss */
+/* line 155, ../sass/style.scss */
 .card-cate li.checked, .card-rare li.checked, .card-unlock li.checked {
   border: 2px solid #488bf4;
   background: #488bf4;
   color: #fff;
 }
 
-/* line 159, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 .card-cate li {
   width: 50px;
   height: 26px;
 }
 
-/* line 165, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 .card-rare li {
   width: 50px;
   height: 26px;
 }
 
-/* line 171, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 .card-unlock li {
   width: 80px;
   height: 26px;
 }
 
-/* line 176, ../sass/style.scss */
+/* line 180, ../sass/style.scss */
 .card-items-wrp {
   padding: 0 0 15px 0;
   margin: 10px 0;
@@ -219,24 +223,24 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 }
 @media (max-width: 1920px) {
-  /* line 184, ../sass/style.scss */
+  /* line 188, ../sass/style.scss */
   .card-items-wrp .card-items-wrp-header {
     position: relative;
     height: 40px;
     line-height: 40px;
     background: #607D8B;
   }
-  /* line 190, ../sass/style.scss */
+  /* line 194, ../sass/style.scss */
   .card-items-wrp .card-items-wrp-header .label1 {
     padding: 0 0 0 10px;
     letter-spacing: 4px;
     color: #ffffff;
   }
-  /* line 195, ../sass/style.scss */
+  /* line 199, ../sass/style.scss */
   .card-items-wrp .card-items-wrp-header .label1 span {
     letter-spacing: 1px;
   }
-  /* line 199, ../sass/style.scss */
+  /* line 203, ../sass/style.scss */
   .card-items-wrp .card-items-wrp-header .sorts {
     position: absolute;
     top: 5px;
@@ -262,90 +266,90 @@ body {
   }
 }
 
-/* line 226, ../sass/style.scss */
+/* line 230, ../sass/style.scss */
 .card-img-wrp {
   padding: 10px;
   text-align: center;
 }
-/* line 230, ../sass/style.scss */
+/* line 234, ../sass/style.scss */
 .card-img-wrp .card-img {
   display: inline-block;
   width: 100%;
   height: auto;
 }
 
-/* line 237, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 #card-detail-modal {
   font-size: 12px;
 }
-/* line 241, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 #card-detail-modal .card-detail-img {
   padding: 10px;
 }
-/* line 244, ../sass/style.scss */
+/* line 248, ../sass/style.scss */
 #card-detail-modal .card-detail-img img {
   width: 100%;
   height: auto;
 }
-/* line 249, ../sass/style.scss */
+/* line 253, ../sass/style.scss */
 #card-detail-modal .detail-top {
   padding: 0px 0 10px;
   min-height: 140px;
   background: #f3f3f3;
 }
-/* line 254, ../sass/style.scss */
+/* line 258, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type {
   padding: 10px;
 }
-/* line 257, ../sass/style.scss */
+/* line 261, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content {
   padding: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 260, ../sass/style.scss */
+/* line 264, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content.normal {
   background: #656766;
 }
-/* line 263, ../sass/style.scss */
+/* line 267, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content.rare {
   background: #FF9800;
 }
-/* line 266, ../sass/style.scss */
+/* line 270, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content.epic {
   background: #c835fd;
 }
-/* line 269, ../sass/style.scss */
+/* line 273, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content.legend {
   background: #65beba;
 }
-/* line 273, ../sass/style.scss */
+/* line 277, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content .rare-label, #card-detail-modal .detail-top .card-detail-type .card-detail-type-content .type-label {
   color: #fff;
 }
-/* line 276, ../sass/style.scss */
+/* line 280, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-type .card-detail-type-content .rare-value, #card-detail-modal .detail-top .card-detail-type .card-detail-type-content .type-value {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 3px #000;
 }
-/* line 285, ../sass/style.scss */
+/* line 289, ../sass/style.scss */
 #card-detail-modal .detail-top .card-detail-desc {
   color: #000;
 }
-/* line 289, ../sass/style.scss */
+/* line 293, ../sass/style.scss */
 #card-detail-modal .detail-bottom {
   padding: 10px 0 20px 0;
   background: #bed2dc;
   font-size: 0;
 }
-/* line 296, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch {
   position: relative;
   margin: 0 0 10px 0;
 }
-/* line 299, ../sass/style.scss */
+/* line 303, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch .prevLevel {
   position: absolute;
   top: 0;
@@ -355,7 +359,7 @@ body {
   border-right: 25px solid #253c48;
   z-index: 10;
 }
-/* line 308, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch .nextLevel {
   position: absolute;
   top: 0;
@@ -365,7 +369,7 @@ body {
   border-left: 25px solid #253c48;
   z-index: 10;
 }
-/* line 317, ../sass/style.scss */
+/* line 321, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch .level {
   height: 30px;
   width: 60px;
@@ -375,17 +379,17 @@ body {
   letter-spacing: 1.2px;
   text-align: center;
 }
-/* line 326, ../sass/style.scss */
+/* line 330, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch .level .d {
   font-size: 22px;
   font-weight: 600;
 }
-/* line 332, ../sass/style.scss */
+/* line 336, ../sass/style.scss */
 #card-detail-modal .detail-bottom .level-switch .level .t {
   font-size: 12px;
   font-weight: 400;
 }
-/* line 340, ../sass/style.scss */
+/* line 344, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item {
   position: relative;
   display: inline-block;
@@ -393,47 +397,47 @@ body {
   padding: 3px 4px;
   font-size: 0;
 }
-/* line 350, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item:nth-child(n) .detail-data-item-content {
   white-space: nowrap;
   overflow: hidden;
   background: #f1f1f1;
 }
-/* line 355, ../sass/style.scss */
+/* line 359, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item:nth-child(4n-1) .detail-data-item-content {
   background: #9abaca;
 }
-/* line 358, ../sass/style.scss */
+/* line 362, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item:nth-child(4n) .detail-data-item-content {
   background: #9abaca;
 }
-/* line 362, ../sass/style.scss */
+/* line 366, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item .detail-data-item-content {
   padding: 2px 2px;
   -moz-box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
   -webkit-box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
   box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
 }
-/* line 366, ../sass/style.scss */
+/* line 370, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item .item-logo {
   position: relative;
   float: left;
   width: 22px;
   top: 6px;
 }
-/* line 372, ../sass/style.scss */
+/* line 376, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item .item-label, #card-detail-modal .detail-bottom .detail-data-item .item-value {
   padding: 0 0 0 26px;
   font-size: 12px;
   color: #000;
 }
-/* line 379, ../sass/style.scss */
+/* line 383, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item .item-value {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 3px #000;
 }
-/* line 386, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 #card-detail-modal .detail-bottom .detail-data-item .item-child {
   position: absolute;
   background: url("../images/detail/exclamation.png");
@@ -445,65 +449,65 @@ body {
   z-index: 4;
 }
 
-/* line 399, ../sass/style.scss */
+/* line 403, ../sass/style.scss */
 .child-tip {
   padding: 15px;
   font-size: 0;
   z-index: 99999;
 }
-/* line 414, ../sass/style.scss */
+/* line 418, ../sass/style.scss */
 .child-tip .name {
   font-size: 12px;
 }
-/* line 420, ../sass/style.scss */
+/* line 424, ../sass/style.scss */
 .child-tip .detail-data-item {
   position: relative;
   display: inline-block;
   width: 50%;
   padding: 2px 2px;
 }
-/* line 426, ../sass/style.scss */
+/* line 430, ../sass/style.scss */
 .child-tip .detail-data-item:nth-child(n) .detail-data-item-content {
   white-space: nowrap;
   overflow: hidden;
   background: #f1f1f1;
 }
-/* line 431, ../sass/style.scss */
+/* line 435, ../sass/style.scss */
 .child-tip .detail-data-item:nth-child(4n-1) .detail-data-item-content {
   background: #9abaca;
 }
-/* line 434, ../sass/style.scss */
+/* line 438, ../sass/style.scss */
 .child-tip .detail-data-item:nth-child(4n) .detail-data-item-content {
   background: #9abaca;
 }
-/* line 438, ../sass/style.scss */
+/* line 442, ../sass/style.scss */
 .child-tip .detail-data-item .detail-data-item-content {
   padding: 2px 2px;
   -moz-box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
   -webkit-box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
   box-shadow: 0 0 1px 1px rgba(96, 117, 128, 0.66);
 }
-/* line 442, ../sass/style.scss */
+/* line 446, ../sass/style.scss */
 .child-tip .detail-data-item .item-logo {
   position: relative;
   float: left;
   width: 22px;
   top: 6px;
 }
-/* line 448, ../sass/style.scss */
+/* line 452, ../sass/style.scss */
 .child-tip .detail-data-item .item-label, .child-tip .detail-data-item .item-value {
   padding: 0 0 0 26px;
   font-size: 12px;
   color: #000;
 }
-/* line 455, ../sass/style.scss */
+/* line 459, ../sass/style.scss */
 .child-tip .detail-data-item .item-value {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 3px #000;
 }
 
-/* line 465, ../sass/style.scss */
+/* line 469, ../sass/style.scss */
 #card-filter-modal .card-filter-wrp {
   display: block;
   margin: 0;
@@ -514,25 +518,25 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 472, ../sass/style.scss */
+/* line 476, ../sass/style.scss */
 #card-filter-modal .card-filter-wrp .card-cate li, #card-filter-modal .card-filter-wrp .card-rare li, #card-filter-modal .card-filter-wrp .card-unlock li {
   position: relative;
   z-index: 8;
 }
-/* line 478, ../sass/style.scss */
+/* line 482, ../sass/style.scss */
 #card-filter-modal .card-filter-wrp .card-cate li, #card-filter-modal .card-filter-wrp .card-rare li {
   width: 18%;
   height: auto;
   margin: 1%;
 }
-/* line 485, ../sass/style.scss */
+/* line 489, ../sass/style.scss */
 #card-filter-modal .card-filter-wrp .card-unlock li {
   width: 31.3%;
   height: auto;
   margin: 1%;
 }
 
-/* line 494, ../sass/style.scss */
+/* line 498, ../sass/style.scss */
 #child-detail-modal .modal-dialog {
   width: 300px;
 }
