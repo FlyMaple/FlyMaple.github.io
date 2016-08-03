@@ -256,9 +256,6 @@
                 cardService.setDetailModalData(card);
                 
                 var levelDetail = $scope.getDetailModalData().levelDetail;
-                if (levelDetail['level' + $scope.currentLevel] == undefined) {
-                    $scope.currentLevel = 1;
-                }
 
                 $('#card-detail-modal').modal('show');
             };
@@ -307,6 +304,10 @@
             $scope.getCurrentLevelDetail = function () {
                 var levelDetail = $scope.getDetailModalData().levelDetail;
                 if (levelDetail) {
+                    var level = levelDetail['level' + $scope.currentLevel];
+                    if (level === undefined) {
+                        $scope.currentLevel = 1;
+                    }
                     return levelDetail['level' + $scope.currentLevel];
                 } else {
                     return [];
