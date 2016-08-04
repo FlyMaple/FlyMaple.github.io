@@ -7219,7 +7219,7 @@
           "hurt": "186",
           "additional_damage_when_death": "186",
           "small_stone": {
-            "value": "2",
+            "value": "1",
             "name": "小戈侖石人",
             "hp": "630",
             "hurt": "37",
@@ -7263,7 +7263,7 @@
           "hurt": "225",
           "additional_damage_when_death": "225",
           "small_stone": {
-            "value": "2",
+            "value": "3",
             "name": "小戈侖石人",
             "hp": "762",
             "hurt": "44",
@@ -7282,10 +7282,10 @@
         "level4": {
           "hp": "4189",
           "dps": "98",
-          "hurt": "246",
+          "hurt": "247",
           "additional_damage_when_death": "246",
           "small_stone": {
-            "value": "2",
+            "value": "4",
             "name": "小戈侖石人",
             "hp": "837",
             "hurt": "49",
@@ -7304,10 +7304,10 @@
         "level5": {
           "hp": "4599",
           "dps": "108",
-          "hurt": "270",
+          "hurt": "271",
           "additional_damage_when_death": "270",
           "small_stone": {
-            "value": "2",
+            "value": "5",
             "name": "小戈侖石人",
             "hp": "919",
             "hurt": "54",
@@ -7329,7 +7329,7 @@
           "hurt": "297",
           "additional_damage_when_death": "297",
           "small_stone": {
-            "value": "2",
+            "value": "6",
             "name": "小戈侖石人",
             "hp": "1008",
             "hurt": "59",
@@ -7351,7 +7351,7 @@
           "hurt": "327",
           "additional_damage_when_death": "327",
           "small_stone": {
-            "value": "2",
+            "value": "7",
             "name": "小戈侖石人",
             "hp": "1108",
             "hurt": "65",
@@ -7373,7 +7373,7 @@
           "hurt": "358",
           "additional_damage_when_death": "358",
           "small_stone": {
-            "value": "2",
+            "value": "8",
             "name": "小戈侖石人",
             "hp": "1215",
             "hurt": "71",
