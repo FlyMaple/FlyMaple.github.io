@@ -922,7 +922,6 @@
           "money": "50000"
         },
         "level13": {
-          "hp": "132",
           "scope_of_damagey": "247",
           "tower_of_damagey": "99",
           "duration": "1秒",
@@ -2315,7 +2314,7 @@
         },
         "level8": {
           "hp": "289",
-          "dps": "212",
+          "dps": "121",
           "scope_of_damagey": "231",
           "hit_speed": "1.9",
           "move_speed": "中等",
@@ -3384,7 +3383,7 @@
         "level7": {
           "hp": "56",
           "dps": "56",
-          "hurt": "6",
+          "hurt": "56",
           "hit_speed": "1秒",
           "target": "地面目標",
           "move_speed": "快",
@@ -5651,10 +5650,10 @@
       "desc": "這些氣球雖然非常漂亮，但您絕不想看到他們列隊出現在您的領空。他們會投擲強大的炸彈，被擊落後將摧毀並造成範為傷害。",
       "levelDetail": {
         "level1": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1050",
+          "dps": "200",
+          "hurt": "600",
+          "additional_damage_when_death": "100",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5663,10 +5662,10 @@
           "money": "0"
         },
         "level2": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1155",
+          "dps": "220",
+          "hurt": "660",
+          "additional_damage_when_death": "110",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5675,10 +5674,10 @@
           "money": "400"
         },
         "level3": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1270",
+          "dps": "242",
+          "hurt": "726",
+          "additional_damage_when_death": "121",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5687,10 +5686,10 @@
           "money": "2000"
         },
         "level4": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1396",
+          "dps": "266",
+          "hurt": "798",
+          "additional_damage_when_death": "133",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5699,10 +5698,10 @@
           "money": "4000"
         },
         "level5": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1533",
+          "dps": "292",
+          "hurt": "876",
+          "additional_damage_when_death": "146",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5711,10 +5710,10 @@
           "money": "8000"
         },
         "level6": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1680",
+          "dps": "320",
+          "hurt": "960",
+          "additional_damage_when_death": "160",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5723,10 +5722,10 @@
           "money": "20000"
         },
         "level7": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "1848",
+          "dps": "352",
+          "hurt": "1056",
+          "additional_damage_when_death": "176",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -5735,10 +5734,10 @@
           "money": "50000"
         },
         "level8": {
-          "hp": "",
-          "dps": "",
-          "hurt": "",
-          "additional_damage_when_death": "",
+          "hp": "2026",
+          "dps": "386",
+          "hurt": "1158",
+          "additional_damage_when_death": "193",
           "hit_speed": "3秒",
           "target": "建築",
           "move_speed": "中等",
@@ -6269,7 +6268,7 @@
         "level10": {
           "hp": "2796",
           "dps": "116",
-          "hurt": "192",
+          "hurt": "174",
           "hit_speed": "1.5秒",
           "target": "建築",
           "move_speed": "慢",
