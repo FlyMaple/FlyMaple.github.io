@@ -167,6 +167,7 @@
                 $scope.setting.scanValue = 150;
             }
             $scope.scanId = setInterval(radarParse, $scope.setting.scanValue*1000);
+            $scope.setting.isOK = false;
         }
 
         function radarParse() {
