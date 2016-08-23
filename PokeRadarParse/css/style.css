@@ -212,8 +212,6 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -25%;
-  margin-left: -25%;
   width: 50%;
   background: #fff;
   -moz-border-radius: 8px;
@@ -222,34 +220,38 @@ body {
   -moz-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.62);
   -webkit-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.62);
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.62);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-/* line 207, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 #pokemonsModal .dialog {
   width: 480px;
 }
-/* line 210, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 #pokemonsModal .dialog .header {
   padding: 8px 0;
 }
-/* line 212, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 #pokemonsModal .dialog .header h1 {
   text-align: center;
   font-size: 22px;
   font-weight: 600;
   color: #503f0c;
 }
-/* line 221, ../sass/style.scss */
+/* line 220, ../sass/style.scss */
 #pokemonsModal .dialog .body {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
-/* line 225, ../sass/style.scss */
+/* line 224, ../sass/style.scss */
 #pokemonsModal .dialog .footer {
   padding: 10px;
   text-align: right;
 }
-/* line 228, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 #pokemonsModal .dialog .footer .ok, #pokemonsModal .dialog .footer .cancel {
   display: inline-block;
   padding: 7px 14px;
@@ -262,13 +264,13 @@ body {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 240, ../sass/style.scss */
+/* line 239, ../sass/style.scss */
 #pokemonsModal .pokemons {
   padding: 10px 0 10px 10px;
   height: 400px;
   overflow: auto;
 }
-/* line 245, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 #pokemonsModal .pokemons li {
   display: inline-block;
   width: 60px;
@@ -276,7 +278,7 @@ body {
   margin: 0 0 8px;
   z-index: 2;
 }
-/* line 252, ../sass/style.scss */
+/* line 251, ../sass/style.scss */
 #pokemonsModal .pokemons li.checked::after {
   content: '';
   position: absolute;
@@ -287,7 +289,7 @@ body {
   bottom: 0;
   z-index: -1;
 }
-/* line 265, ../sass/style.scss */
+/* line 264, ../sass/style.scss */
 #pokemonsModal .pokemons li a img {
   width: 100%;
   height: auto;
