@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Pokemon">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js//jquery-ui.min.js"></script>
+    <script src="js/jquery.unveil.js"></script>
+</head>
+<body>
+    <div class="wrapper lock" ng-controller="pokemonController">
+        <div class="container">
+            <div class="header">
+                * 單純華苓 
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.79662556185684&maxLatitude=24.79981039003279&minLongitude=121.0061699151993&maxLongitude=121.00837469100951&pokemonId=0</p></p>
+                * 華苓範圍
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.795013637524207&maxLatitude=24.80152938409508&minLongitude=121.00186228752136&maxLongitude=121.0116469860077&pokemonId=0</p>
+                * 金山街~奇紘家
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=c7d3b47063cb11e6aa59b985287aa853&minLatitude=24.774519432328972&maxLatitude=24.79199426669323&minLongitude=121.00549936294556&maxLongitude=121.0310125350952&pokemonId=0</p> 
+                * 巨城(交通工具)
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.805093907731166&maxLatitude=24.813907385420546&minLongitude=120.96617817878723&maxLongitude=120.98312973976135&pokemonId=0</p>
+                * 巨城(無交通工具)
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.8077185392637&maxLatitude=24.8121252631357&minLongitude=120.9706038236618&maxLongitude=120.97907960414886&pokemonId=0</p>
+                * 圓環(無交通工具)
+                <p>https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.80058467076115&maxLatitude=24.807100124593337&minLongitude=120.96621036529541&maxLongitude=120.97468614578247&pokemonId=0</p>  
+            </div>
+            <div class="body">
+                <div class="setting-wrp">
+                    <div class="group">
+                        <span class="label">輸入掃描範圍連結</span>
+                        <input class="input" ng-model="setting.url">
+                    </div>
+                    <div class="group">
+                        <span class="label">選擇想記錄的寶可夢</span>
+                        <span class="input" ng-bind="getSelectedPokemons('record')"></span>
+                        <button class="button" ng-click="openPokemonsModal('record')">選擇</button>
+                    </div>
+                    <div class="group">
+                        <span class="label">選擇想通知的寶可夢</span>
+                        <span class="input" ng-bind="getSelectedPokemons('need')"></span>
+                        <button class="button" ng-click="openPokemonsModal('need')">選擇</button>
+                    </div>
+                    <div class="group2">
+                        <span class="label">掃描時間</span>
+                        <div class="scanBar"></div>
+                        <span class="timeLabel" ng-model="setting.scanValue">2分 30秒</span>
+                        <input type="checkbox" id="emailNotification" ng-model="setting.emailNotification"><label for="emailNotification">使用 Email 通知</label>
+                        <input type="checkbox" id="unlimit" ng-model="setting.unlimit"><label for="unlimit">不分怪(全物種掃描)</label>
+                        <button class="button setting" ng-click="saveSetting()">設定</button>
+                        <button class="button" ng-click="scan()" ng-disabled="!setting.isOK">掃描</button>
+                    </div>
+                </div>
+                <div class="record-wrp"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pokemonsModal" class="modal" ng-controller="pokemonModalController">
+        <div class="dialog">
+            <div class="header">
+                <h1>寶可夢列表</h1>
+            </div>
+            <div class="body">
+                <ul class="pokemons">
+                    <li ng-class="{checked: isSelected($index+1)}" ng-repeat="pokemon in [] | range: 151" ng-click="selectPokemon($index+1)"><a href="#"><img ng-src="{{ 'images/pooooo/' + ($index+1) + '.png' }}" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="footer">
+                <button class="ok" ng-click="setSelectPokemons()">確定</button>
+                <button class="cancel" ng-click="closeModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

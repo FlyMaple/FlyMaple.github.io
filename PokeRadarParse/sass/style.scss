@@ -1,0 +1,272 @@
+@import 'compass/css3';
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800';
+
+*, *::before, *::after {
+    position: relative;
+    box-sizing: border-box;
+}
+
+*::before, *::after {
+     font: normal normal normal 14px/1 FontAwesome;
+}
+
+body {
+    background: #d8d8d8;
+}
+
+.wrapper {
+    width: 780px;
+    margin: auto;
+    &.lock::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 44;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .container {
+        font: {
+            size: 13px;
+        }
+
+        .header {
+            p {
+                word-break: break-all;
+            }
+        }
+        .body {
+            background: #fff;
+
+            .setting-wrp {
+                padding: 15px 20px;
+                
+                .group {
+                    margin: 0 0 10px;
+
+                    .label {
+                        display: inline-block;
+                        width: 140px;
+                        padding: 10px 4px;
+                        background-color: #ffe187;
+                        text-align: center;
+                        vertical-align: top;
+                        @include border-radius(4px);
+                    }
+                    .input {
+                        display: inline-block;
+                        height: 33px;
+                        padding: 8px;
+                        margin: 0 15px;
+                        width: 480px;
+                        outline: none;
+                        border: 1px solid #ffe187;
+                        background: #f7f7f7;
+                        color: #969696;
+                        overflow: hidden;
+                        @include border-radius(2px);
+                    }
+                    .button {
+                        padding: 7px 14px;
+                        outline: none;
+                        border: 1px solid #ffe187;
+                        vertical-align: top;
+                        cursor: pointer;
+                        background: linear-gradient(#ffecb1, #ffd65a);
+                        @include border-radius(2px);
+                    }
+                }
+                .group2 {
+                    line-height: 33px;
+
+                    .label {
+                        padding: 10px 8px;
+                        background-color: #ffe187;
+                        text-align: center;
+                        @include border-radius(4px);
+                    }
+                    .scanBar {
+                        display: inline-block;
+                        width: 180px;
+                        margin: 0 10px;
+                    }
+                    .timeLabel {
+                        display: inline-block;
+                        width: 50px;
+                        margin: 0 10px 0 0;
+                    }
+                    [type=checkbox] {
+                        top: 3px;
+                    }
+                    .button {
+                        padding: 7px 14px;
+                        outline: none;
+                        border: 1px solid #ffe187;
+                        vertical-align: top;    
+                        cursor: pointer;
+                        background: linear-gradient(#ffecb1, #ffd65a);
+                        @include border-radius(2px);
+                        &.setting {
+                            margin: 0 4px 0 8px;
+                            border: 1px solid #73bfe3;
+                            background: linear-gradient(#9fd7f3, #6dbbe0);
+                        }
+                    }
+                }
+            }
+            .record-wrp {
+                padding: 15px 20px;
+
+                .record-item {
+                    padding: 2px 10px;
+                    margin: 0 0 4px 0;
+                    height: 48px;
+                    line-height: 48px;
+                    background-color: #ffe187;
+                    border-radius: 4px;
+                    &.need {
+                        background-color: #ff6197;
+                    }
+                    &.success {
+                        padding: 0;
+                        height: 5px;
+                        line-height: 25px;
+                        background-color: #4e4e4e;
+                    }
+
+                    .no, .name, .type, .helpful, .created, .expire, .map-link {
+                        display: inline-block;
+                        width: 80px;
+                        text-align: center;
+                        vertical-align: top;
+                    }
+                    .no {
+                        width: 32px;
+                        height: 32px;
+                        top: 6px;
+                        margin: 0 10px 0 0;
+                        font: {
+                            size: 14px;
+                            weight: 600;
+                            family: 'Open Sans';
+                        }
+                        color: #fff;
+                        background: #73bfe3;
+                        line-height: 32px;
+                        text-align: center;
+                        @include border-radius(4px);
+                    }
+                    .created {
+                        width: 130px;
+                    }
+                    .icon {
+                        width: 42px;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.36);
+
+    .dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -25%;
+        margin-left: -25%;
+        width: 50%;
+        background: #fff;
+        @include border-radius(8px);
+        @include box-shadow(0 1px 5px 1px rgba(0, 0, 0, 0.62));
+
+        .header {
+        }
+        .body {
+        }
+        .footer {
+        }
+    }
+}
+
+#pokemonsModal {
+    .dialog {
+        width: 480px;
+        
+        .header {
+            padding: 8px 0;
+            h1 {
+                text-align: center;
+                font: {
+                    size: 22px;
+                    weight: 600;
+                }
+                color: #503f0c;
+            }
+        }
+        .body {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .footer {
+            padding: 10px;
+            text-align: right;
+            .ok, .cancel {
+                display: inline-block;
+                padding: 7px 14px;
+                outline: none;
+                border: 1px solid #ffe187;
+                vertical-align: top;    
+                cursor: pointer;
+                background: linear-gradient(#ffecb1, #ffd65a);
+                @include border-radius(2px);
+            }
+        }
+    }
+    .pokemons {
+        padding: 10px 0 10px 10px;
+        height: 400px;
+        overflow: auto;
+
+        li {
+            display: inline-block;
+            width: 60px;
+            padding: 8px;
+            margin: 0 0 8px;
+            z-index: 2;
+            &.checked {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background: url('../images/target.gif') 0 / cover;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: -1;
+                }
+            }
+
+            a {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
