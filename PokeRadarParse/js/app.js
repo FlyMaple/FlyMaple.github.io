@@ -306,7 +306,7 @@
         function selectPokemon(id) {
             var idx;
             if ((idx = PokemonService.getPokemonModalData().indexOf(parseInt(id))) !== -1) {
-                $scope.pokemons.splice(idx, 1);
+                PokemonService.getPokemonModalData().splice(idx, 1);
             } else {
                 PokemonService.getPokemonModalData().push(id);
             }
