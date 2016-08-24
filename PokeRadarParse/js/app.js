@@ -171,10 +171,10 @@
         }
 
         function radarParse() {
-            if (window._sysno > 200) {
-                jQuery('.record-wrp').empty();
-                window._sysno = 1;
-            }
+            // if (window._sysno > 200) {
+            //     jQuery('.record-wrp').empty();
+            //     window._sysno = 1;
+            // }
 
 
             var unlimited = $scope.setting.unlimit;
