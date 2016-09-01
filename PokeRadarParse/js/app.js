@@ -128,7 +128,7 @@
     }]);
 
     Pokemon.controller('pokemonController', ['PokemonService', 'PokemonMap', '$scope', '$timeout' , function (PokemonService, PokemonMap, $scope, $timeout) {
-        $scope.setting = { url: 'https://www.pokeradar.io/api/v1/submissions?deviceId=da2091b0607011e6a3f39b7745c21a92&minLatitude=24.771713878544993&maxLatitude=24.789344951751993&minLongitude=121.00603580474852&maxLongitude=121.02972507476805&pokemonId=0' };
+        $scope.setting = { url: 'https://www.pokeradar.io/api/v1/submissions?deviceId=c7d3b47063cb11e6aa59b985287aa853&minLatitude=24.773077697330955&maxLatitude=24.79055273469852&minLongitude=121.00416898727417&maxLongitude=121.03184938430786&pokemonId=0' };
         $scope.openPokemonsModal = openPokemonsModal;
         $scope.getSelectedPokemons = getSelectedPokemons;
         $scope.saveSetting = saveSetting;
