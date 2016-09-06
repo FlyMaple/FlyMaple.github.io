@@ -180,6 +180,8 @@
             var unlimited = $scope.setting.unlimit;
             var record_list = $scope.setting.records;
             var i_need_list = $scope.setting.needs;
+            var email = $scope.setting.emailNotification;
+            
 
             $.ajax({
                 url: $scope.setting.url,
@@ -203,7 +205,7 @@
                         var created_date = new Date(parseInt(record.created) * 1000);
                         var format_created = created_date.getFullYear() + '/' + (created_date.getMonth()+1) + '/' + created_date.getDate() + ' ' + created_date.getHours() + ':' + created_date.getMinutes() + ':' + created_date.getSeconds();
                         var expired_time = new Date(created_date.getTime() + (15*60*1000) - Date.now() ).getMinutes();
-                        var map_link = 'https://www.google.com.tw/maps/place/' + record.latitude + '%20' + record.longitude
+                        var map_link = 'https://www.google.com.tw/maps/place/' + record.latitude + '%20' + record.longitude;
                         if (expired_time < 5 || expired_time > 15) { 
                             continue;
                         }
@@ -233,7 +235,32 @@
                                 });
                                 if (!isExist) {
                                     window._alert_list.push(record);
-                                    alert('【' + name + '】 出現了!!!!!!');
+
+                                    if (email) {
+                                        $.ajax({
+                                            url: 'https://script.google.com/macros/s/AKfycbzClLh01VKi0kuj7r2oOmEh9r8qPmNqXwEqr6pXwWr5IV3ELG_D/exec',
+                                            type: 'get',
+                                            data: {
+                                                center: record.latitude + ',' + record.longitude,
+                                                name: name,
+                                                id: record.pokemonId,
+                                                type: type,
+                                                helpful: Math.floor((record.upvotes / (record.upvotes + record.downvotes)) * 100) + '% (' + record.upvotes + '/' + record.downvotes +')',
+                                                created: format_created,
+                                                expire: expired_time,
+                                                map_link: map_link
+                                            },
+                                            success: function (resp) {
+                                                console.log('Email Send Success!');
+                                            },
+                                            error: function (resp) {
+                                                console.log('Email Call Api Error');
+                                                console.log(resp);
+                                            }
+                                        });
+                                    } else {
+                                        alert('【' + name + '】 出現了!!!!!!');
+                                    }
                                 }
                             }
                             
