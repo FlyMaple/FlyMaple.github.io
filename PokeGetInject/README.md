@@ -107,5 +107,6 @@ $('#update').click();
 
   setInterval(query, 10 * 1000);
   $('#update').click();
+  console.info('已開始掃描，若有設定怪，會寄信通知');
 })();
 ```
