@@ -7,7 +7,8 @@ $('#map').css('height', '860px');
 google.maps.event.trigger(map, "resize");
 $('#update').click();
 ```
-4. 將你的 email 輸入進去，複製第二段 code 並執行，保持瀏覽器 & F12 開啟狀態
+4. 將地圖大小和位置調整到適合抓寶範圍，按下地圖左上角的更新
+5. 將你的 email 輸入進去，複製第二段 code 並執行，保持瀏覽器 & F12 開啟狀態
 ``` JS
 (function () {
   window._toWho = '';
