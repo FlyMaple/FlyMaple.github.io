@@ -31,6 +31,15 @@
                 var param = enums[i];
                 o[param.split('=')[0]] = param.split('=')[1];
             }
+            querystring = atob(o.key);
+
+            enums = querystring.split('&');
+            o = {};
+            for(var i=0; i<enums.length; i++) {
+                var param = enums[i];
+                o[param.split('=')[0]] = param.split('=')[1];
+            }
+
             var date = new Date(parseInt(o.timestamp));
             var endTime_1 = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
             var endTime_2 = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
