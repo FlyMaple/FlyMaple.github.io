@@ -222,6 +222,7 @@
                             }
                         }
 
+                        var type = isPlayer ? 'Player' : 'Prediction';
                         if (isRecord) {
                             if (i_need_list.indexOf(parseInt(record.pokemonId)) !== -1) {
                                 isNeed = true;
@@ -264,7 +265,6 @@
                                 }
                             }
                             
-                            var type = isPlayer ? 'Player' : 'Prediction';
                             var $item = jQuery('<div class="record-item">\
                                                     <span class="no">' + window._sysno++ + '</span>\
                                                     <img src="images/pooooo/' + record.pokemonId + '.png" alt="" class="icon">\
