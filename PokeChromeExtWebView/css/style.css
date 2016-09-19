@@ -178,4 +178,10 @@ body {
     width: 16px;
     height: 16px;
   }
+
+  /* line 114, ../sass/style.scss */
+  #line-share img {
+    width: 30%;
+    height: auto;
+  }
 }

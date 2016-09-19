@@ -6,6 +6,7 @@
     <title>寶貝濕所在地</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script type="text/javascript" src="//media.line.me/js/line-button.js" ></script>
 </head>
 <body>
     <div class="wrapper">
@@ -19,6 +20,9 @@
             <div class="footer">
                 <div class="text">點圖片可以開啟地圖</div>
             </div>
+            <span id="line-share">
+                <a href="//line.me/R/msg/text/?%E3%80%90%E7%81%AB%E7%88%86%E7%8C%B4%E3%80%91%E5%87%BA%E7%8F%BE%E5%9B%89%EF%BD%9E%E5%BF%AB%E4%BE%86%E3%80%90%E5%AF%B6%E8%B2%9D%E6%BF%95%E3%80%91%E7%9C%8B%E7%9C%8B%E5%87%BA%E7%8F%BE%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%81%0Ahttp%3A%2F%2Flocalhost%2Ftest%2FPKG-view%2Findex.html%3Fkey%3DaWQ9ODMmbmFtZT0lRTUlQTQlQTclRTglOTQlQTUlRTklQjQlQTgmZXhwaXJlPTElRTUlODglODYlMjUyMDMxJUU3JUE3JTkyJnRpbWVzdGFtcD0xNDc0MjYwNTM3MDAwJmNlbnRlcj0yNC43NzU5NzAzNjk4NzYyLDEyMS4wMTk0ODg2NTU4MjI%3D"><img src="images/line.png" width="78" height="20" alt="LINE it!"></a>
+            </span>
         </div>
     </div>
 
@@ -49,6 +53,8 @@
             document.querySelector('#mapLink').href = 'https://www.google.com.tw/maps/place/' + o.center;
             document.querySelector('#mapImg').src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + o.center + '&zoom=17&size=800x600&key=AIzaSyAbfmPdckQWj6wr47JQuxE8pbs9zGYx8UA';
             document.querySelector('#pokeIcon').src = 'https://raw.githubusercontent.com/FlyMaple/FlyMaple.github.io/master/PokeRadarParse/images/pooooo/' + o.id + '.png';
+
+            document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～快來【寶貝濕】看看出現的位置！%0A' + encodeURIComponent(location.href);
         }
     </script>
 </body>
