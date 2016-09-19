@@ -173,4 +173,9 @@ body {
   .wrapper .container .body .mapLink .mapImg {
     width: 80vw;
   }
+  /* line 104, ../sass/style.scss */
+  .wrapper .container .body .mapLink .pokeIcon {
+    width: 16px;
+    height: 16px;
+  }
 }
