@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寶貝濕所在地</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="body">
+                <div class="title">
+                    發現<b class="b1" id="name"></b>剩下 <b class="b2" id="expire">14:06</b><div class="newline"></div> ► 消失時刻 <span id="endTime"></span></b> 
+                </div>
+                <a class="mapLink" href=""><img class="mapImg" id="mapImg" src="" alt=""><img class="pokeIcon" id="pokeIcon" src="" alt=""></a>
+            </div>
+            <div class="footer">
+                <div class="text">點圖片可以開啟地圖</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var querystring = window.location.href.split('?')[1];
+        if (querystring) {
+            var enums = querystring.split('&');
+            var o = {};
+            for(var i=0; i<enums.length; i++) {
+                var param = enums[i];
+                o[param.split('=')[0]] = param.split('=')[1];
+            }
+            var date = new Date(parseInt(o.timestamp));
+            var endTime_1 = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+            var endTime_2 = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+            document.querySelector('#name').innerText = '《' + decodeURI(o.name) + '》';
+            document.querySelector('#endTime').innerHTML = endTime_1 + ' <b class="b3">' + endTime_2;
+            document.querySelector('#mapImg').src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + o.center + '&zoom=17&size=800x600&key=AIzaSyAbfmPdckQWj6wr47JQuxE8pbs9zGYx8UA';
+            document.querySelector('#pokeIcon').src = 'https://raw.githubusercontent.com/FlyMaple/FlyMaple.github.io/master/PokeRadarParse/images/pooooo/' + o.id + '.png';
+        }
+    </script>
+</body>
+</html>

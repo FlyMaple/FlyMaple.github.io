@@ -1,0 +1,108 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+body {
+    background: url('../images/bg.png');
+}
+
+*, *::before, *::after {
+    position: relative;
+    box-sizing: border-box;
+}
+*::before, *::after {
+    font-family: 'FontAwesome';
+}
+
+.wrapper {
+    padding: 20px 0;
+
+    .container {
+        width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        @include box-shadow(0 0 0 1px #ccc, 0 0 0 2px #fff, 0 0 0 3px #ccc, 0 0 0 4px #fff, 0 0 0 5px #ccc, 0 0 0 6px #fff, 0 0 0 7px #ccc, 0px 2px 7px 8px rgba(0, 0, 0, 0.37));
+
+        .body {
+            .title {
+                padding: 40px 0;
+                font: {
+                    size: 18px;
+                }
+                line-height: 22px;
+
+                .newline {
+                    display: none;
+                }
+                .b1, .b2, .b3 {
+                    font: {
+                        size: 22px;
+                        weight: 600;
+                    }
+                    color: #a7053c;
+                }
+            }
+            .mapLink {
+                display: block;
+
+                .mapImg {
+
+                }
+                .pokeIcon {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 36px;
+                    height: 36px;
+                    @include transform(translate(-50%, -50%));
+                    @include box-shadow(inset 0 0 15px 6px rgba(244, 67, 54, 0.73));
+                    @include border-radius(50%);
+                }
+            }
+        }
+        .footer {
+            padding: 20px 0;
+
+            .text {
+                display: inline-block;
+                font: {
+                    size: 22px;
+                    weight: 600;
+                }
+                letter-spacing: 2px;
+                color: #633524;
+                z-index: 2;
+                &::after {
+                    content: '\f178';
+                    display: inline-block;
+                    @include transform(rotate(-45deg));
+                    font-size: 38px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        height: 100vh;
+
+        .container {
+            width: 90vw;
+            height: 100%;
+
+            .body {
+                .title {
+                    .newline {
+                        display: block;
+                        margin: 0 0 10px;
+                    }
+                }
+                .mapLink {
+                    .mapImg {
+                        width: 80vw;
+                    }
+                }
+            }
+        }
+    }
+}
