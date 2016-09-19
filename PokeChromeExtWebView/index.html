@@ -35,7 +35,7 @@
             var endTime_1 = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
             var endTime_2 = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
             document.querySelector('#name').innerText = '《' + decodeURI(o.name) + '》';
-            document.querySelector('#expire').innerText = o.expire;
+            document.querySelector('#expire').innerText = decodeURI(o.expire);
             document.querySelector('#endTime').innerHTML = endTime_1 + ' <b class="b3">' + endTime_2;
             document.querySelector('#mapLink').href = 'https://www.google.com.tw/maps/place/' + o.center;
             document.querySelector('#mapImg').src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + o.center + '&zoom=17&size=800x600&key=AIzaSyAbfmPdckQWj6wr47JQuxE8pbs9zGYx8UA';
