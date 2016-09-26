@@ -185,47 +185,43 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* line 117, ../sass/style.scss */
-  .wrapper {
-    height: 100vh;
-  }
-  /* line 120, ../sass/style.scss */
+  /* line 118, ../sass/style.scss */
   .wrapper .container {
     width: 90vw;
     height: 100%;
   }
-  /* line 126, ../sass/style.scss */
+  /* line 124, ../sass/style.scss */
   .wrapper .container .body .title .newline {
     display: block;
     margin: 0 0 10px;
   }
-  /* line 131, ../sass/style.scss */
+  /* line 129, ../sass/style.scss */
   .wrapper .container .body #infos {
     width: 80vw;
   }
-  /* line 135, ../sass/style.scss */
+  /* line 133, ../sass/style.scss */
   .wrapper .container .body .mapLink .map-wrp {
     float: inherit;
     width: 80vw;
     margin: 0 auto;
   }
-  /* line 140, ../sass/style.scss */
+  /* line 138, ../sass/style.scss */
   .wrapper .container .body .mapLink .map-wrp .mapImg {
     width: 100%;
   }
-  /* line 143, ../sass/style.scss */
+  /* line 141, ../sass/style.scss */
   .wrapper .container .body .mapLink .map-wrp .pokeIcon {
     width: 16px;
     height: 16px;
   }
 
-  /* line 154, ../sass/style.scss */
+  /* line 152, ../sass/style.scss */
   #line-share img {
     width: 30%;
     height: auto;
   }
 }
-/* line 161, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 .clearfix {
   clear: both;
 }
