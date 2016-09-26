@@ -24,7 +24,7 @@ body {
 
         .body {
             .title {
-                padding: 40px 0;
+                padding: 40px 0 20px;
                 font: {
                     size: 18px;
                 }
@@ -41,11 +41,42 @@ body {
                     color: #a7053c;
                 }
             }
+            #infos {
+                display: none;
+                width: 640px;
+                padding: 10px;
+                margin: 0 auto 20px;
+                font: {
+                    size: 12px;
+                }
+                text-align: left;
+                color: #4e4e4e;
+                background: #f3f3f3;
+                box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.33);
+
+                .group {
+                    padding: 4px 0px;
+
+                    .label {
+                        margin: 0 4px 0 0;
+                        font: {
+                            weight: bold;
+                            family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+                        }
+                        color: #616161;
+                    }
+                }
+            }
             .mapLink {
                 display: block;
+                text-decoration: none;
 
                 .mapImg {
 
+                }
+                .map-wrp {
+                    float: left;
+                    margin: 0 0 0 30px;
                 }
                 .pokeIcon {
                     position: absolute;
@@ -97,13 +128,22 @@ body {
                         margin: 0 0 10px;
                     }
                 }
+                #infos {
+                    width: 80vw;
+                }
                 .mapLink {
-                    .mapImg {
+                    .map-wrp {
+                        float: inherit;
                         width: 80vw;
-                    }
-                    .pokeIcon {
-                        width: 16px;
-                        height: 16px;
+                        margin: 0 auto;
+                        
+                        .mapImg {
+                            width: 100%;
+                        }
+                        .pokeIcon {
+                            width: 16px;
+                            height: 16px;
+                        }
                     }
                 }
             }
@@ -116,4 +156,8 @@ body {
             height: auto;
         }
     }
+}
+
+.clearfix {
+    clear: both;
 }

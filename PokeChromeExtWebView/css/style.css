@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 5, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -94,7 +95,7 @@ body {
 }
 /* line 26, ../sass/style.scss */
 .wrapper .container .body .title {
-  padding: 40px 0;
+  padding: 40px 0 20px;
   font-size: 18px;
   line-height: 22px;
 }
@@ -109,10 +110,39 @@ body {
   color: #a7053c;
 }
 /* line 44, ../sass/style.scss */
+.wrapper .container .body #infos {
+  display: none;
+  width: 640px;
+  padding: 10px;
+  margin: 0 auto 20px;
+  font-size: 12px;
+  text-align: left;
+  color: #4e4e4e;
+  background: #f3f3f3;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.33);
+}
+/* line 57, ../sass/style.scss */
+.wrapper .container .body #infos .group {
+  padding: 4px 0px;
+}
+/* line 60, ../sass/style.scss */
+.wrapper .container .body #infos .group .label {
+  margin: 0 4px 0 0;
+  font-weight: bold;
+  font-family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+  color: #616161;
+}
+/* line 70, ../sass/style.scss */
 .wrapper .container .body .mapLink {
   display: block;
+  text-decoration: none;
 }
-/* line 50, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
+.wrapper .container .body .mapLink .map-wrp {
+  float: left;
+  margin: 0 0 0 30px;
+}
+/* line 81, ../sass/style.scss */
 .wrapper .container .body .mapLink .pokeIcon {
   position: absolute;
   top: 50%;
@@ -130,11 +160,11 @@ body {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 62, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 .wrapper .container .footer {
   padding: 20px 0;
 }
-/* line 65, ../sass/style.scss */
+/* line 96, ../sass/style.scss */
 .wrapper .container .footer .text {
   display: inline-block;
   font-size: 22px;
@@ -143,7 +173,7 @@ body {
   color: #633524;
   z-index: 2;
 }
-/* line 74, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 .wrapper .container .footer .text::after {
   content: '\f178';
   display: inline-block;
@@ -155,33 +185,47 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* line 86, ../sass/style.scss */
+  /* line 117, ../sass/style.scss */
   .wrapper {
     height: 100vh;
   }
-  /* line 89, ../sass/style.scss */
+  /* line 120, ../sass/style.scss */
   .wrapper .container {
     width: 90vw;
     height: 100%;
   }
-  /* line 95, ../sass/style.scss */
+  /* line 126, ../sass/style.scss */
   .wrapper .container .body .title .newline {
     display: block;
     margin: 0 0 10px;
   }
-  /* line 101, ../sass/style.scss */
-  .wrapper .container .body .mapLink .mapImg {
+  /* line 131, ../sass/style.scss */
+  .wrapper .container .body #infos {
     width: 80vw;
   }
-  /* line 104, ../sass/style.scss */
-  .wrapper .container .body .mapLink .pokeIcon {
+  /* line 135, ../sass/style.scss */
+  .wrapper .container .body .mapLink .map-wrp {
+    float: inherit;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  /* line 140, ../sass/style.scss */
+  .wrapper .container .body .mapLink .map-wrp .mapImg {
+    width: 100%;
+  }
+  /* line 143, ../sass/style.scss */
+  .wrapper .container .body .mapLink .map-wrp .pokeIcon {
     width: 16px;
     height: 16px;
   }
 
-  /* line 114, ../sass/style.scss */
+  /* line 154, ../sass/style.scss */
   #line-share img {
     width: 30%;
     height: auto;
   }
+}
+/* line 161, ../sass/style.scss */
+.clearfix {
+  clear: both;
 }

@@ -22,7 +22,27 @@
                 <div class="title">
                     發現<b class="b1" id="name"></b>剩下 <b class="b2" id="expire"></b><div class="newline"></div> ► 消失時刻 <span id="endTime"></span></b> 
                 </div>
-                <a class="mapLink" id="mapLink" href="" target="_blank"><img class="mapImg" id="mapImg" src="" alt=""><img class="pokeIcon" id="pokeIcon" src="" alt=""></a>
+                <div id="infos">
+                    <div class="group iv">
+                        <span class="label">IV：</span><span class="text" id="iv"></span>
+                    </div>
+                    <div class="group adp">
+                        <span class="label">攻 / 防 / 體：</span><span class="text" id="adp"></span>
+                    </div>
+                    <div class="group s1">
+                        <span class="label">普通技能：</span><span class="text" id="s1"></span>
+                    </div>
+                    <div class="group s2">
+                        <span class="label">集氣技能：</span><span class="text" id="s2"></span>
+                    </div>
+                </div>
+                <a class="mapLink" id="mapLink" href="" target="_blank">
+                    <div class="map-wrp">
+                        <img class="mapImg" id="mapImg" src="" alt="">
+                        <img class="pokeIcon" id="pokeIcon" src="" alt="">
+                    </div>
+                </a>
+                <div class="clearfix"></div>
             </div>
             <div class="footer">
                 <div class="text">點圖片可以開啟地圖</div>
@@ -60,6 +80,14 @@
             document.querySelector('#mapLink').href = 'https://www.google.com.tw/maps/place/' + o.center;
             document.querySelector('#mapImg').src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + o.center + '&zoom=17&size=800x600&key=AIzaSyAbfmPdckQWj6wr47JQuxE8pbs9zGYx8UA';
             document.querySelector('#pokeIcon').src = 'https://raw.githubusercontent.com/FlyMaple/FlyMaple.github.io/master/PokeRadarParse/images/pooooo/' + o.id + '.png';
+
+            if (o.hasInfo === 'true') {
+                document.querySelector('#iv').innerText = o.iv + '%';
+                document.querySelector('#adp').innerText = o.atk + ' / ' + o.def + ' / ' + o.phy;
+                document.querySelector('#s1').innerText = decodeURI(o.s1_c) + '(' + o.s1_e + ')';
+                document.querySelector('#s2').innerText = decodeURI(o.s2_c) + '(' + o.s2_e + ')';
+                document.querySelector('#infos').style.display = 'block';
+            }
 
             document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～快來【寶貝濕】看看出現的位置！%0A' + encodeURIComponent(location.href);
         }
