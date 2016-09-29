@@ -1,0 +1,65 @@
+@import 'compass/css3';
+@import 'compass/reset';
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700,900';
+*, *::before, *::after {
+  position: relative;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  background: url(http://image.tianjimedia.com/uploadImages/2012/090/X38VHX9M5P0H.jpg) 0 / cover;
+}
+
+body {
+}
+
+.wrapper {
+  height: 100%;
+  
+  .container {
+    .header {}
+    .body {}
+    .footer {}
+    .glass {
+      width: 100vw;
+      height: 100vw;
+      left: -35vw;
+      top: 25vw;
+      background: url(http://www.pixelstalk.net/wp-content/uploads/2016/04/Rain-on-glass-wallpaper-HD-free-download.jpg) 0 / cover;
+      @include border-radius(50%);
+      @include box-shadow(0 0 1px 8px rgba(25, 41, 66, 0.64), 0 0 1px 16px rgba(13, 21, 32, 0.38), 0 0 1px 20px rgba(88, 118, 161, 0.69), 0 0 3px 35px rgba(14, 20, 25, 0.82), 0 0 140px 36px #15212f);
+      &::before {
+        content: '\f017';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0px;
+        bottom: 0;
+        font: {
+          size: 154px;
+          family: 'weathericons';
+        }
+        text-align: center;
+        line-height: 240px;
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+      }
+      &::after {
+        content: attr(data);
+        position: absolute;
+        right: 30px;
+        bottom: -20px;
+        font: {
+          size: 66px;
+          weight: 600;
+          family: 'weathericons';
+        }
+        text-align: center;
+        line-height: 240px;
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+      }
+    }
+  }
+}
