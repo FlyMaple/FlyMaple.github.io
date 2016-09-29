@@ -89,9 +89,17 @@
                 document.querySelector('#infos').style.display = 'block';
             }
 
-            document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～快來【寶貝濕】看看出現的位置！%0A' + encodeURIComponent(location.href);
-            
-            document.title = '寶貝濕所在地 - ' + decodeURI(o.name) + ' 出現了!!';
+
+            $.ajax({
+                url: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyDtpordnXZvFWs0b2B7mbhmDBYHn_FVsiw',
+                type: 'post',
+                dataType: 'json',
+                contentType: "application/json",
+                data: JSON.stringify({ "longUrl": location.href }),
+                success: function (r) {
+                    document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～快來【寶貝濕】看看出現的位置！%0A' + r.id;
+                }
+            });
         }
     </script>
 </body>
