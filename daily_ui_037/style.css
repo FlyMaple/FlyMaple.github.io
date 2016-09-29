@@ -1,0 +1,111 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,500,700,900";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+*, *::before, *::after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: url(http://image.tianjimedia.com/uploadImages/2012/090/X38VHX9M5P0H.jpg) 0/cover;
+}
+
+.wrapper {
+  height: 100%;
+}
+.wrapper .container .glass {
+  width: 100vw;
+  height: 100vw;
+  left: -35vw;
+  top: 25vw;
+  background: url(http://www.pixelstalk.net/wp-content/uploads/2016/04/Rain-on-glass-wallpaper-HD-free-download.jpg) 0/cover;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 0 0 1px 8px rgba(25, 41, 66, 0.64), 0 0 1px 16px rgba(13, 21, 32, 0.38), 0 0 1px 20px rgba(88, 118, 161, 0.69), 0 0 3px 35px rgba(14, 20, 25, 0.82), 0 0 140px 36px #15212f;
+  -webkit-box-shadow: 0 0 1px 8px rgba(25, 41, 66, 0.64), 0 0 1px 16px rgba(13, 21, 32, 0.38), 0 0 1px 20px rgba(88, 118, 161, 0.69), 0 0 3px 35px rgba(14, 20, 25, 0.82), 0 0 140px 36px #15212f;
+  box-shadow: 0 0 1px 8px rgba(25, 41, 66, 0.64), 0 0 1px 16px rgba(13, 21, 32, 0.38), 0 0 1px 20px rgba(88, 118, 161, 0.69), 0 0 3px 35px rgba(14, 20, 25, 0.82), 0 0 140px 36px #15212f;
+}
+.wrapper .container .glass::before {
+  content: '\f017';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0px;
+  bottom: 0;
+  font-size: 154px;
+  font-family: 'weathericons';
+  text-align: center;
+  line-height: 240px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+.wrapper .container .glass::after {
+  content: attr(data);
+  position: absolute;
+  right: 30px;
+  bottom: -20px;
+  font-size: 66px;
+  font-weight: 600;
+  font-family: 'weathericons';
+  text-align: center;
+  line-height: 240px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
