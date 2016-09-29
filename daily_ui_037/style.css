@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 html,
 body {
   height: 100%;
-  background: url(http://image.tianjimedia.com/uploadImages/2012/090/X38VHX9M5P0H.jpg) 0/cover;
+  background: url(https://raw.githubusercontent.com/FlyMaple/FlyMaple.github.io/master/daily_ui_037/X38VHX9M5P0H.jpg) 0/cover;
 }
 
 .wrapper {
@@ -74,7 +74,7 @@ body {
   height: 100vw;
   left: -35vw;
   top: 25vw;
-  background: url(http://www.pixelstalk.net/wp-content/uploads/2016/04/Rain-on-glass-wallpaper-HD-free-download.jpg) 0/cover;
+  background: url(https://raw.githubusercontent.com/FlyMaple/FlyMaple.github.io/master/daily_ui_037/Rain-on-glass-wallpaper-HD-free-download.jpg) 0/cover;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
