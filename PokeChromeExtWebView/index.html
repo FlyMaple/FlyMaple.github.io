@@ -98,7 +98,17 @@
                 contentType: "application/json",
                 data: JSON.stringify({ "longUrl": location.href }),
                 success: function (r) {
-                    document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～快來【寶貝濕】看看出現的位置！%0A' + r.id;
+                	$.ajax({
+                		url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + o.center + '&sensor=true',
+                		type: 'get',
+                		datatype: 'json',
+                		success: function (r) {
+                            document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A位置: ' + r.results[0].formatted_address + '%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                		},
+                		error: function (e) {
+                			document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                		}
+                	});
                 }
             });
         }
