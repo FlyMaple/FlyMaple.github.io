@@ -103,10 +103,18 @@
                 		type: 'get',
                 		datatype: 'json',
                 		success: function (rr) {
-                            document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A位置: ' + rr.results[0].formatted_address + '%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                			if (parseInt(o.iv) === 0) {
+                				document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～%0A位置: ' + rr.results[0].formatted_address + '%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                			} else {
+                				document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A位置: ' + rr.results[0].formatted_address + '%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                			}
                 		},
                 		error: function (e) {
-                			document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;
+                			if (parseInt(o.iv) === 0) {
+                				document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 出現囉～%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;   
+                			} else {
+                				document.querySelector('#line-share a').href = '//line.me/R/msg/text/?' + '【' + decodeURI(o.name) + '】 (IV: ' + o.iv + '%) 出現囉～%0A快來【寶貝濕】看看詳細的資訊！%0A' + r.id;                				
+                			}
                 		}
                 	});
                 }
