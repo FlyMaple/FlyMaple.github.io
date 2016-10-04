@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Performance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function show(type) {
+            switch (type) {
+                case 1:
+                    $('._img1').fadeToggle(); break;
+                case 2:
+                    $('._img2').fadeToggle(); break;
+                case 3:
+                    $('._img3').fadeToggle(); break;
+                case 4:
+                    $('._img4').fadeToggle(); break;
+                case 5:
+                    $('.css_spite_img').fadeToggle(); break;
+                case 6:
+                    $('.css_spite').fadeToggle(); break;
+            }
+        }
+
+        function prev() {
+            var new_x = parseInt($('.window').css('background-position-x').replace(/px/)) + 49;
+            $('.window').css('background-position-x', new_x + 'px');
+        }
+
+        function next() {
+            var new_x = parseInt($('.window').css('background-position-x').replace(/px/)) - 49;
+            $('.window').css('background-position-x', new_x + 'px');
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="header"></div>
+            <div class="body">
+                <div class="_1">
+                    <h1>前端效能優化項目</h1>
+                    <ul>
+                        <li><a href="https://github.com/FlyMaple/gulp-note/blob/master/README.md" target="_blank">Request</a></li>
+                        <li>CDN(network)</li>
+                        <li>Add an Expires header(cache)</li>
+                        <li>Gzip(network)</li>
+                        <li onclick="show(6);">CSS Spite(request)</li>
+                        <div class="css_spite">
+                            <button class="prev" onclick="prev();">&lt;</button>
+                            <div class="window"></div>
+                            <button class="next" onclick="next();">&gt;</button>
+                            <button onclick="show(5);" class="block">顯示</button>
+                            <img src="images/Facebook_css_sprites.png" alt="" class="css_spite_img">
+                        </div>
+                        <li>image width / height()</li>
+                        <li>Lazy loading</li>
+                        <li>UX</li>
+                        <li>...</li>
+                    </ul>
+                </div>
+
+                <div class="_1">
+                    <h1>前端效能測試網站</h1>
+                    <ul>
+                        <li><a href="https://tools.pingdom.com/" target="_blank">https://tools.pingdom.com/</a></li>
+                        <li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">https://developers.google.com/speed/pagespeed/insights/</a></li>
+                        <li>...</li>
+                    </ul>
+
+                    <button onclick="show(1);" class="toggleBtn">處理前 request 數量</button>
+                    <img src="images/index 無 cache network.png" alt="" class="_img1">
+
+                    <button onclick="show(2);" class="toggleBtn">效能分析</button>
+                    <img src="images/Website speed test.png" alt="" class="_img2">
+
+                    <button onclick="show(3);" class="toggleBtn">處理後 request 數量</button>
+                    <img src="images/index 無 cahce network (gulp).png" alt="" class="_img3">
+
+                    <button onclick="show(4);" class="toggleBtn">效能分析</button>
+                    <img src="images/Website speed test (gulp).png" alt="" class="_img4">
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</body>
+</html>

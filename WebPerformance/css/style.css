@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/* line 5, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../sass/style.scss */
+a {
+  color: #ce3100;
+  text-decoration: none;
+}
+/* line 11, ../sass/style.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 16, ../sass/style.scss */
+button {
+  font-size: 16px;
+  font-family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+  background: linear-gradient(#bfc9ec, #a0b3f3);
+  border: 1px solid #aeb6c5;
+  color: #fff;
+}
+
+/* line 26, ../sass/style.scss */
+*, *::before, *::after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* line 32, ../sass/style.scss */
+.wrapper .container {
+  padding: 20px;
+}
+/* line 35, ../sass/style.scss */
+.wrapper .container h1 {
+  margin: 10px 0;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+  color: #3c3b3b;
+}
+/* line 44, ../sass/style.scss */
+.wrapper .container img {
+  display: inline-block;
+}
+/* line 47, ../sass/style.scss */
+.wrapper .container ul {
+  padding: 0 0 0 24px;
+  list-style: initial;
+}
+/* line 51, ../sass/style.scss */
+.wrapper .container ul li {
+  padding: 4px 0;
+  margin: 10px 0 0;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+  color: #3a3434;
+}
+/* line 63, ../sass/style.scss */
+.wrapper .container ._1 {
+  margin: 0 0 40px;
+}
+/* line 66, ../sass/style.scss */
+.wrapper .container ._1 .css_spite {
+  display: none;
+}
+/* line 68, ../sass/style.scss */
+.wrapper .container ._1 .css_spite .prev, .wrapper .container ._1 .css_spite .next {
+  top: -16px;
+  font-size: 14px;
+}
+/* line 74, ../sass/style.scss */
+.wrapper .container ._1 .css_spite .window {
+  display: inline-block;
+  margin: 10px 0;
+  width: 48px;
+  height: 48px;
+  background: url(../images/Facebook_css_sprites.png) 304px -102px;
+}
+/* line 81, ../sass/style.scss */
+.wrapper .container ._1 .css_spite .css_spite_img {
+  display: none;
+  margin: 10px 0 0 0;
+}
+/* line 85, ../sass/style.scss */
+.wrapper .container ._1 .css_spite .block {
+  display: block;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.57);
+}
+/* line 91, ../sass/style.scss */
+.wrapper .container ._1 .toggleBtn {
+  display: block;
+  margin: 10px 0 10px;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.57);
+}
+/* line 97, ../sass/style.scss */
+.wrapper .container ._1 ._img1, .wrapper .container ._1 ._img2, .wrapper .container ._1 ._img3, .wrapper .container ._1 ._img4 {
+  display: none;
+}

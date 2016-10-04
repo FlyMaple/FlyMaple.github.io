@@ -1,0 +1,103 @@
+@import 'compass/css3';
+@import 'compass/reset';
+
+body {
+
+}
+
+a {
+    color: #ce3100;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+button {
+    font: {
+        size: 16px;
+        family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+    }
+    background: linear-gradient(#bfc9ec, #a0b3f3);
+    border: 1px solid #aeb6c5;
+    color: #fff;
+}
+
+*, *::before, *::after {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    .container {
+        padding: 20px;
+
+        h1 {
+            margin: 10px 0;
+            font: {
+                size: 40px;
+                weight: 600;
+                family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+            }
+            color: #3c3b3b;
+        }
+        img {
+            display: inline-block;
+        }
+        ul {
+            padding: 0 0 0 24px;
+            list-style: initial;
+            
+            li {
+                padding: 4px 0;
+                margin: 10px 0 0;
+                font: {
+                    size: 22px;
+                    weight: 600;
+                    family: 微軟正黑體, "Microsoft JhengHei", "Apple LiGothic", Arial;
+                }
+                color: #3a3434;
+            }
+        }
+
+        ._1 {
+            margin: 0 0 40px;
+
+            .css_spite {
+                display: none;
+                
+                .prev, .next {
+                    top: -16px;
+                    font: {
+                        size: 14px;
+                    }
+                }
+                .window {
+                    display: inline-block;
+                    margin: 10px 0;
+                    width: 48px;
+                    height: 48px;
+                    background: url(../images/Facebook_css_sprites.png) 304px -102px;
+                }
+                .css_spite_img {
+                    display: none;
+                    margin: 10px 0 0 0;
+                }
+                .block {
+                    display: block;
+                    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.57);
+                }
+            }
+
+            .toggleBtn {
+                display: block;
+                margin: 10px 0 10px;
+                box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.57);
+            }
+
+            ._img1, ._img2, ._img3, ._img4 {
+                display: none;
+            }
+        }
+    }
+}
