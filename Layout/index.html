@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link href="css/font/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://kenwheeler.github.io/slick/slick/slick-theme.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="header">
+                <div class="logo-wrp">
+                    <img src="images/Logo.png" alt="" class="logo" />
+                </div>
+                <div class="menu-wrp">
+                    <ul class="menu">
+                    <li class="active">首頁</li>
+                    <li>作品集</li>
+                    <li>關於我們</li>
+                    <li>連絡我們</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="body">
+                <div class="banner-wrp">
+                    <div class="banner banner1"><h3></h3></div>
+                    <div class="banner banner2"><h3></h3></div>
+                    <div class="banner banner3"><h3></h3></div>
+                </div>
+                <div class="news-wrp">
+                    <div class="news-photo-wrp">
+                        <img src="images/2011-10-24-11-19-59.jpg" alt="" class="news-photo">
+                    </div>
+                    <div class="news-content-wrp">
+                        <div class="news-content">
+                            <h1 class="title">
+                                Lionic
+                            </h1>
+                            <h2 class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam facilis, iure ad amet omnis, dolores sint eaque magni nam neque, repudiandae officia dolorem dolorum enim, reiciendis rerum maiores accusantium laborum?
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="gallery-wrp">
+                    <div class="item">
+                        <div class="photo-wrp">
+                            <img src="images/02-02-201242501QuazaCostaRica.jpg" alt="" class="photo">
+                        </div>
+                        <div class="content-wrp">
+                            <h1 class="title">AAA</h1>
+                            <h2 class="desc">Lorem ipsum dolor sit amet t voluptates, quia dignissimos veritatis maiores tempora debitis.</h2>
+                            <button class="more">more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="photo-wrp">
+                            <img src="images/13-tnw-next-web-conference-event.jpg" alt="" class="photo">
+                        </div>
+                        <div class="content-wrp">
+                            <h1 class="title">AAA</h1>
+                            <h2 class="desc">Lorem ipsum dolor sit amet, coet laborum ipsam quis rerum saepe, corporis suscipit sunt voluptates, quia dignissimos veritatis maiores tempora debitis.</h2>
+                            <button class="more">more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="photo-wrp">
+                            <img src="images/37-hbo-homepage-design-layout.jpg" alt="" class="photo">
+                        </div>
+                        <div class="content-wrp">
+                            <h1 class="title">AAA</h1>
+                            <h2 class="desc">Lorem ipsum dolor sit amlaborum ipsam quis rees, quia dignissimos veritatis maiores tempora debitis.</h2>
+                            <button class="more">more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="photo-wrp">
+                            <img src="images/1528.jpg" alt="" class="photo">
+                        </div>
+                        <div class="content-wrp">
+                            <h1 class="title">AAA</h1>
+                            <h2 class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi culpa tenetur porro nam aspernatur et laborum i tempora debitis.</h2>
+                            <button class="more">more</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="sp"></div>
+            <div class="footer">
+                <div class="about-wrp">
+                    <h1 class="title">關於我們</h1>
+                    <h2 class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In molestiae, tempora nemo voluptate exercitationem, inventore laboriosam porro fuga quae cupiditate odio omnis vel possimus aperiam, facere quia ipsam. Optio, ipsa.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis doloremque minus saepe maxime, nobis voluptatum, fugit quo sunt modi, praesentium rem aspernatur pariatur. Labore odio deleniti laboriosam expedita dolores sunt!</h2>
+                </div>
+                <div class="contact-wrp">
+                    <h1 class="title">關於我們</h1>
+                    <form action="">
+                        <input type="text" class="name" placeholder="姓名">
+                        <input type="text" class="email" placeholder="電子郵件">
+                        <textarea class="comment" placeholder="訊息"></textarea>
+                        <button class="send">送出</button>
+                    </form>
+                </div>
+                <div class="clearfix sp2"></div>
+                <div class="bottom-wrp">
+                    <div class="right">
+                        Copyright © 2016 <span class="highlight">CTF</span>. All rights reserved
+                    </div>
+                    <div class="social">
+                        <span class="socal-text">Social Network:</span>
+                        <img src="images/fb_icon_325x325.png" alt="" class="fb">
+                        <img src="images/518.svg" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.banner-wrp').slick({
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            speed: 1000,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+    </script>
+</body>
+</html>

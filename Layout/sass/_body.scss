@@ -1,0 +1,130 @@
+.wrapper {
+    .container {
+        .body {
+            width: 960px;
+            margin: 0 auto;
+
+            .banner-wrp {
+                margin: 0  0 20px 0;
+
+                .slick-dots {
+                    bottom: 40px;
+                }
+                
+                .banner {
+                    height: 400px;
+                }
+                .banner1 {
+                    background: url(../images/2-yves-saint-laurents-studio-mirror-and-secrets-jeromine-savignon1.jpg) 0 / cover;
+                }
+                .banner2 {
+                    background: url(../images/home-graphic-design-graphic-design-studio-our-work-is-built-around-the-on-home-design-popular.jpg) 0 / cover;
+                }
+                .banner3 {
+                    background: url(../images/57363063249c9.image.jpg) 0 / cover;
+                }
+            }
+            .news-wrp {
+                padding: 0 0 20px 0;
+                border-bottom: 1px solid #1b1b1b;
+
+                .news-photo-wrp {
+                    float: left;
+
+                    .news-photo {
+                        width: 300px;
+                    }
+                }
+                .news-content-wrp {
+                    padding: 40px 0 0 310px;
+
+                    .news-content {
+                        .title {
+                            margin: 0 0 10px;
+                            font: {
+                                size: 22px;
+                                weight: 600;
+                            }
+                            color: #e4e4e4;
+                        }
+                        .content {
+                            font: {
+                                size: 14px;
+                            }
+                            line-height: 20px;
+                            color: #9c9c9c;
+                        }
+                    }
+                }
+            }
+            .gallery-wrp {
+                .item {
+                    float: left;
+                    width: 25%;
+                    padding: 10px 0;
+                    &:nth-child(1) {
+                        padding-right: 10px;
+                    }
+                    &:nth-child(2) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+                    &:nth-child(3) {
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+                    &:nth-child(4) {
+                        padding-left: 10px;
+                    }
+
+                    .photo-wrp {
+                        font-size: 0;
+                        z-index: 99;
+                        @include box-shadow(0 3px 5px 0 #000);
+
+                        .photo {
+                            width: 100%;
+                            height: 130px;
+                            cursor: pointer;
+                        }
+                    }
+                    .content-wrp {
+                        padding: 20px 30px 10px 30px;
+                        background: url(../images/wood-002642-gray-black.jpg) 0 / cover;
+
+                        .title {
+                            margin: 0 0 10px 0;
+                            font: {
+                                size: 16px;
+                                weight: 600;
+                            }
+                            color: #e4e4e4;
+                        }
+                        .desc {
+                            height: 120px;
+                            margin: 0 0 10px 0;
+                            font: {
+                                size: 14px;
+                            }
+                            line-height: 20px;
+                            color: #9c9c9c;
+                        }
+                        .more {
+                            padding: 8px 18px;
+                            color: #fff;
+                            border: 0;
+                            cursor: pointer;
+                            @include background(linear-gradient(135deg, #00c518 25%,#477A13 100%));
+                            @include border-radius(4px);
+                            @include box-shadow(inset 0px 0px 0px 2px #0d2906, 0px 3px 3px 1px #000);
+                        }
+                    }
+                }
+            }
+        }
+        .sp {
+            margin: 0 0 20px 0;
+            border-bottom: 1px dashed #353535;
+        }
+    }
+}

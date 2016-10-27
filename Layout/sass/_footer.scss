@@ -1,0 +1,113 @@
+.wrapper {
+    .container {
+        .footer {
+            width: 960px;
+            margin: 0 auto;
+
+            .title {
+                margin: 0 0 10px 0;
+                font: {
+                    size: 22px;
+                    weight: 600;
+                }
+                color: #e4e4e4;
+            }
+            .about-wrp {
+                float: left;
+                width: 50%;
+                padding: 0 20px 0 0;
+
+                .desc {
+                    height: 120px;
+                    margin: 0 0 10px 0;
+                    padding: 0 0 0 2px;
+                    font: {
+                        size: 16px;
+                    }
+                    line-height: 22px;
+                    color: #9c9c9c;
+                }
+            }
+            .contact-wrp {
+                float: left;
+                width: 50%;
+                padding: 0 0 0 10px;
+
+                input, textarea {
+                    display: block;
+                    margin: 0 0 15px 0;
+                    padding: 4px 8px;
+                    width: 100%;
+                    height: 34px;
+                    font: {
+                        weight: 600;
+                    }
+                    background: #1d1d21;
+                    color: #cecece;
+                    border: 0;
+                    @include border-radius(2px);
+                    @include box-shadow(0 0 0 2px #0b0c10, 0 0 0 3px #282b40);
+                }
+                .comment {
+                    resize: none;
+                    height: 100px;
+                }
+                .send {
+                    float: right;
+                    padding: 8px 18px;
+                    color: #fff;
+                    border: 0;
+                    cursor: pointer;
+                    @include background(linear-gradient(135deg, #00c518 25%,#477A13 100%));
+                    @include border-radius(4px);
+                    @include box-shadow(inset 0px 0px 0px 2px #0d2906, 0px 3px 3px 1px #000);
+                }
+            }
+            .sp2 {
+                padding: 0 0 10px 0;
+                border-bottom: 1px solid #1b1b1b;
+            }
+            .bottom-wrp {
+                padding: 10px 0 0 0;
+                font: {
+                    size: 14px;
+                }
+                color: #e4e4e4;
+
+                .right {
+                    float: left;
+                    height: 32px;
+                    line-height: 32px;
+
+                    .highlight {
+                        color: #68da56;
+                        font: {
+                            weight: 600;
+                        }
+                    }
+                }
+                .social {
+                    float: right;
+
+                    .socal-text {
+                        display: inline-block;
+                        margin: 0 10px 0 0;
+                        font: {
+                            size: 14px;
+                        }
+                        line-height: 32px;
+                        color: #e4e4e4;
+                        vertical-align: top;
+                    }
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        margin: 0 8px 0 0;
+                        cursor: pointer;
+                        @include border-radius(4px);
+                    }
+                }
+            }
+        }
+    }
+}
