@@ -1,0 +1,40 @@
+.wrapper {
+    .container {
+        .footer {
+            padding: 20px 0;
+            background-color: #101010;
+
+            .wrp {
+                width: 1080px;
+                margin: 0 auto;
+
+                .menu {
+                    font: {
+                        size: 14px;
+                        weight: 400;
+                    }
+                    color: #bfbfbf;
+                    
+                    li {
+                        float: left;
+                        padding: 10px 20px;
+                    }
+                }
+                .right {
+                    padding: 20px;
+                    font: {
+                        size: 12px;
+                        weight: 400;
+                    }
+                    color: #fff;
+                }
+                .logo-wrp {
+                    position: absolute;
+                    right: 20px;
+                    top: 10px;
+                    opacity: .3;
+                }
+            }
+        }
+    }
+}

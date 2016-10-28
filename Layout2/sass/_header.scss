@@ -1,0 +1,74 @@
+.wrapper {
+    .container {
+        .header {
+            width: 1080px;
+            margin: 0 auto;
+            padding: 30px 0 10px;
+
+            .logo-wrp {
+                float: left;
+
+                .logo {
+                    width: 200px;
+                }
+            }
+            .menu-wrp {
+                float: right;
+                
+                .menu {
+                    float: left;
+                    margin: 40px 100px 0 0;
+
+                    li {
+                        float: left;
+                        padding: 10px 20px;
+                        font: {
+                            size: 14px;
+                        }
+                        color: #dcdcdc;
+                    }
+                }
+            }
+            .loggin-wrp {
+                position: absolute;
+                top: 0px;
+                right: 100px;
+                
+                .loggin {
+                    li {
+                        float: left;
+                        padding: 0 10px;
+                        font: {
+                            size: 12px;
+                        }
+                        line-height: 34px;
+                        &:nth-child(1) {
+                            background: #fff;
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                top: 5px;
+                                width: 20px;
+                                height: 20px;
+                                margin: 0 10px 0 0;
+                                background: url(../images/lock1.png) 0 / cover;
+                            }
+                        }
+                        &:nth-child(2) {
+                            background: #5a5a5a;
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                top: 5px;
+                                width: 20px;
+                                height: 20px;
+                                margin: 0 10px 0 0;
+                                background: url(../images/lock2.png) 0 / cover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
