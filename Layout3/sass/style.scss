@@ -1,0 +1,33 @@
+@import 'compass/css3';
+
+@import 'reset';
+@import 'header';
+@import 'body';
+@import 'footer';
+
+body {
+    background: #000;
+}
+
+* {
+    font-family: 'Roboto', Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, sans-serif;
+}
+
+
+*,
+*::before,
+*::after {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    .container {
+        width: 1600px;
+        margin: 0 auto;
+    }
+}
+
+.clearfix {
+    clear: both;
+}

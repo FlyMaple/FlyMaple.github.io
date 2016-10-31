@@ -1,0 +1,94 @@
+.wrapper {
+    .container {
+        .header {
+            .top-nav {
+                position: absolute;
+                top: 11px;
+                right: 380px;
+                z-index: 99;
+
+                .nav {
+                    float: right;
+
+                    li {
+                        float: left;
+                        padding: 0 20px;
+                        font: {
+                            size: 12px;
+                            weight: 400;
+                        }
+                        color: #d2d2d2;
+                        border-right: 1px solid #d2d2d2;
+                        cursor: pointer;
+                        &:hover {
+                            color: #ff6634;
+                        }
+                        &:last-of-type {
+                            border-right: 0;
+                        }
+                    }
+                }
+            }
+            .logo-text {
+                position: absolute;
+                top: 50px;
+                left: 50%;
+                font: {
+                    size: 36px;
+                    weight: 600;
+                }
+                color: #fff;
+                z-index: 99;
+                @include transform(translate(-58%, 0));
+            }
+            .menu-wrp {
+                position: absolute;
+                width: 850px;
+                top: 60px;
+                left: 50%;
+                z-index: 99;
+                @include transform(translate(-50%, 0));
+                
+                .menu {
+                    li {
+                        float: left;
+                        padding: 0 20px;
+                        font: {
+                            size: 18px;
+                            weight: 600;
+                        }
+                        color: #d2d2d2;
+                        cursor: pointer;
+                        &:nth-child(n+4) {
+                            float: right;
+                        }
+                        &:hover {
+                            color: #ff6634;
+                        }
+                    }
+                }
+            }
+            .banner-wrp {
+                height: 625px;
+                background: url(../images/banner-bg2.jpg);
+
+                .bnr-btn {
+                    position: absolute;
+                    bottom: 190px;
+                    right: 602px;
+                    padding: 6px 10px 8px;
+                    font: {
+                        size: 14px;
+                        weight: 400;
+                    }
+                    color: #fff;
+                    border: 1px solid #c31c55;
+                    cursor: pointer;
+                    @include border-radius(4px);
+                    @include background(linear-gradient(to bottom, #ff518c, #ea0956));
+                    @include box-shadow(inset 0 -3px 0 0 #79032b);
+                }
+            }
+        }
+    }
+}

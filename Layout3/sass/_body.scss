@@ -1,0 +1,304 @@
+.wrapper {
+    .container {
+        .body {
+            background: #2a2a2a;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -60px;
+                left: 0;
+                border-top: 60px solid #2a2a2a;
+                border-left: 800px solid transparent;
+                border-right: 800px solid transparent;
+                z-index: 99;
+            }
+
+            .service-wrp {
+                width: 1200px;
+                margin: 0 auto;
+
+                .title-wrp {
+                    padding: 40px 0 0 40px;
+                    height: 100px;
+                    font: {
+                        size: 32px;
+                        weight: 400;
+                    }
+                    color: #fff;
+                    background-color: #ff6634;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-top: 40px solid #2a2a2a;
+                        border-left: 600px solid transparent;
+                        border-right: 600px solid transparent;
+                        z-index: 99;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -15px;
+                        left: 50px;
+                        border-top: 15px solid #ff6634;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        z-index: 99;
+                    }
+
+                    .btn-group {
+                        position: absolute;
+                        right: 40px;
+                        top: 40px;
+
+                        .left, .right {
+                            width: 40px;
+                            height: 40px;
+                            border: 0;
+                            cursor: pointer;
+                        }
+                        .left {
+                            background: url(../images/left.png) 16px no-repeat;
+                        }
+                        .right {
+                            background: url(../images/right.png) 16px no-repeat;
+                        }
+                    }
+                }
+                .service-cnt {
+                    .services {
+                        background: #0e0e0e;
+
+                        li {
+                            float: left;
+                            width: 25%;
+                            padding: 30px 40px 20px;
+
+                            .title {
+                                margin: 0 0 10px;
+                                font: {
+                                    size: 18px;
+                                    weight: 600;
+                                }
+                                color: #fff;
+                            }
+                            .content {
+                                .pre-icon {
+                                    float: left;
+                                    margin: 0 4px 4px 0;
+                                }
+                                .desc {
+                                    margin: 0 0 10px 0;
+                                    font: {
+                                        size: 14px;
+                                        weight: 400;
+                                    }
+                                    line-height: 18px;
+                                    color: #bbb;
+                                }
+                                .more {
+                                    padding: 6px 10px 8px;
+                                    font: {
+                                        size: 14px;
+                                        weight: 400;
+                                    }
+                                    color: #fff;
+                                    border: 1px solid #3e3c3c;
+                                    cursor: pointer;
+                                    @include border-radius(4px);
+                                    @include background(linear-gradient(to bottom, #5f5f5f, #333));
+                                    @include box-shadow(inset 0 -3px 0 0 #191919);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .m-content {
+                padding: 20px 40px;
+                background: #fff;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -60px;
+                    left: 0;
+                    border-top: 60px solid #ffffff;
+                    border-left: 600px solid transparent;
+                    border-right: 600px solid transparent;
+                    z-index: 99;
+                }
+
+                & > .title {
+                    margin: 0 0 20px 0;
+                    font: {
+                        size: 22px;
+                        weight: 600;
+                    }
+                }
+                .photo-wrp {
+                    .photos {
+                        li {
+                            float: left;
+                            width: 25%;
+
+                            img {
+
+                            }
+                        }
+                    }
+                }
+                .desc {
+                    width: 80%;
+                    margin: 80px auto;
+                    font: {
+                        size: 32px;
+                        weight: 600;
+                    }
+                    line-height: 40px;
+                    color: #2a2a2a;
+                }
+                .infos-wrp {
+                    .infos {
+                        & > li {
+                            float: left;
+                            width: 25%;
+                            &:nth-child(1) {
+                                padding: 0 30px 0 0;
+                            }
+                            &:nth-child(2) {
+                                padding: 0 15px;
+                            }
+                            &:nth-child(3) {
+                                padding: 0 15px;
+                            }
+                            &:nth-child(4) {
+                                padding: 0 0 0 30px;
+                            }
+
+                            .i-title {
+                                margin: 0 0 10px;
+                                font: {
+                                    size: 18px;
+                                    weight: 600;
+                                }
+                                line-height: 24px;
+
+                                .high {
+                                    color: #ff6634;
+                                }
+                            }
+                            .i-content {
+                                margin: 0 0 20px;
+                            }
+                            .wardrobe {
+                                padding: 6px 10px 8px;
+                                font: {
+                                    size: 14px;
+                                    weight: 400;
+                                }
+                                color: #fff;
+                                border: 1px solid #fd8c68;
+                                cursor: pointer;
+                                @include border-radius(4px);
+                                @include background(linear-gradient(to bottom, #ffa081, #ff6634));
+                                @include box-shadow(inset 0 -3px 0 0 #e84914);
+                            }
+                        }
+                        .go {
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            width: 50px;
+                            height: 50px;
+                            border: 0;
+                            cursor: pointer;
+                            background: url(../images/go.png) 10px no-repeat;
+                        }
+                    }
+                }
+                .walls {
+                    li {
+                        float: left;
+                        width: 59px;
+                        height: 59px;
+                        padding: 2px;
+                        cursor: pointer;
+                        &.active {
+                            padding: 4px;
+                            background: #ff6634;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+                .say-wrp {
+                    padding: 20px 40px;
+                    @include box-shadow(0 0 2px 2px rgba(0, 0, 0, 0.08));
+                    &::before {
+                        content:  '';
+                        position: absolute;
+                        top: 16px;
+                        left: -11px;
+                        border-right: 10px solid rgba(2, 2, 2, 0.09);
+                        border-top: 12px solid transparent;
+                        border-bottom: 12px solid transparent;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 18px;
+                        left: -10px;
+                        border-right: 10px solid #ffffff;
+                        border-top: 10px solid transparent;
+                        border-bottom: 10px solid transparent;
+                    }
+
+                    .name {
+                        padding: 0 0 10px 0;
+                        font: {
+                            size: 18px;
+                        }
+                        color: #ff6634;
+                        border-bottom: 1px solid #f3f3f3;
+                    }
+                    .say-content {
+                        padding: 10px 0 0 0;
+                    }
+                }
+                .something {
+                    font: {
+                        size: 48px;
+                        weight: 600;
+                    }
+                }
+            }
+
+            .galley-wrp {
+                padding: 110px 0 0 0;
+
+                li {
+                    float: left;
+                    width: 14.28%;
+                    cursor: pointer;
+                    &:hover {
+                        img {
+                            opacity: 1;
+                            @include transition(all .2s linear);
+                            @include transform(scale(1.5));
+                        }
+                    }
+
+                    img {
+                        display: block;
+                        width: 120px;
+                        margin: 0 auto;
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+}
