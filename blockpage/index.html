@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Block Page</title>
+    <link rel="stylesheet" href="css/font/css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+    <div class="header">
+        <a href="http://www.lionic.com/">
+            <img src="img/logo_new2-60.png" alt="Lionic Corp" class="logo">
+        </a>
+    </div class="header">
+    <div class="wrapper">
+        <div class="desc">This page has been blocked, please check your parental control router.</div>
+        <div id="url" class="url animated shake">
+            www.cnn.com/
+        </div>
+        <div class="content animated fadeIn">
+            <div id="short_desc" class="short_desc animated fadeIn">
+                
+            </div>
+            <div id="long_desc" class="long_desc animated fadeIn">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var uf_map = {
+            "10000": {
+                "short_desc": "Pornography",
+                "long_desc": "Pornography and sexual contents"
+            },
+            "11000": {
+                "short_desc": "Nudity and Potentially Adult Content",
+                "long_desc": "Nude or seminude depictions of the human body, and other adult contents"
+            },
+            "12000": {
+                "short_desc": "Gambling and Lottery",
+                "long_desc": "Gambling or Lottery websites"
+            },
+            "13000": {
+                "short_desc": "Alcohol and Tobacco",
+                "long_desc": "Alcoholic beverages, tobacco products, and associated paraphernalia"
+            },
+            "14000": {
+                "short_desc": "Abused Drug",
+                "long_desc": "Illegal, illicit, abused drugs, and controlled drug"
+            },
+            "15000": {
+                "short_desc": "Ultraism",
+                "long_desc": "Ultraism or ultraistic actions"
+            },
+            "16000": {
+                "short_desc": "Abortion",
+                "long_desc": "Abortion topics and information"
+            },
+            "17000": {
+                "short_desc": "Criminal Actions",
+                "long_desc": "Criminal or other illegal actions"
+            },
+            "18000": {
+                "short_desc": "Violence and Bloody",
+                "long_desc": "Violent and bloody actions or contents"
+            },
+            "19000": {
+                "short_desc": "Gross",
+                "long_desc": "Gross and barbarous contents"
+            },
+            "20000": {
+                "short_desc": "Games",
+                "long_desc": "Game playing or downloading, computer games, video games, or online games"
+            },
+            "21000": {
+                "short_desc": "Instant Messaging",
+                "long_desc": "Instant messenger websites or APPs"
+            },
+            "22000": {
+                "short_desc": "Dating",
+                "long_desc": "Dating websites or APPs"
+            },
+            "23000": {
+                "short_desc": "Social Network",
+                "long_desc": "Social networking websites or APPs"
+            },
+            "24000": {
+                "short_desc": "Web Chat Room",
+                "long_desc": "Online chatting websites"
+            },
+            "25000": {
+                "short_desc": "Shopping and Auction",
+                "long_desc": "Online shopping, coupons, auction, used store, or price comparison websites"
+            },
+            "26000": {
+                "short_desc": "Music",
+                "long_desc": "Music sales, distribution, streaming, or information on musical groups"
+            },
+            "27000": {
+                "short_desc": "Comics and Anime",
+                "long_desc": "Comics, cartoons, and anime"
+            },
+            "28000": {
+                "short_desc": "Entertainment and Arts",
+                "long_desc": "Entertainment, arts, and culture information"
+            },
+            "29000": {
+                "short_desc": "Streaming and VoIP",
+                "long_desc": "Streaming media, online radio stations, and VoIP applications"
+            },
+            "30000": {
+                "short_desc": "Peer to Peer",
+                "long_desc": "Peer to peer clients and access"
+            },
+            "31000": {
+                "short_desc": "Multimedia Download",
+                "long_desc": "Icons, wallpapers, or other multimedia download sites"
+            },
+            "32000": {
+                "short_desc": "Online Sharing and Storage",
+                "long_desc": "Online sharing and storage, such as cloud storage, albums, and online picture sharing"
+            },
+            "33000": {
+                "short_desc": "Shareware and Freeware",
+                "long_desc": "Shareware or freeware download sites"
+            },
+            "34000": {
+                "short_desc": "Web Mail",
+                "long_desc": "Sites offering web based email and email clients"
+            },
+            "35000": {
+                "short_desc": "System and Antivirus Update",
+                "long_desc": "OS and antivirus software updating"
+            },
+            "36000": {
+                "short_desc": "Content Delivery Network",
+                "long_desc": "Delivery of content and data, including files, images, and video"
+            },
+            "37000": {
+                "short_desc": "Web Service API",
+                "long_desc": "API of web services"
+            },
+            "38000": {
+                "short_desc": "Network Service",
+                "long_desc": "Common network protocols, such as DNS, OCSP, and RTMP"
+            },
+            "39000": {
+                "short_desc": "Remote Control",
+                "long_desc": "Remote control technology"
+            },
+            "40000": {
+                "short_desc": "Proxy and Anonymizers",
+                "long_desc": "Web proxy and anonymizers service"
+            },
+            "41000": {
+                "short_desc": "Phishing and Fraud",
+                "long_desc": "Phishing and fraud websites"
+            },
+            "42000": {
+                "short_desc": "Malware",
+                "long_desc": "Malicious drive-by-download, malware, virus, and worms"
+            },
+            "43000": {
+                "short_desc": "BlackHat SEO Sites",
+                "long_desc": "BlackHat SEO websites"
+            },
+            "44000": {
+                "short_desc": "Malicious APPs",
+                "long_desc": "Malicious APPs"
+            },
+            "45000": {
+                "short_desc": "Advertisments and Pop-Ups",
+                "long_desc": "Advertising, popup ads, and advertising services"
+            },
+            "46000": {
+                "short_desc": "Portals and Search Engines",
+                "long_desc": "Web portals and search engine"
+            },
+            "47000": {
+                "short_desc": "Transportation",
+                "long_desc": "Transportation, logistics, warehousing and storage"
+            },
+            "48000": {
+                "short_desc": "Real Estate",
+                "long_desc": "Information on renting, buying, or selling real estate and properties"
+            },
+            "49000": {
+                "short_desc": "Finance and Insurance",
+                "long_desc": "Finance and insurance services"
+            },
+            "50000": {
+                "short_desc": "Computers and Information Technology",
+                "long_desc": "General computer and information technology websites"
+            },
+            "51000": {
+                "short_desc": "Business and Service",
+                "long_desc": "Business corporations and service"
+            },
+            "52000": {
+                "short_desc": "Reference and Research",
+                "long_desc": "Encyclopedia, online dictionary, translator, e-book, and maps"
+            },
+            "53000": {
+                "short_desc": "Education",
+                "long_desc": "Education related institutions or organizations"
+            },
+            "54000": {
+                "short_desc": "Military and Weapons",
+                "long_desc": "Military organizations or weapons related information"
+            },
+            "55000": {
+                "short_desc": "Politics and Government",
+                "long_desc": "Politics and government websites"
+            },
+            "56000": {
+                "short_desc": "Associations and Charitable Organizations",
+                "long_desc": "Associations, non-profits organizations, charitable organizations, and NGOs"
+            },
+            "57000": {
+                "short_desc": "Travel",
+                "long_desc": "Travel agency, and travel information, such as flight schedule, leisure information"
+            },
+            "58000": {
+                "short_desc": "Food and Drink",
+                "long_desc": "Food and drink associated information"
+            },
+            "59000": {
+                "short_desc": "Home and Garden",
+                "long_desc": "Home issues and products, including maintenance, home safety, decor, cooking, gardening, home electronics, design, etc"
+            },
+            "60000": {
+                "short_desc": "Health and Medicine",
+                "long_desc": "Health and medical information"
+            },
+            "61000": {
+                "short_desc": "Religion and Numerology",
+                "long_desc": "Religion organizations and non-traditional religion organizations or numerology"
+            },
+            "62000": {
+                "short_desc": "Sports",
+                "long_desc": "Sports and associated goods sales"
+            },
+            "63000": {
+                "short_desc": "Automobile and Vehicles",
+                "long_desc": "Car reviews, vehicle purchasing or sales information"
+            },
+            "64000": {
+                "short_desc": "Job Search",
+                "long_desc": "Job search information"
+            },
+            "65000": {
+                "short_desc": "News and Media",
+                "long_desc": "Newspapers online, headline news sites, newswire services, personalized news services, and weather sites"
+            },
+            "66000": {
+                "short_desc": "Forums and Newsgroups",
+                "long_desc": "Newsgroup, forums, and bulletin boards"
+            },
+            "67000": {
+                "short_desc": "Blogs and Personal Sites",
+                "long_desc": "Blogs and personal websites"
+            },
+            "68000": {
+                "short_desc": "Unrated",
+                "long_desc": "Unrated websites"
+            },
+            "69000": {
+                "short_desc": "Parking Domains",
+                "long_desc": "Parked domains, which host limited content or click-through ads"
+            },
+            "70000": {
+                "short_desc": "Dead Sites",
+                "long_desc": "Dead websites or do not respond to http queries"
+            },
+            "71000": {
+                "short_desc": "Private IP Addresses",
+                "long_desc": "Private IP address"
+            }
+        };
+
+        function get_cate(id){
+            if (id in uf_map)
+                return uf_map[id];
+            else
+                return { "short_desc": "Misc", "long_desc": "" };
+        }
+
+        function get_params_by_Name(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+
+            if (!results) return null;
+            if (!results[2]) return '';
+
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var url = get_params_by_Name('url');
+        var c_id = get_params_by_Name('c');
+
+        var cate = get_cate(c_id);
+        var short_desc = cate.short_desc;
+        var long_desc = cate.long_desc;
+
+        document.getElementById('url').innerText = url;
+        document.getElementById('short_desc').innerText = cate.short_desc;
+        document.getElementById('long_desc').innerText = cate.long_desc;
+
+        if (long_desc === '') {
+            document.getElementById('short_desc').setAttribute('class', 'long_desc mgnbtm0');
+        }
+    </script>
+</body>
+</html>
