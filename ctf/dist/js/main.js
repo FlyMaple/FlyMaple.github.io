@@ -1,5 +1,5 @@
 ; (function (jQuery, window) {
-    jQuery(window).load(function () {
+    jQuery(function () {
         window.sr = ScrollReveal();
 
         jQuery('body').scrollspy({ target: '.nav-nav' });
@@ -30,12 +30,15 @@
         jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
         
-        var qsRegex;
-        var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item',
-            filter: function() {
-              return qsRegex ? $(this).text().match( qsRegex ) : true;
-            }	
+        
+        document.addEventListener('load', function () {
+            var qsRegex;
+            var $grid = $('.grid').isotope({
+                itemSelector: '.grid-item',
+                filter: function() {
+                  return qsRegex ? $(this).text().match( qsRegex ) : true;
+                }	
+            });
         });
         // $grid.isotope('layout');
         
