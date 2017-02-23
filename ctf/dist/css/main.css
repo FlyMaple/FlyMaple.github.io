@@ -337,7 +337,6 @@ footer .row > div {
 #banner {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 990px;
   background: url(../images/banner.jpg) 0/cover;
   background-attachment: fixed;
@@ -359,7 +358,6 @@ footer .row > div {
 #intro {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 990px;
   background: url(../images/-downloadfiles-wallpapers-1920_1080-snow_mountains_windows_10_14072.jpg) 0/cover;
   background-attachment: fixed;
@@ -491,7 +489,6 @@ footer .row > div {
 #service {
   display: flex;
   align-items: center;
-  justify-content: center;
   background: url(../images/slide-1.jpg) 0/cover;
   background-attachment: fixed;
   height: 990px;
@@ -1017,6 +1014,9 @@ footer .row > div {
     padding-bottom: 5%;
   }
 }
+#contact textarea {
+  height: 200px;
+}
 
 @media all and (max-width: 500px) {
   #submit {
@@ -1029,6 +1029,7 @@ footer .row > div {
 }
 
 body {
+  position: relative;
   overflow-x: hidden;
 }
 
