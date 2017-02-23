@@ -27,6 +27,8 @@
             }
         });
 
+        jQuery('#CapCode').on('click', Captcha.CreateCaptcha);
+
         var $grid = jQuery('.grid').isotope({
             // options...
             itemSelector: '.grid-item'
