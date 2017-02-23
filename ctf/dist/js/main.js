@@ -31,7 +31,7 @@
 
         var qsRegex;
         var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item'
+            itemSelector: '.grid-item',
             filter: function() {
               return qsRegex ? $(this).text().match( qsRegex ) : true;
             }	
