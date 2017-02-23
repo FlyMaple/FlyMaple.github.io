@@ -27,7 +27,7 @@
             }
         });
 
-        jQuery('#CapCode').on('click', Captcha.CreateCaptcha);
+        jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
         var $grid = jQuery('.grid').isotope({
             // options...
