@@ -84,6 +84,7 @@
 	}
 
 	window.Captcha = {
-		CheckCaptcha: CheckCaptcha
+		CheckCaptcha: CheckCaptcha,
+		CreateCaptcha: CreateCaptcha
 	};
 })($, window);
