@@ -28,13 +28,13 @@ jQuery(function () {
 
     jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
-    var qsRegex;
-    var $grid = $('.grid').isotope({
-        itemSelector: '.grid-item',
-        filter: function () {
-            return qsRegex ? $(this).text().match(qsRegex) : true;
-        }
-    });
+//     var qsRegex;
+//     var $grid = $('.grid').isotope({
+//         itemSelector: '.grid-item',
+//         filter: function () {
+//             return qsRegex ? $(this).text().match(qsRegex) : true;
+//         }
+//     });
     // $grid.isotope('layout');
 
 
