@@ -1,7 +1,7 @@
 ; (function (jQuery, window) {
-    window.sr = ScrollReveal();
+    jQuery(function () {
+        window.sr = ScrollReveal();
 
-    jQuery(document).ready(function () {
         jQuery('body').scrollspy({ target: '.nav-nav' });
 
         jQuery('a.page-scroll').bind('click', function (event) {
@@ -29,16 +29,15 @@
 
         jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
-        jQuery(function () {
-            var qsRegex;
-            var $grid = $('.grid').isotope({
-                itemSelector: '.grid-item',
-                filter: function() {
-                  return qsRegex ? $(this).text().match( qsRegex ) : true;
-                }	
-            });
-            // $grid.isotope('layout');
-        })
+        
+        var qsRegex;
+        var $grid = $('.grid').isotope({
+            itemSelector: '.grid-item',
+            filter: function() {
+              return qsRegex ? $(this).text().match( qsRegex ) : true;
+            }	
+        });
+        // $grid.isotope('layout');
         
         
 
@@ -79,5 +78,5 @@
             jQuery('#nav .nav-share').toggleClass('active', false);
             jQuery('#nav .nav-share ul').toggleClass('active', false);
         });
-    });
+    })
 })($, window);
