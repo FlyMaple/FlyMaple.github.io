@@ -33,6 +33,8 @@
             // options...
             itemSelector: '.grid-item'
         });
+        
+        $grid.isotope('layout')
 
         // $grid.isotope({ filter: '.design' });
 
