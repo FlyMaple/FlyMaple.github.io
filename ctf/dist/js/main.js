@@ -36,8 +36,10 @@
               return qsRegex ? $(this).text().match( qsRegex ) : true;
             }	
         });
+        $grid.on( 'layoutComplete', function( event, laidOutItems ) {
+            $grid.isotope('layout');
+        } );
         
-        $grid.isotope('layout');
 
         // $grid.isotope({ filter: '.design' });
 
