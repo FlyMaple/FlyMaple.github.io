@@ -19,7 +19,7 @@
             jQuery('ul', this).toggleClass('active');
         });
         
-        sr.reveal('#gallery .item', { duration: 3000 }, 50);
+        // sr.reveal('#gallery .item', { duration: 3000 }, 50);
 
         jQuery('#submit').on('click', function () {
             if (Captcha.CheckCaptcha()) {

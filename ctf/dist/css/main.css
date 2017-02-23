@@ -1002,7 +1002,7 @@ footer .row > div {
   font-weight: 400;
 }
 #contact .panel {
-  background: initial;
+  background: transparent;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 2%;
