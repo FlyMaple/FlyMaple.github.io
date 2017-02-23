@@ -29,15 +29,15 @@
 
         jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
-        var $grid = jQuery('.grid').isotope({
-            // options...
+        var qsRegex;
+        var $grid = $('.grid').isotope({
             itemSelector: '.grid-item'
+            filter: function() {
+              return qsRegex ? $(this).text().match( qsRegex ) : true;
+            }	
         });
         
-        
-        $grid.one( 'arrangeComplete', function() {
-          $grid.isotope('layout');
-        });
+        $grid.isotope('layout');
 
         // $grid.isotope({ filter: '.design' });
 
