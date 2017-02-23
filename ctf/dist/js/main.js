@@ -29,16 +29,17 @@
 
         jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
-        var qsRegex;
-        var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item',
-            filter: function() {
-              return qsRegex ? $(this).text().match( qsRegex ) : true;
-            }	
-        });
-        $grid.on( 'layoutComplete', function( event, laidOutItems ) {
-            $grid.isotope('layout');
-        } );
+        jQuery(function () {
+            var qsRegex;
+            var $grid = $('.grid').isotope({
+                itemSelector: '.grid-item',
+                filter: function() {
+                  return qsRegex ? $(this).text().match( qsRegex ) : true;
+                }	
+            });
+            // $grid.isotope('layout');
+        })
+        
         
 
         // $grid.isotope({ filter: '.design' });
