@@ -381,7 +381,7 @@ footer .row > div {
     margin-right: 40px;
   }
 }
-@media all and (max-width: 1280px) {
+@media all and (max-width: 1024px) {
   #intro .pull-md-left {
     margin-left: -200px;
   }
@@ -539,6 +539,11 @@ footer .row > div {
   #service .services-wrp > div {
     margin-top: 150px;
     margin-right: 50px;
+  }
+}
+@media all and (max-width: 1280px) {
+  #service .services-wrp > div {
+    margin-top: 250px;
   }
 }
 @media all and (max-width: 767px) {
