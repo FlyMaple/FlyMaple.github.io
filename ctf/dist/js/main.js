@@ -34,7 +34,10 @@
             itemSelector: '.grid-item'
         });
         
-        $grid.isotope('layout')
+        
+        $grid.one( 'arrangeComplete', function() {
+          $grid.isotope('layout');
+        });
 
         // $grid.isotope({ filter: '.design' });
 
