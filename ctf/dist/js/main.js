@@ -1,5 +1,5 @@
 ; (function (jQuery, window) {
-    jQuery(function () {
+    jQuery(window).load(function () {
         window.sr = ScrollReveal();
 
         jQuery('body').scrollspy({ target: '.nav-nav' });
