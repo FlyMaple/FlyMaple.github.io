@@ -28,16 +28,17 @@ jQuery(function () {
 
     jQuery('#CaptchaImageCode').on('click', Captcha.CreateCaptcha);
 
-//     var qsRegex;
-//     var $grid = $('.grid').isotope({
-//         itemSelector: '.grid-item',
-//         filter: function () {
-//             return qsRegex ? $(this).text().match(qsRegex) : true;
-//         }
-//     });
-    // $grid.isotope('layout');
+    var qsRegex;
+    var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        filter: function () {
+            return qsRegex ? $(this).text().match(qsRegex) : true;
+        }
+    });
 
-
+    $(window).on('load', function () {
+        $grid.isotope('layout');
+    });
 
     // $grid.isotope({ filter: '.design' });
 
