@@ -1,0 +1,455 @@
+@charset "UTF-8";
+#app {
+  position: relative;
+  left: -200px;
+  height: 100%;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+#app.openSongList {
+  left: 0;
+}
+#app.openConfigPanel {
+  left: -400px;
+}
+
+#songListPanel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  bottom: 0;
+  background-color: rgba(255, 170, 170, 0.62);
+  z-index: 1002;
+}
+#songListPanel > ul {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+#songListPanel > ul > li {
+  position: relative;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  line-height: 24px;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -moz-box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+  -webkit-box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+  box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+}
+#songListPanel > ul > li.active, #songListPanel > ul > li:active {
+  background: #ff8484;
+}
+#songListPanel > ul > li .title {
+  font-size: .9rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  color: #fff;
+}
+#songListPanel > ul > li .singer {
+  font-size: .2rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  color: #4c4c4c;
+}
+#songListPanel > ul > li .total {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: .5rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  color: #fff;
+}
+
+#configPanel {
+  position: absolute;
+  top: 0;
+  right: -400px;
+  width: 200px;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.62);
+  z-index: 1002;
+  -moz-box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.33);
+  box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.33);
+}
+#configPanel > ul {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+#configPanel > ul > li {
+  position: relative;
+  padding: 5px 10px 5px 20px;
+  margin-bottom: 10px;
+  line-height: 24px;
+  font-size: .9rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -moz-box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+  -webkit-box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+  box-shadow: -11px 4px 20px rgba(255, 255, 255, 0.28);
+}
+#configPanel > ul > li:active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#mainPanel {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1002;
+  -moz-box-shadow: -7px 0px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -7px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -7px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#topNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  background-color: rgba(255, 255, 255, 0.19);
+  -moz-box-shadow: inset 0px -5px 10px 0px rgba(255, 255, 255, 0.25), 0px 1px 10px 0 rgba(86, 86, 86, 0.25);
+  -webkit-box-shadow: inset 0px -5px 10px 0px rgba(255, 255, 255, 0.25), 0px 1px 10px 0 rgba(86, 86, 86, 0.25);
+  box-shadow: inset 0px -5px 10px 0px rgba(255, 255, 255, 0.25), 0px 1px 10px 0 rgba(86, 86, 86, 0.25);
+}
+#topNav .songList {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  font-size: 28px;
+  text-align: center;
+  color: #fff;
+  z-index: 99;
+}
+#topNav .songList.active {
+  color: #ff7f87;
+}
+#topNav .title {
+  height: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+}
+#topNav .menu {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  right: 0;
+  font-size: 28px;
+  text-align: center;
+  color: #fff;
+  z-index: 99;
+}
+#topNav .menu.active {
+  color: #ff7f87;
+}
+
+#viewPanel {
+  position: absolute;
+  top: 50px;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  z-index: 1001;
+}
+#viewPanel .cover .photo > img {
+  width: 70vw;
+  height: auto;
+  margin-bottom: 20px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.11), 0 0 0 15px rgba(255, 255, 255, 0.13);
+  -webkit-box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.11), 0 0 0 15px rgba(255, 255, 255, 0.13);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.11), 0 0 0 15px rgba(255, 255, 255, 0.13);
+}
+#viewPanel .cover .infos {
+  color: #fff;
+}
+#viewPanel .cover .infos .songTitle {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  text-shadow: 0 0 10px black;
+}
+#viewPanel .cover .infos .singer {
+  font-size: .9rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+}
+#viewPanel .process {
+  position: absolute;
+  bottom: 0px;
+  left: 8px;
+  right: 8px;
+  font-size: .9rem;
+  font-family: 'Open Sans Light', '微軟正黑體';
+  color: #fff;
+}
+#viewPanel .process .current {
+  position: absolute;
+  top: -30px;
+  left: 10px;
+}
+#viewPanel .process .total {
+  position: absolute;
+  top: -30px;
+  right: 10px;
+}
+#viewPanel .process .rc-slider {
+  top: 8px;
+}
+#viewPanel .process .rc-slider .rc-slider-rail {
+  background-color: transparent;
+}
+#viewPanel .process .rc-slider .rc-slider-track {
+  background-color: 　rgba(158, 225, 255, 0.67);
+}
+
+#controlPanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#controlPanel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.19);
+  z-index: -1;
+  -moz-box-shadow: inset 0px 9px 10px 0 rgba(255, 255, 255, 0.35), 0px -5px 10px 0 rgba(0, 0, 0, 0.14);
+  -webkit-box-shadow: inset 0px 9px 10px 0 rgba(255, 255, 255, 0.35), 0px -5px 10px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: inset 0px 9px 10px 0 rgba(255, 255, 255, 0.35), 0px -5px 10px 0 rgba(0, 0, 0, 0.14);
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#controlPanel .repeatMode {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  margin-top: 22px;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 56px;
+  color: #fff;
+}
+#controlPanel .repeatMode.active {
+  color: #246ca7;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .repeatMode {
+    width: 46px;
+    height: 46px;
+    margin-top: 30px;
+    line-height: 46px;
+  }
+}
+#controlPanel .playMode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  margin-top: 22px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 56px;
+  color: #fff;
+}
+#controlPanel .playMode.active {
+  color: #246ca7;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .playMode {
+    width: 46px;
+    height: 46px;
+    margin-top: 30px;
+    line-height: 46px;
+  }
+}
+#controlPanel .control::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#controlPanel .control > div {
+  float: left;
+  font-size: 28px;
+  text-align: center;
+  line-height: 56px;
+  color: #246ca7;
+  background-color: #fff;
+  z-index: 99;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 10px 1px rgba(3, 169, 244, 0.47);
+  -webkit-box-shadow: 1px 1px 10px 1px rgba(3, 169, 244, 0.47);
+  box-shadow: 1px 1px 10px 1px rgba(3, 169, 244, 0.47);
+}
+#controlPanel .control .prev {
+  width: 56px;
+  height: 56px;
+  margin-top: 5px;
+  padding-top: 2px;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .control .prev {
+    width: 46px;
+    height: 46px;
+    margin-top: 9px;
+    padding-top: 2px;
+    padding-left: 1px;
+    line-height: 46px;
+  }
+}
+#controlPanel .control .next {
+  width: 56px;
+  height: 56px;
+  margin-top: 5px;
+  padding-top: 2px;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .control .next {
+    width: 46px;
+    height: 46px;
+    margin-top: 9px;
+    padding-top: 2px;
+    padding-left: 1px;
+    line-height: 46px;
+  }
+}
+#controlPanel .control .play {
+  width: 66px;
+  height: 66px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 7px;
+  padding-top: 6px;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .control .play {
+    width: 56px;
+    height: 56px;
+    margin-top: 5px;
+    padding-top: 1px;
+    line-height: 56px;
+  }
+}
+#controlPanel .control .pause {
+  width: 66px;
+  height: 66px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 3px;
+  padding-top: 6px;
+}
+@media all and (max-width: 320px) {
+  #controlPanel .control .pause {
+    width: 56px;
+    height: 56px;
+    margin-top: 5px;
+    padding-top: 2px;
+    padding-left: 1px;
+    line-height: 56px;
+  }
+}
+
+#overlay {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 200px;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 99999;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+#overlay.visible {
+  visibility: visible;
+  background-color: rgba(35, 35, 35, 0.46);
+}
+
+#bodyPseudo {
+  position: fixed;
+  top: -5%;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40% 0;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  z-index: -1;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+}
+
+.textCenter {
+  text-align: center;
+}
