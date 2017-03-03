@@ -1,0 +1,32 @@
+#configPanel {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 200px;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.62);
+    z-index: 1002;
+    @include box-shadow(inset 5px 0px 10px rgba(0, 0, 0, 0.33));
+
+    & > ul {
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+
+        & > li {
+            position: relative;
+            padding: 5px 10px 5px 20px;
+            margin-bottom: 10px;
+            line-height: 24px;
+            font: {
+                size: .9rem;
+                family: 'Open Sans Light', '微軟正黑體';
+            }
+            @include transition(all .3s linear);
+            @include box-shadow(-11px 4px 20px rgba(255, 255, 255, 0.28));
+            &:active {
+                 background: rgba(255, 255, 255, .5);
+            }
+        }
+    }
+}

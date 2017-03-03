@@ -1,0 +1,32 @@
+@import 'compass/css3';
+
+@import 'app';
+@import 'songListPanel';
+@import 'configPanel';
+@import 'mainPanel';
+@import 'topNav';
+@import 'viewPanel';
+@import 'controlPanel';
+@import 'overlay';
+@import 'bodyPseudo';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+#root {
+    height: 100vh;
+}
+
+.textCenter {
+    text-align: center;
+}

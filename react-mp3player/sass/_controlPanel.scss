@@ -1,0 +1,155 @@
+#controlPanel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.19);
+        z-index: -1;
+        @include box-shadow(inset 0px 9px 10px 0 rgba(255, 255, 255, 0.35), 0px -5px 10px 0 rgba(0, 0, 0, 0.14));
+        @include border-top-left-radius(10px);
+        @include border-top-right-radius(10px);
+    }
+
+    .repeatMode {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 56px;
+        height: 56px;
+        margin-top: 22px;
+        margin-left: 10px;
+        text-align: center;
+        line-height: 56px;
+        color: #fff;
+        &.active {
+            color: #246ca7;
+        }
+        @media all and (max-width: 320px) {
+            width: 46px;
+            height: 46px;
+            margin-top: 30px;
+            line-height: 46px;
+        }
+    }
+
+    .playMode {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 56px;
+        height: 56px;
+        margin-top: 22px;
+        margin-right: 10px;
+        text-align: center;
+        line-height: 56px;
+        color: #fff;
+        &.active {
+            color: #246ca7;
+        }
+        @media all and (max-width: 320px) {
+            width: 46px;
+            height: 46px;
+            margin-top: 30px;
+            line-height: 46px;
+        }
+    }
+
+    .control {
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        & > div {
+            float: left;
+            font: {
+                size: 28px;
+            }
+            text-align: center;
+            line-height: 56px;
+            color: #246ca7;
+            background-color: #fff;
+            z-index: 99;
+            @include border-radius(50%);
+            @include box-shadow(1px 1px 10px 1px rgba(3, 169, 244, 0.47));
+        }
+
+        .prev {
+            width: 56px;
+            height: 56px;
+            margin-top: 5px;
+            padding-top: 2px;
+            @media all and (max-width: 320px) {
+                width: 46px;
+                height: 46px;
+                margin-top: 9px;
+                padding-top: 2px;
+                padding-left: 1px;
+                line-height: 46px;
+            }
+        }
+
+        .next {
+            width: 56px;
+            height: 56px;
+            margin-top: 5px;
+            padding-top: 2px;
+            @media all and (max-width: 320px) {
+                width: 46px;
+                height: 46px;
+                margin-top: 9px;
+                padding-top: 2px;
+                padding-left: 1px;
+                line-height: 46px;
+            }
+        }
+
+        .play {
+            width: 66px;
+            height: 66px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-left: 7px;
+            padding-top: 6px;
+            @media all and (max-width: 320px) {
+                width: 56px;
+                height: 56px;
+                margin-top: 5px;
+                padding-top: 1px;
+                line-height: 56px;
+            }
+        }
+
+        .pause {
+            width: 66px;
+            height: 66px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-left: 3px;
+            padding-top: 6px;
+            @media all and (max-width: 320px) {
+                width: 56px;
+                height: 56px;
+                margin-top: 5px;
+                padding-top: 2px;
+                padding-left: 1px;
+                line-height: 56px;
+            }
+        }
+    }
+}

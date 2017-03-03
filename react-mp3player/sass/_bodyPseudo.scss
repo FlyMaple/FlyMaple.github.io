@@ -1,0 +1,14 @@
+#bodyPseudo {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 0;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    z-index: -1;
+    @include transition(all .3s linear);
+}

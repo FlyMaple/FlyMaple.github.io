@@ -1,0 +1,9 @@
+#mainPanel {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1002;
+    @include box-shadow(-7px 0px 10px rgba(0, 0, 0, 0.2));
+}

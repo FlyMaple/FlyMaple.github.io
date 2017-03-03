@@ -1,0 +1,14 @@
+#app {
+    position: relative;
+    left: -200px;
+    height: 100%;
+    @include transition(all .3s linear);
+
+    &.openSongList {
+        left: 0;
+    }
+
+    &.openConfigPanel {
+        left: -400px;
+    }
+}

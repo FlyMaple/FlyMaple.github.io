@@ -1,0 +1,83 @@
+#viewPanel {
+    position: absolute;
+    top: 50px;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    z-index: 1001;
+
+    .cover {
+        .photo {
+            & > img {
+                width: 70vw;
+                height: auto;
+                margin-bottom: 20px;
+                @include border-radius(50%);
+                @include box-shadow(0 0 0 5px rgba(255, 255, 255, 0.11), 0 0 0 15px rgba(255, 255, 255, 0.13));
+            }
+        }
+
+        .infos {
+            color: #fff;
+
+            .songTitle {
+                margin-bottom: 10px;
+                font: {
+                    size: 1.5rem;
+                    weight: 600;
+                    family: 'Open Sans Light', '微軟正黑體';
+                }
+                @include text-shadow(0 0 10px black);
+            }
+
+            .singer {
+                font: {
+                    size: .9rem;
+                    family: 'Open Sans Light', '微軟正黑體';
+                }
+            }
+        }
+    }
+
+    .process {
+        position: absolute;
+        bottom: 0px;
+        left: 8px;
+        right: 8px;
+        font: {
+            size: .9rem;
+            family: 'Open Sans Light', '微軟正黑體';
+        }
+        color: #fff;
+
+        .current {
+            position: absolute;
+            top: -30px;
+            left: 10px;
+        }
+
+        .total {
+            position: absolute;
+            top: -30px;
+            right: 10px;    
+        }
+
+        .rc-slider {
+            top: 8px;
+
+            .rc-slider-rail {
+                background-color: transparent;
+            }
+
+            .rc-slider-track {
+                background-color:　rgba(158, 225, 255, 0.67);
+            }
+        }
+    }
+}
