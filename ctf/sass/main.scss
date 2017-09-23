@@ -1,0 +1,16 @@
+@import 'compass/css3';
+@import 'mixin';
+@import 'Old_Style';
+
+.grid-item {
+  margin-bottom: 30px;
+
+  .label {
+    display: block;
+    padding: 10px 0;
+    color: #000;
+    font: {
+      size: 16px;
+    }
+  }
+}

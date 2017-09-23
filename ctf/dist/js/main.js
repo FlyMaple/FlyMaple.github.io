@@ -48,12 +48,28 @@ jQuery(function () {
 
         if (filter === 'ALL') {
             $grid.isotope({ filter: '' });
-        } else if (filter === 'WEBSITE') {
+        } else if (filter === 'website') {
             $grid.isotope({ filter: '.website' });
-        } else if (filter === 'MOBILE') {
+        } else if (filter === 'mobile') {
             $grid.isotope({ filter: '.mobile' });
-        } else if (filter === 'DESIGN') {
+        } else if (filter === 'design') {
             $grid.isotope({ filter: '.design' });
+        } else if (filter === 'react') {
+            $grid.isotope({ filter: '.react' });
+        } else if (filter === 'angular') {
+            $grid.isotope({ filter: '.angular' });
+        } else if (filter === 'app') {
+            $grid.isotope({ filter: '.app' });
+        } else if (filter === 'crawler') {
+            $grid.isotope({ filter: '.crawler' });
+        } else if (filter === 'bot') {
+            $grid.isotope({ filter: '.bot' });
+        } else if (filter === 'extension') {
+            $grid.isotope({ filter: '.extension' });
+        } else if (filter === 'firebase') {
+            $grid.isotope({ filter: '.firebase' });
+        } else if (filter === 'nodejs') {
+            $grid.isotope({ filter: '.nodejs' });
         }
 
         jQuery('#gallery .filters button').toggleClass('active', false);

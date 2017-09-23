@@ -1,0 +1,37 @@
+@mixin clearfix() {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin borderMode() {
+    * {
+        border: 1px solid #ff5959;
+    }
+}
+
+@mixin font($px: 14, $weight:0, $family:0) {
+    @if ($px != null) {
+        font-size: ($px / 14)+rem;
+    }
+    @if ($weight != 0) {
+        font-weight: $weight;
+    }
+    @if ($family != 0) {
+        font-family: $family;
+    }
+}
+
+@mixin width-range($max, $min:0) {
+    @if ($min == 0) {
+        @media all and (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @media all and (min-width: $max) and (max-width: $min) {
+            @content;
+        }
+    }
+}
