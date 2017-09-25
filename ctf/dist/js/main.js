@@ -93,4 +93,8 @@ jQuery(function () {
         jQuery('#nav .nav-share').toggleClass('active', false);
         jQuery('#nav .nav-share ul').toggleClass('active', false);
     });
+
+    jQuery('.service a').on('click', function (event) {
+        event.preventDefault();
+    })
 });
