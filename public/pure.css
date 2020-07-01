@@ -1,0 +1,110 @@
+:root {
+    --link-color: #4e963f;
+    --default-color: #111111;
+    --background-popup: #ffffff;
+}
+
+.dark {
+    --link-color: #4e963f;
+    --default-color: #d0d0d0;
+    --background-popup: #505050;
+}
+
+#myzyxel-entry {
+    position: relative;
+    width: fit-content;
+    text-align: center;
+}
+
+#myzyxel-entry div.widget {
+    margin-right: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.overlay-widget {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1001;
+}
+
+.overlay-widget.overlay-widget-content {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay-widget .popover-magic-block {
+    position: fixed;
+    width: max-content;
+    text-align: left;
+    color: var(--default-color);
+    background-color: var(--background-popup);
+    -moz-box-shadow: 0 0 20px #000000;
+    -webkit-box-shadow: 0 0 20px #000000;
+    box-shadow: 2px 2px 0.5rem rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.overlay-widget .popover-magic-block ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.overlay-widget .popover-magic-block ul li {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 0.25rem 0.5rem;
+}
+
+.overlay-widget .popover-magic-block ul li svg {
+    margin-right: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.overlay-widget .popover-magic-block ul li svg.zyxel-logo {
+    width: 8rem;
+    height: 2rem;
+}
+
+.overlay-widget .popover-magic-block ul li a {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    text-decoration: none;
+    color: var(--default-color);
+    cursor: pointer;
+}
+
+.overlay-widget .popover-magic-block ul li a,
+.overlay-widget .popover-magic-block ul li span {
+    max-width: 10rem;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.overlay-widget .popover-magic-block a:hover {
+    color: var(--link-color) !important;
+}
+
+/* 
+Just for demo
+*/
+.left-top {
+    top: 0;
+    left: 0;
+}
+.right-top {
+    left: 95%;
+    top: 0;
+}
+.left-bottom {
+    left: 0;
+    top: 90vh;
+}
+.right-bottom {
+    left: 95%;
+    top: 90vh;
+}
