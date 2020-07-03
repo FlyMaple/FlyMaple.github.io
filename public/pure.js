@@ -130,7 +130,7 @@
     var linkCssElement = document.createElement('link');
     linkCssElement.rel = 'stylesheet';
     linkCssElement.type = 'text/css';
-    linkCssElement.href = `../src/pure.css?version=${new Date().getTime()}`;
+    linkCssElement.href = `https://flymaple.github.io/public/pure.css?version=${new Date().getTime()}`;
     document.head.appendChild(linkCssElement); // create widget icon
 
     entry(myzyxelEntryId, ''); // create overlay
