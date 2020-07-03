@@ -1,15 +1,4 @@
-:root {
-    --link-color: #4e963f;
-    --default-color: #111111;
-    --background-popup: #ffffff;
-}
-
-.dark {
-    --link-color: #4e963f;
-    --default-color: #d0d0d0;
-    --background-popup: #505050;
-}
-
+/* widgets menu sdk css IE10+ */
 #myzyxel-entry {
     position: relative;
     width: fit-content;
@@ -36,27 +25,36 @@
 }
 
 .overlay-widget .popover-magic-block {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.25rem;
     position: fixed;
     width: max-content;
+    min-width: 5rem;
+    max-width: 20rem;
     text-align: left;
-    color: var(--default-color);
-    background-color: var(--background-popup);
+    background-color: #ffffff;
     -moz-box-shadow: 0 0 20px #000000;
     -webkit-box-shadow: 0 0 20px #000000;
     box-shadow: 2px 2px 0.5rem rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
+.overlay-widget .popover-magic-block.dark {
+    background-color: #505050;
+}
+
 .overlay-widget .popover-magic-block ul {
     list-style-type: none;
     padding-left: 0;
+    margin: 0;
 }
 
 .overlay-widget .popover-magic-block ul li {
     display: flex;
     align-items: center;
     justify-content: left;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem;
 }
 
 .overlay-widget .popover-magic-block ul li svg {
@@ -71,22 +69,27 @@
 }
 
 .overlay-widget .popover-magic-block ul li a {
-    margin-right: 0.25rem;
-    margin-left: 0.25rem;
+    margin: 0 0.25rem;
     text-decoration: none;
-    color: var(--default-color);
+    color: #111111;
     cursor: pointer;
 }
 
 .overlay-widget .popover-magic-block ul li a,
 .overlay-widget .popover-magic-block ul li span {
-    max-width: 10rem;
+    max-width: 15rem;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow-x: hidden;
 }
 
-.overlay-widget .popover-magic-block a:hover {
-    color: var(--link-color) !important;
+.overlay-widget .popover-magic-block.dark ul li a,
+.overlay-widget .popover-magic-block.dark ul li span {
+    color: #d0d0d0;
+}
+
+.overlay-widget a:hover span {
+    color: #4e963f !important;
 }
 
 /* 
