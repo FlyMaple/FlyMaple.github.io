@@ -22,6 +22,7 @@
   var marginPopup = 24; // If user has not input height for item, set default is (2rem) 32px;
 
   var defaultItemHeight = 32;
+  var testIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Status</title><path d="M14.49,2.21A9,9,0,0,0,10,1h0A9,9,0,0,0,1.31,12.33,9,9,0,0,0,10,19a9,9,0,0,0,8.7-11.33A8.91,8.91,0,0,0,14.49,2.21Z" style="fill:#64be00"/><path d="M19.65,7.42A10,10,0,0,0,10,0h0A10,10,0,0,0,1.34,5,10,10,0,0,0,5,18.66,10,10,0,0,0,10,20h0a10,10,0,0,0,8.66-5A9.9,9.9,0,0,0,19.65,7.42ZM5.51,17.79A9,9,0,0,1,2.21,5.5,9,9,0,0,1,10,1h0A9,9,0,1,1,5.51,17.79Z" style="fill:#3c9f00"/></svg>';
   var itemList = [
           {
             prefixIcon: testIcon,
