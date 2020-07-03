@@ -22,7 +22,38 @@
   var marginPopup = 24; // If user has not input height for item, set default is (2rem) 32px;
 
   var defaultItemHeight = 32;
-  var itemList = [];
+  var itemList = [
+          {
+            prefixIcon: testIcon,
+            text: 'Test item is imported',
+            link: 'https://gamma.nebula.zyxel.com/cc/ui/index.html',
+            suffixIcon: '',
+          },
+          {
+            prefixIcon: testIcon,
+            text: 'Test item is imported',
+            link: 'https://gamma.nebula.zyxel.com/cc/ui/index.html',
+            suffixIcon: '',
+          },
+          {
+            prefixIcon: testIcon,
+            text: 'Test item is imported',
+            link: 'https://gamma.nebula.zyxel.com/cc/ui/index.html',
+            suffixIcon: '',
+          },
+          {
+            prefixIcon: testIcon,
+            text: 'Test item is imported',
+            link: 'https://gamma.nebula.zyxel.com/cc/ui/index.html',
+            suffixIcon: '',
+          },
+          {
+            prefixIcon: testIcon,
+            text: 'Test item is imported',
+            link: 'https://gamma.nebula.zyxel.com/cc/ui/index.html',
+            suffixIcon: '',
+          },
+        ];
   /**
    * show/hide popup
    * @param {check show/hide} isOpen 
