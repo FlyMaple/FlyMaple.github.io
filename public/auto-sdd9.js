@@ -165,6 +165,7 @@
                   padding: 3px;
                   box-shadow: 1px 1px 3px 1px #3c9f00;
                   cursor: pointer;
+                  background-color: #fff;
                   z-index: 1000;
           }
           .skbutton > img {
