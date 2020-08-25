@@ -1,5 +1,4 @@
 (function () {
-    // TODO: detect site and notify no mapping
     const proxy = {
       'gamma.nebula.zyxel.com': 'gammaccapi.nebula.zyxel.com',
       'omega.nebula.zyxel.com': 'omegaccapi.nebula.zyxel.com',
