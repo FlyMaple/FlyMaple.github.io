@@ -400,6 +400,10 @@
         const yes = '💲';
         const no = '❕';
 
+        if (window.tools == null) {
+            return;
+        }
+
         const div = document.querySelector('.live-privilege');
         if (tools.privAccessor.NccPro) {
             div.querySelector('.lic .content > span').innerText = 'Pro';
