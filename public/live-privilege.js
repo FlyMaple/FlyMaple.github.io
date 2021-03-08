@@ -357,23 +357,23 @@
 
         const tmpl = `
             <div class="live-privilege">
-                <div class="box lic">
+                <div class="box lic disabled">
                     <div class="label">License</div>
-                    <div class="content"><span>Pro</span></div>
+                    <div class="content"><span>-</span></div>
                 </div>
-                <div class="box msp">
-                    <div class="label">💲</div>
+                <div class="box msp disabled">
+                    <div class="label">❕</div>
                     <div class="content">MspPack</div>
                 </div>
-                <div class="box nss">
-                    <div class="label">💲</div>
+                <div class="box nss disabled">
+                    <div class="label">❕</div>
                     <div class="content">NssPack</div>
                 </div>
-                <div class="box utm">
-                    <div class="label">💲</div>
+                <div class="box utm disabled">
+                    <div class="label">❕</div>
                     <div class="content">UtmPack</div>
                 </div>
-                <div class="box secure">
+                <div class="box secure disabled">
                     <div class="label">❕</div>
                     <div class="content">SecureWifi</div>
                 </div>
