@@ -273,6 +273,8 @@
         window.tools = {
             privAccessor,
         };
+
+        return true;
     }
 
     function appendStyle(classname, _) {
@@ -357,7 +359,7 @@
 
         const tmpl = `
             <div class="live-privilege">
-                <div class="box lic disabled">
+                <div class="box lic">
                     <div class="label">License</div>
                     <div class="content"><span>-</span></div>
                 </div>
@@ -454,6 +456,13 @@
     let prevLocationHref = location.href;
     injectCSS();
     generateInfo();
-    await getPrivilege();
-    updateInfo();
+
+    const initId = setInterval(async () => {
+        if (window.tools != null) {
+            clearInterval(initId);
+        }
+
+        await getPrivilege();
+        updateInfo();
+    }, 1000);
 })();
