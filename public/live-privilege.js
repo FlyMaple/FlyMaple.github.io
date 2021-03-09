@@ -21,6 +21,15 @@
 
             return env;
         }
+
+        if (location.host.includes('localhost')) {
+            Object.assign(env, {
+                apiEntry: `${location.protocol}//${location.host}`,
+                referrer: `${location.protocol}//${location.host}`,
+            });
+
+            return env;
+        }
     }
 
     class PrivilegeAccessor {
@@ -82,10 +91,9 @@
 
         /**
          * Get NCC license status
-         * TODO: replacing this with NccPro / NccPlus before 11.0 release
          */
         get NccPack() {
-            return this.NccPro;
+            return this.NccPro || this.NccPlus;
         }
 
         /**
