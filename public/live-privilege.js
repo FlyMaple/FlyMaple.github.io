@@ -13,6 +13,15 @@
             return env;
         }
 
+        if (location.host.includes('ebeta')) {
+            Object.assign(env, {
+                apiEntry: 'https://ebetaccapi.nebula.zyxel.com',
+                referrer: `${location.protocol}//${location.host}`,
+            });
+
+            return env;
+        }
+
         if (location.host.includes('aio')) {
             Object.assign(env, {
                 apiEntry: `${location.protocol}//${location.host}:4430`,
@@ -25,6 +34,15 @@
         if (location.host.includes('localhost')) {
             Object.assign(env, {
                 apiEntry: `${location.protocol}//${location.host}`,
+                referrer: `${location.protocol}//${location.host}`,
+            });
+
+            return env;
+        }
+
+        if (location.host === 'nebula.zyxel.com') {
+            Object.assign(env, {
+                apiEntry: 'https://ccapi.nebula.zyxel.com',
                 referrer: `${location.protocol}//${location.host}`,
             });
 
