@@ -54,18 +54,24 @@
         return null;
     }
 
-    function get_org_site_device() {
+    function get_group_org_site_device() {
         try {
             const p = location.href.match(/(?<=\/)(\w){24}/g);
             const p2 = location.href.match(/(group-wide|help|msp)/);
             const p3 = location.href.match(/((\w+-){4}\w+)/);
-            let org_id = 'N/A',
+            const p4 = location.href.match(/(?<=\/)(\w{24})\/group-wide/);
+            let group_id = 'N/A',
+                group_name = 'N/A',
+                org_id = 'N/A',
                 org_name = 'N/A',
                 site_id = 'N/A',
                 site_name = 'N/A',
                 device_id = 'N/A';
 
-            if (p2 == null) {
+            if (p4) {
+                group_id = p4[1];
+                group_name = document.querySelector('.select-group').innerText;
+            } else if (p2 == null) {
                 org_id = p ? p[0] : org_id;
                 org_name = org_id === 'N/A' ? 'N/A' : document.querySelector('.select-org').innerText;
                 if (p && p.length === 2) {
@@ -78,6 +84,8 @@
             }
 
             return {
+                group_id,
+                group_name,
                 org_id,
                 org_name,
                 site_id,
@@ -107,6 +115,8 @@ step 2.
 Test Time: {t_time}
 Build version: {version}
 Browser: {browser}
+Group name: {group_name}
+Group id: {group_id}
 Org name: {org_name}
 Site name: {site_name}
 Org id: {org_id}
@@ -118,26 +128,28 @@ Device id: {device_id}
             const t_time = new Date().toLocaleString();
             const b_version = get_version();
             const browser = get_browser();
-            const org_site_device = get_org_site_device();
+            const group_org_site_device = get_group_org_site_device();
             if (b_version == null) {
                 throw 'Build version not found.';
             }
             if (browser == null) {
                 throw 'Browser not found.';
             }
-            if (org_site_device == null) {
-                throw 'Org/Site/Device info not found.';
+            if (group_org_site_device == null) {
+                throw 'Group/Org/Site/Device info not found.';
             }
             const ctx_result = ctx_tmpl
                 .replace(/{uri}/, uri)
                 .replace(/{t_time}/, t_time)
                 .replace(/{version}/, b_version)
                 .replace(/{browser}/, browser)
-                .replace(/{org_name}/, org_site_device.org_name)
-                .replace(/{site_name}/, org_site_device.site_name)
-                .replace(/{org_id}/, org_site_device.org_id)
-                .replace(/{site_id}/, org_site_device.site_id)
-                .replace(/{device_id}/, org_site_device.device_id);
+                .replace(/{group_name}/, group_org_site_device.group_name)
+                .replace(/{org_name}/, group_org_site_device.org_name)
+                .replace(/{site_name}/, group_org_site_device.site_name)
+                .replace(/{group_id}/, group_org_site_device.group_id)
+                .replace(/{org_id}/, group_org_site_device.org_id)
+                .replace(/{site_id}/, group_org_site_device.site_id)
+                .replace(/{device_id}/, group_org_site_device.device_id);
 
             return {
                 subject: title_tmpl,
