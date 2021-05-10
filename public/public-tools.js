@@ -99,7 +99,7 @@
         return null;
     }
     function go() {
-        const title_tmpl = `[Phase11][CC] `;
+        const title_tmpl = `[Phase11][CC]`;
         const ctx_tmpl = `**[Page]**
 {uri}
 
