@@ -126,7 +126,7 @@ Device id: {device_id}
         try {
             const uri = location.href;
             const date = new Date();
-            const t_time = `${date.toLocaleDateString()} ${('0' + date.getHours()).substr(-2)}:${date.getMinutes()}:${date.getSeconds()}`;
+            const t_time = `${date.toLocaleDateString()} ${('0' + date.getHours()).substr(-2)}:${('0'+date.getMinutes()).substr(-2)}:${('0'+date.getSeconds()).substr(-2)}`;
             const b_version = get_version();
             const browser = get_browser();
             const group_org_site_device = get_group_org_site_device();
