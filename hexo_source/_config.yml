@@ -6,7 +6,7 @@
 title: Skye - TechBlog
 subtitle: 'Blog yourself'
 description: 'Collect any tech articles & side-project sharing...etc'
-keywords:
+keywords: 前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,Typescript,RxJS,Git,爬蟲,HTML,CSS,SCSS,Angular,Vue,Vue.js,Side-project
 author: Skye Wu
 language: zh-TW
 timezone: ''
@@ -106,3 +106,10 @@ deploy:
     type: git
     repo: https://github.com/FlyMaple/FlyMaple.github.io.git
     branch: [gh-pages]
+
+# hexo-browsersync
+browsersync:
+    logLevel: 'warn'
+    ghostMode:
+        scroll: true
+    instanceName: 'uniqueString'
