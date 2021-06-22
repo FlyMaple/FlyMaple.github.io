@@ -1,0 +1,25 @@
+
+<% 
+    const repos = site.data['hexo-theme-rank'].repositories;
+    for (let i in repos) { %>
+        <style>
+            .<%- post.slug %>.line {
+                border-bottom: 1px dashed #ccc;
+                margin-bottom: 7px;
+            }
+            .<%- post.slug %>.description {
+                padding-left: 15px;
+            }
+        </style>
+        <div class="<%- post.slug %> line">
+            <a class="user" href="<%- repos[i].owner.html_url %>" rel="noreferrer noopener" target="_blank"><%- repos[i].owner.login %></a>/<a class="repo" href="<%- repos[i].html_url %>" rel="noreferrer noopener" target="_blank"><b><%- repos[i].name %></b></a>
+            (
+                <span class="stars"><b>Stars:</b> <%- repos[i].stargazers_count %></span>, 
+                <span class="stars"><b>Forks:</b> <%- repos[i].forks_count %></span>, 
+                <span class="stars"><b>Open issues:</b> <%- repos[i].open_issues_count %></span>
+            )
+            <div class="<%- post.slug %> description">
+                <%- repos[i].description %>
+            </div>
+        </div>
+<%  } %>
