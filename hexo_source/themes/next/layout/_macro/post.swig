@@ -327,6 +327,8 @@
           {% endif %}
         {% endif %}
       {% else %}
+        {{ post.content }}
+        
         {############################################}
         {#  Customize: this is for Hexo Theme Rank  #}
         {############################################}
@@ -334,8 +336,6 @@
           {{ hexo_theme_rank_list.render(page) }}
         {% endif %}
         {############################################}
-
-        {{ post.content }}
       {% endif  %}
     </div>
     {#####################}
