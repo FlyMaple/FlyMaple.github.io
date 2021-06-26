@@ -6,10 +6,10 @@ repositories:
     html_url: "https://github.com/iissnan/hexo-theme-next"
     description: "Elegant theme for Hexo. "
     created_at: "2014-12-01T14:07:07Z"
-    updated_at: "2021-06-21T06:18:58Z"
+    updated_at: "2021-06-25T19:03:31Z"
     pushed_at: "2020-04-02T06:25:26Z"
-    stargazers_count: 15639
-    forks_count: 3829
+    stargazers_count: 15640
+    forks_count: 3830
     open_issues_count: 83
   - name: "hexo-theme-yilia"
     owner:
@@ -18,10 +18,10 @@ repositories:
     html_url: "https://github.com/litten/hexo-theme-yilia"
     description: "一个简洁优雅的hexo主题  A simple and elegant theme for hexo."
     created_at: "2014-08-31T04:59:32Z"
-    updated_at: "2021-06-22T10:31:19Z"
+    updated_at: "2021-06-25T15:12:37Z"
     pushed_at: "2021-06-05T06:40:55Z"
-    stargazers_count: 8051
-    forks_count: 2473
+    stargazers_count: 8055
+    forks_count: 2475
     open_issues_count: 471
   - name: "hexo-theme-next"
     owner:
@@ -30,11 +30,11 @@ repositories:
     html_url: "https://github.com/theme-next/hexo-theme-next"
     description: "Elegant and powerful theme for Hexo."
     created_at: "2017-12-31T17:04:21Z"
-    updated_at: "2021-06-22T14:07:54Z"
+    updated_at: "2021-06-26T07:23:20Z"
     pushed_at: "2021-05-01T17:21:33Z"
-    stargazers_count: 6811
-    forks_count: 1948
-    open_issues_count: 61
+    stargazers_count: 6818
+    forks_count: 1945
+    open_issues_count: 62
   - name: "hexo-theme-icarus"
     owner:
       login: "ppoffice"
@@ -42,11 +42,11 @@ repositories:
     html_url: "https://github.com/ppoffice/hexo-theme-icarus"
     description: "A simple, delicate, and modern theme for the static site generator Hexo."
     created_at: "2015-03-19T14:24:24Z"
-    updated_at: "2021-06-22T14:43:35Z"
-    pushed_at: "2021-05-06T20:33:37Z"
-    stargazers_count: 4717
+    updated_at: "2021-06-26T08:17:02Z"
+    pushed_at: "2021-06-25T16:34:47Z"
+    stargazers_count: 4726
     forks_count: 1302
-    open_issues_count: 22
+    open_issues_count: 23
   - name: "hexo-theme-material"
     owner:
       login: "bollnh"
@@ -54,11 +54,11 @@ repositories:
     html_url: "https://github.com/bollnh/hexo-theme-material"
     description: "Material Design theme for hexo."
     created_at: "2016-09-01T13:34:02Z"
-    updated_at: "2021-06-19T23:44:27Z"
-    pushed_at: "2021-04-21T07:04:14Z"
-    stargazers_count: 3991
-    forks_count: 578
-    open_issues_count: 105
+    updated_at: "2021-06-26T04:00:55Z"
+    pushed_at: "2021-06-23T03:58:25Z"
+    stargazers_count: 3993
+    forks_count: 579
+    open_issues_count: 106
   - name: "hexo-theme-matery"
     owner:
       login: "blinkfox"
@@ -66,10 +66,10 @@ repositories:
     html_url: "https://github.com/blinkfox/hexo-theme-matery"
     description: "A beautiful hexo blog theme with material design and responsive design.一个基于材料设计和响应式设计而成的全面、美观的Hexo主题。国内访问：http://blinkfox.com"
     created_at: "2018-08-27T16:38:12Z"
-    updated_at: "2021-06-22T09:03:19Z"
+    updated_at: "2021-06-26T08:00:11Z"
     pushed_at: "2021-05-28T08:07:03Z"
-    stargazers_count: 3440
-    forks_count: 933
+    stargazers_count: 3451
+    forks_count: 940
     open_issues_count: 133
   - name: "hexo-theme-fluid"
     owner:
@@ -78,10 +78,10 @@ repositories:
     html_url: "https://github.com/fluid-dev/hexo-theme-fluid"
     description: ":ocean: 一款 Material Design 风格的 Hexo 主题 / An elegant Material-Design theme for Hexo"
     created_at: "2018-10-14T15:26:24Z"
-    updated_at: "2021-06-21T19:22:56Z"
+    updated_at: "2021-06-26T06:31:04Z"
     pushed_at: "2021-06-12T05:31:10Z"
-    stargazers_count: 2938
-    forks_count: 560
+    stargazers_count: 2951
+    forks_count: 564
     open_issues_count: 14
   - name: "hexo-theme-butterfly"
     owner:
@@ -90,11 +90,11 @@ repositories:
     html_url: "https://github.com/jerryc127/hexo-theme-butterfly"
     description: " 🦋 A Hexo Theme: Butterfly"
     created_at: "2019-06-04T13:38:41Z"
-    updated_at: "2021-06-22T12:53:51Z"
+    updated_at: "2021-06-26T08:22:45Z"
     pushed_at: "2021-06-13T15:41:35Z"
-    stargazers_count: 2443
-    forks_count: 571
-    open_issues_count: 8
+    stargazers_count: 2456
+    forks_count: 574
+    open_issues_count: 9
   - name: "hexo-theme-tranquilpeak"
     owner:
       login: "LouisBarranqueiro"
@@ -102,11 +102,11 @@ repositories:
     html_url: "https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak"
     description: ":lipstick: A gorgeous responsive theme for Hexo blog framework"
     created_at: "2015-04-22T17:22:28Z"
-    updated_at: "2021-06-21T01:04:26Z"
-    pushed_at: "2021-06-18T21:46:41Z"
-    stargazers_count: 1691
+    updated_at: "2021-06-25T13:00:27Z"
+    pushed_at: "2021-06-24T10:25:24Z"
+    stargazers_count: 1693
     forks_count: 486
-    open_issues_count: 2
+    open_issues_count: 3
   - name: "hexo-theme-melody"
     owner:
       login: "Molunerfinn"
@@ -114,9 +114,9 @@ repositories:
     html_url: "https://github.com/Molunerfinn/hexo-theme-melody"
     description: ":musical_keyboard:A simple & beautiful & fast theme for Hexo."
     created_at: "2017-09-03T13:15:12Z"
-    updated_at: "2021-06-20T09:49:54Z"
+    updated_at: "2021-06-25T12:31:40Z"
     pushed_at: "2021-05-19T06:13:49Z"
-    stargazers_count: 1343
+    stargazers_count: 1345
     forks_count: 200
     open_issues_count: 9
   - name: "hexo-theme-even"
@@ -126,9 +126,9 @@ repositories:
     html_url: "https://github.com/ahonn/hexo-theme-even"
     description: ":rocket:  A super concise theme for Hexo  "
     created_at: "2016-02-24T07:45:32Z"
-    updated_at: "2021-06-22T06:45:27Z"
+    updated_at: "2021-06-24T08:49:00Z"
     pushed_at: "2021-06-21T21:15:14Z"
-    stargazers_count: 1274
+    stargazers_count: 1275
     forks_count: 216
     open_issues_count: 22
   - name: "hexo-theme-archer"
@@ -138,11 +138,11 @@ repositories:
     html_url: "https://github.com/fi3ework/hexo-theme-archer"
     description: "🎯 A smart and modern theme for Hexo."
     created_at: "2017-08-10T14:13:00Z"
-    updated_at: "2021-06-18T06:54:53Z"
-    pushed_at: "2021-06-06T06:43:54Z"
-    stargazers_count: 1201
+    updated_at: "2021-06-25T18:51:23Z"
+    pushed_at: "2021-06-25T18:51:20Z"
+    stargazers_count: 1202
     forks_count: 242
-    open_issues_count: 64
+    open_issues_count: 60
   - name: "hexo-theme-hueman"
     owner:
       login: "ppoffice"
@@ -150,10 +150,10 @@ repositories:
     html_url: "https://github.com/ppoffice/hexo-theme-hueman"
     description: "A redesign of Alx's wordpress theme Hueman, ported to Hexo."
     created_at: "2015-02-01T13:46:06Z"
-    updated_at: "2021-06-08T09:40:17Z"
+    updated_at: "2021-06-25T09:29:00Z"
     pushed_at: "2021-03-11T15:06:32Z"
-    stargazers_count: 1136
-    forks_count: 342
+    stargazers_count: 1135
+    forks_count: 343
     open_issues_count: 14
   - name: "hexo-theme-volantis"
     owner:
@@ -162,10 +162,10 @@ repositories:
     html_url: "https://github.com/volantis-x/hexo-theme-volantis"
     description: "A Wonderful Theme for Hexo  https://vlts.cc"
     created_at: "2017-10-24T03:46:42Z"
-    updated_at: "2021-06-22T08:24:11Z"
+    updated_at: "2021-06-26T00:02:42Z"
     pushed_at: "2021-06-14T02:10:52Z"
-    stargazers_count: 1124
-    forks_count: 365
+    stargazers_count: 1128
+    forks_count: 366
     open_issues_count: 22
   - name: "fexo"
     owner:
@@ -186,10 +186,10 @@ repositories:
     html_url: "https://github.com/Shen-Yu/hexo-theme-ayer"
     description: "a clean and elegant theme for Hexo.  🐋"
     created_at: "2019-12-03T11:36:02Z"
-    updated_at: "2021-06-22T09:36:48Z"
+    updated_at: "2021-06-25T10:28:43Z"
     pushed_at: "2021-06-21T09:11:45Z"
-    stargazers_count: 1010
-    forks_count: 239
+    stargazers_count: 1014
+    forks_count: 238
     open_issues_count: 8
   - name: "hexo-theme-next"
     owner:
@@ -198,11 +198,11 @@ repositories:
     html_url: "https://github.com/next-theme/hexo-theme-next"
     description: "🎉 Elegant and powerful theme for Hexo."
     created_at: "2020-04-05T03:43:31Z"
-    updated_at: "2021-06-21T02:22:24Z"
+    updated_at: "2021-06-25T14:19:43Z"
     pushed_at: "2021-06-19T19:43:31Z"
-    stargazers_count: 958
-    forks_count: 197
-    open_issues_count: 21
+    stargazers_count: 963
+    forks_count: 198
+    open_issues_count: 20
   - name: "hexo-theme-pure"
     owner:
       login: "cofess"
@@ -210,9 +210,9 @@ repositories:
     html_url: "https://github.com/cofess/hexo-theme-pure"
     description: "Hexo theme pure. It's a pure theme for Hexo."
     created_at: "2017-06-10T05:06:19Z"
-    updated_at: "2021-06-19T10:17:08Z"
+    updated_at: "2021-06-25T13:55:16Z"
     pushed_at: "2021-05-31T02:54:50Z"
-    stargazers_count: 772
+    stargazers_count: 774
     forks_count: 234
     open_issues_count: 91
   - name: "hexo-theme-Anisina"
@@ -222,10 +222,10 @@ repositories:
     html_url: "https://github.com/Haojen/hexo-theme-Anisina"
     description: ":art: A simple responsive , support qiniu image cdn theme for hexo https://haojen.github.io/ "
     created_at: "2016-05-27T09:57:08Z"
-    updated_at: "2021-06-20T14:24:51Z"
+    updated_at: "2021-06-25T11:37:53Z"
     pushed_at: "2021-03-17T12:22:57Z"
     stargazers_count: 747
-    forks_count: 161
+    forks_count: 162
     open_issues_count: 13
   - name: "hexo-theme-minos"
     owner:
@@ -234,9 +234,9 @@ repositories:
     html_url: "https://github.com/ppoffice/hexo-theme-minos"
     description: "A simple and retro styled Hexo theme, concentrated more on your ideas."
     created_at: "2015-05-17T07:46:09Z"
-    updated_at: "2021-06-03T04:01:03Z"
+    updated_at: "2021-06-24T13:20:03Z"
     pushed_at: "2020-08-17T12:40:43Z"
-    stargazers_count: 658
+    stargazers_count: 660
     forks_count: 199
     open_issues_count: 13
   - name: "hexo-theme-keep"
@@ -246,11 +246,11 @@ repositories:
     html_url: "https://github.com/XPoet/hexo-theme-keep"
     description: ":rainbow: A simple and elegant theme for Hexo. It makes you more focused on writing."
     created_at: "2020-03-12T07:34:20Z"
-    updated_at: "2021-06-21T15:28:22Z"
+    updated_at: "2021-06-24T09:46:41Z"
     pushed_at: "2021-06-21T07:08:16Z"
-    stargazers_count: 595
+    stargazers_count: 597
     forks_count: 90
-    open_issues_count: 15
+    open_issues_count: 14
   - name: "hexo-theme-Chic"
     owner:
       login: "Siricee"
@@ -258,9 +258,9 @@ repositories:
     html_url: "https://github.com/Siricee/hexo-theme-Chic"
     description: "An elegant, powerful, easy-to-read Hexo theme."
     created_at: "2019-06-12T06:13:00Z"
-    updated_at: "2021-06-21T10:06:41Z"
+    updated_at: "2021-06-25T08:03:32Z"
     pushed_at: "2021-05-25T02:51:09Z"
-    stargazers_count: 583
+    stargazers_count: 582
     forks_count: 123
     open_issues_count: 10
   - name: "hexo-theme-Anatole"
@@ -270,9 +270,9 @@ repositories:
     html_url: "https://github.com/Ben02/hexo-theme-Anatole"
     description: "A white and simple Hexo theme, originated from a Farbox theme"
     created_at: "2017-01-13T09:18:04Z"
-    updated_at: "2021-06-19T03:30:12Z"
+    updated_at: "2021-06-24T15:56:43Z"
     pushed_at: "2020-07-26T19:14:31Z"
-    stargazers_count: 562
+    stargazers_count: 564
     forks_count: 122
     open_issues_count: 35
   - name: "hexo-theme-Wikitten"
@@ -306,9 +306,9 @@ repositories:
     html_url: "https://github.com/TriDiamond/hexo-theme-obsidian"
     description: "🎨 A dark Hexo theme, it's responsive, simple but elegant."
     created_at: "2019-09-26T02:38:50Z"
-    updated_at: "2021-06-17T15:05:39Z"
+    updated_at: "2021-06-26T02:20:23Z"
     pushed_at: "2021-06-15T22:07:50Z"
-    stargazers_count: 516
+    stargazers_count: 517
     forks_count: 89
     open_issues_count: 53
   - name: "hexo-theme-inside"
@@ -318,7 +318,7 @@ repositories:
     html_url: "https://github.com/ikeq/hexo-theme-inside"
     description: "🌈  SPA, Flat and clean theme for Hexo https://blog.oniuo.com/theme-inside"
     created_at: "2017-11-09T03:34:33Z"
-    updated_at: "2021-06-20T04:21:52Z"
+    updated_at: "2021-06-25T09:15:37Z"
     pushed_at: "2021-06-19T03:43:02Z"
     stargazers_count: 511
     forks_count: 82
@@ -330,7 +330,7 @@ repositories:
     html_url: "https://github.com/SukkaW/hexo-theme-suka"
     description: "🎨Modern, powerful and simple theme for Hexo."
     created_at: "2018-07-05T04:06:37Z"
-    updated_at: "2021-06-19T16:53:46Z"
+    updated_at: "2021-06-25T13:13:27Z"
     pushed_at: "2021-05-10T21:13:54Z"
     stargazers_count: 510
     forks_count: 45
@@ -354,10 +354,10 @@ repositories:
     html_url: "https://github.com/JoeyBling/hexo-theme-yilia-plus"
     description: "一个简洁优雅的hexo主题 A simple and elegant theme for hexo."
     created_at: "2019-07-19T09:17:50Z"
-    updated_at: "2021-06-19T15:04:25Z"
+    updated_at: "2021-06-23T15:34:16Z"
     pushed_at: "2021-05-10T23:40:13Z"
-    stargazers_count: 492
-    forks_count: 140
+    stargazers_count: 493
+    forks_count: 141
     open_issues_count: 36
   - name: "hexo-theme-replica"
     owner:
@@ -402,11 +402,11 @@ repositories:
     html_url: "https://github.com/yelog/hexo-theme-3-hexo"
     description: "hexo主题：三段式设计、极简、方便  Hexo theme: three-stage design"
     created_at: "2017-02-05T09:26:14Z"
-    updated_at: "2021-06-11T02:17:49Z"
+    updated_at: "2021-06-25T05:33:06Z"
     pushed_at: "2021-02-22T07:40:00Z"
-    stargazers_count: 447
-    forks_count: 162
-    open_issues_count: 11
+    stargazers_count: 449
+    forks_count: 163
+    open_issues_count: 12
   - name: "hexo-theme-Claudia"
     owner:
       login: "Haojen"
@@ -414,7 +414,7 @@ repositories:
     html_url: "https://github.com/Haojen/hexo-theme-Claudia"
     description: "📌 Concisely designed & easy to config, match device dark mode, 90+ Lighthouse scoring"
     created_at: "2017-05-27T14:06:19Z"
-    updated_at: "2021-06-21T03:21:15Z"
+    updated_at: "2021-06-25T13:12:25Z"
     pushed_at: "2021-05-20T12:00:45Z"
     stargazers_count: 436
     forks_count: 79
@@ -426,10 +426,10 @@ repositories:
     html_url: "https://github.com/aircloud/hexo-theme-aircloud"
     description: "A concise hexo theme"
     created_at: "2018-04-11T03:54:22Z"
-    updated_at: "2021-06-15T13:46:22Z"
+    updated_at: "2021-06-25T13:50:40Z"
     pushed_at: "2021-03-12T16:55:21Z"
-    stargazers_count: 397
-    forks_count: 95
+    stargazers_count: 398
+    forks_count: 96
     open_issues_count: 23
   - name: "hexo-matery-modified"
     owner:
@@ -474,21 +474,21 @@ repositories:
     html_url: "https://github.com/liuyib/hexo-theme-stun"
     description: "🦄 An elegant theme for Hexo"
     created_at: "2019-05-11T15:12:05Z"
-    updated_at: "2021-06-21T15:28:23Z"
+    updated_at: "2021-06-26T06:29:00Z"
     pushed_at: "2021-06-19T22:05:31Z"
-    stargazers_count: 368
-    forks_count: 82
+    stargazers_count: 372
+    forks_count: 83
     open_issues_count: 28
   - name: "hexo-theme-hiker"
     owner:
       login: "iTimeTraveler"
       html_url: "https://github.com/iTimeTraveler"
     html_url: "https://github.com/iTimeTraveler/hexo-theme-hiker"
-    description: 'An attractive theme for Hexo. called "Hiker", short for "HikerNews".'
+    description: "An attractive theme for Hexo. called \"Hiker\", short for \"HikerNews\"."
     created_at: "2016-09-13T10:42:47Z"
-    updated_at: "2021-06-21T08:10:37Z"
+    updated_at: "2021-06-26T02:58:41Z"
     pushed_at: "2020-02-21T04:59:55Z"
-    stargazers_count: 349
+    stargazers_count: 350
     forks_count: 83
     open_issues_count: 54
   - name: "Easy-Hexo"
@@ -522,9 +522,9 @@ repositories:
     html_url: "https://github.com/frostfan/hexo-theme-polarbear"
     description: "A super light and simple theme."
     created_at: "2017-02-23T05:21:29Z"
-    updated_at: "2021-06-21T07:08:02Z"
+    updated_at: "2021-06-25T08:06:46Z"
     pushed_at: "2021-01-06T10:38:47Z"
-    stargazers_count: 305
+    stargazers_count: 304
     forks_count: 68
     open_issues_count: 3
   - name: "hexo-theme-edinburgh"
@@ -534,9 +534,9 @@ repositories:
     html_url: "https://github.com/sharvaridesai/hexo-theme-edinburgh"
     description: "Beautiful minimal portfolio theme for Hexo."
     created_at: "2017-02-04T15:40:03Z"
-    updated_at: "2021-05-17T08:24:15Z"
+    updated_at: "2021-06-24T03:15:28Z"
     pushed_at: "2020-11-24T06:47:28Z"
-    stargazers_count: 292
+    stargazers_count: 293
     forks_count: 68
     open_issues_count: 15
   - name: "hexo-douban"
@@ -570,10 +570,10 @@ repositories:
     html_url: "https://github.com/sanjinhub/hexo-theme-geek"
     description: "一个符合极客精神主义极简的 Hexo 主题"
     created_at: "2020-01-08T03:57:58Z"
-    updated_at: "2021-06-22T03:20:52Z"
+    updated_at: "2021-06-25T02:52:58Z"
     pushed_at: "2021-06-05T03:43:35Z"
     stargazers_count: 262
-    forks_count: 48
+    forks_count: 49
     open_issues_count: 7
   - name: "theme-ad"
     owner:
@@ -618,10 +618,10 @@ repositories:
     html_url: "https://github.com/zalando-incubator/hexo-theme-doc"
     description: "A documentation theme for the Hexo blog framework"
     created_at: "2017-10-19T11:42:44Z"
-    updated_at: "2021-06-06T04:18:30Z"
+    updated_at: "2021-06-24T04:52:11Z"
     pushed_at: "2020-04-15T12:29:40Z"
-    stargazers_count: 223
-    forks_count: 51
+    stargazers_count: 224
+    forks_count: 52
     open_issues_count: 20
   - name: "hexo-theme-cafe"
     owner:
@@ -666,9 +666,9 @@ repositories:
     html_url: "https://github.com/iTimeTraveler/hexo-theme-hipaper"
     description: "A fashional newspaper theme for Hexo."
     created_at: "2016-11-22T03:57:12Z"
-    updated_at: "2021-06-10T14:25:23Z"
+    updated_at: "2021-06-24T03:15:28Z"
     pushed_at: "2020-11-04T09:28:14Z"
-    stargazers_count: 209
+    stargazers_count: 210
     forks_count: 67
     open_issues_count: 39
   - name: "hexo-theme-ochuunn"
@@ -702,9 +702,9 @@ repositories:
     html_url: "https://github.com/Yue-plus/hexo-theme-arknights"
     description: "明日方舟罗德岛阵营的 Hexo 主题，支持数学公式、Valine评论系统、Mermaid图表"
     created_at: "2020-03-21T06:53:57Z"
-    updated_at: "2021-06-20T04:29:37Z"
+    updated_at: "2021-06-25T11:32:08Z"
     pushed_at: "2021-06-18T00:51:59Z"
-    stargazers_count: 191
+    stargazers_count: 192
     forks_count: 19
     open_issues_count: 6
   - name: "hexo-theme-laughing"
@@ -738,10 +738,10 @@ repositories:
     html_url: "https://github.com/removeif/hexo-theme-amazing"
     description: "Demo: https://removeif.github.io/removeif-demo hexo-theme"
     created_at: "2020-03-05T06:47:44Z"
-    updated_at: "2021-06-22T12:58:59Z"
+    updated_at: "2021-06-25T03:41:51Z"
     pushed_at: "2021-05-21T05:48:55Z"
-    stargazers_count: 177
-    forks_count: 67
+    stargazers_count: 178
+    forks_count: 66
     open_issues_count: 7
   - name: "hexo-theme-clover"
     owner:
@@ -786,10 +786,10 @@ repositories:
     html_url: "https://github.com/random-yang/paper"
     description: "🌈 一个类纸风的主题paper🎉(still updating...)"
     created_at: "2019-11-14T02:39:50Z"
-    updated_at: "2021-06-22T06:19:03Z"
+    updated_at: "2021-06-25T12:23:06Z"
     pushed_at: "2021-01-17T06:46:16Z"
-    stargazers_count: 162
-    forks_count: 17
+    stargazers_count: 165
+    forks_count: 18
     open_issues_count: 6
   - name: "terminal_theme"
     owner:
@@ -815,6 +815,18 @@ repositories:
     stargazers_count: 160
     forks_count: 32
     open_issues_count: 9
+  - name: "flex-block"
+    owner:
+      login: "miiiku"
+      html_url: "https://github.com/miiiku"
+    html_url: "https://github.com/miiiku/flex-block"
+    description: "一个基于Hexo的主题"
+    created_at: "2019-03-04T09:47:53Z"
+    updated_at: "2021-06-25T22:40:43Z"
+    pushed_at: "2021-04-26T11:17:09Z"
+    stargazers_count: 157
+    forks_count: 23
+    open_issues_count: 3
   - name: "hexo-theme-Aath"
     owner:
       login: "lewis-geek"
@@ -827,18 +839,18 @@ repositories:
     stargazers_count: 154
     forks_count: 25
     open_issues_count: 5
-  - name: "flex-block"
+  - name: "hexo-theme-aurora"
     owner:
-      login: "miiiku"
-      html_url: "https://github.com/miiiku"
-    html_url: "https://github.com/miiiku/flex-block"
-    description: "一个基于Hexo的主题"
-    created_at: "2019-03-04T09:47:53Z"
-    updated_at: "2021-06-18T08:37:42Z"
-    pushed_at: "2021-04-26T11:17:09Z"
-    stargazers_count: 154
-    forks_count: 23
-    open_issues_count: 3
+      login: "auroral-ui"
+      html_url: "https://github.com/auroral-ui"
+    html_url: "https://github.com/auroral-ui/hexo-theme-aurora"
+    description: "🏳️‍🌈 Futuristic auroral Hexo theme."
+    created_at: "2021-03-12T09:08:24Z"
+    updated_at: "2021-06-26T07:16:57Z"
+    pushed_at: "2021-06-24T18:38:03Z"
+    stargazers_count: 153
+    forks_count: 31
+    open_issues_count: 23
   - name: "hexo-theme-mellow"
     owner:
       login: "codefine"
@@ -899,18 +911,6 @@ repositories:
     stargazers_count: 148
     forks_count: 49
     open_issues_count: 10
-  - name: "hexo-theme-aurora"
-    owner:
-      login: "auroral-ui"
-      html_url: "https://github.com/auroral-ui"
-    html_url: "https://github.com/auroral-ui/hexo-theme-aurora"
-    description: "🏳️‍🌈 Futuristic auroral Hexo theme."
-    created_at: "2021-03-12T09:08:24Z"
-    updated_at: "2021-06-20T15:00:59Z"
-    pushed_at: "2021-06-12T23:34:08Z"
-    stargazers_count: 147
-    forks_count: 30
-    open_issues_count: 26
   - name: "Fan"
     owner:
       login: "fan-lv"
@@ -959,6 +959,18 @@ repositories:
     stargazers_count: 132
     forks_count: 25
     open_issues_count: 5
+  - name: "hexo-theme-webstack"
+    owner:
+      login: "HCLonely"
+      html_url: "https://github.com/HCLonely"
+    html_url: "https://github.com/HCLonely/hexo-theme-webstack"
+    description: "A hexo theme based on webstack. | 一个基于webstack的hexo主题。"
+    created_at: "2020-06-04T10:55:14Z"
+    updated_at: "2021-06-23T03:23:56Z"
+    pushed_at: "2021-06-08T10:16:04Z"
+    stargazers_count: 120
+    forks_count: 40
+    open_issues_count: 1
   - name: "generator-hexo-theme"
     owner:
       login: "tcrowe"
@@ -971,18 +983,6 @@ repositories:
     stargazers_count: 119
     forks_count: 13
     open_issues_count: 0
-  - name: "hexo-theme-webstack"
-    owner:
-      login: "HCLonely"
-      html_url: "https://github.com/HCLonely"
-    html_url: "https://github.com/HCLonely/hexo-theme-webstack"
-    description: "A hexo theme based on webstack. | 一个基于webstack的hexo主题。"
-    created_at: "2020-06-04T10:55:14Z"
-    updated_at: "2021-06-21T10:55:42Z"
-    pushed_at: "2021-06-08T10:16:04Z"
-    stargazers_count: 119
-    forks_count: 40
-    open_issues_count: 1
   - name: "hexo-theme-Cxo"
     owner:
       login: "Longlongyu"
@@ -1091,6 +1091,18 @@ repositories:
     stargazers_count: 94
     forks_count: 19
     open_issues_count: 10
+  - name: "Coder"
+    owner:
+      login: "Xunzhuo"
+      html_url: "https://github.com/Xunzhuo"
+    html_url: "https://github.com/Xunzhuo/Coder"
+    description: "A fast、pure、practical、elegant  Hexo theme for Developers🔥🔥🔥"
+    created_at: "2020-05-25T14:42:43Z"
+    updated_at: "2021-06-23T14:46:43Z"
+    pushed_at: "2020-11-12T05:28:38Z"
+    stargazers_count: 93
+    forks_count: 14
+    open_issues_count: 0
   - name: "hexo-theme-white"
     owner:
       login: "FuShaoLei"
@@ -1101,19 +1113,7 @@ repositories:
     updated_at: "2021-06-02T01:20:05Z"
     pushed_at: "2021-03-31T12:13:51Z"
     stargazers_count: 92
-    forks_count: 35
-    open_issues_count: 0
-  - name: "Coder"
-    owner:
-      login: "Xunzhuo"
-      html_url: "https://github.com/Xunzhuo"
-    html_url: "https://github.com/Xunzhuo/Coder"
-    description: "A fast、pure、practical、elegant  Hexo theme for Developers🔥🔥🔥"
-    created_at: "2020-05-25T14:42:43Z"
-    updated_at: "2021-06-16T10:19:13Z"
-    pushed_at: "2020-11-12T05:28:38Z"
-    stargazers_count: 92
-    forks_count: 14
+    forks_count: 34
     open_issues_count: 0
   - name: "hexo-theme-argon"
     owner:
@@ -1122,10 +1122,10 @@ repositories:
     html_url: "https://github.com/solstice23/hexo-theme-argon"
     description: "Argon-Theme 的 Hexo 移植版"
     created_at: "2020-08-22T07:25:00Z"
-    updated_at: "2021-06-21T02:27:27Z"
+    updated_at: "2021-06-24T01:19:48Z"
     pushed_at: "2021-02-25T08:00:42Z"
-    stargazers_count: 88
-    forks_count: 7
+    stargazers_count: 90
+    forks_count: 6
     open_issues_count: 2
   - name: "hexo-theme-believe"
     owner:
@@ -1173,7 +1173,7 @@ repositories:
     updated_at: "2021-06-21T09:07:27Z"
     pushed_at: "2020-12-16T15:43:05Z"
     stargazers_count: 74
-    forks_count: 19
+    forks_count: 20
     open_issues_count: 5
   - name: "Hexo-theme-light_cn"
     owner:
@@ -1194,8 +1194,8 @@ repositories:
     html_url: "https://github.com/adisaktijrs/hexo-theme-minima"
     description: "An undoubtedly simple and lightweight dark/light theme for Hexo.js"
     created_at: "2020-10-10T06:00:05Z"
-    updated_at: "2021-06-20T23:06:36Z"
+    updated_at: "2021-06-25T22:09:11Z"
     pushed_at: "2021-03-21T04:55:21Z"
-    stargazers_count: 69
-    forks_count: 16
-    open_issues_count: 4
+    stargazers_count: 70
+    forks_count: 17
+    open_issues_count: 3
