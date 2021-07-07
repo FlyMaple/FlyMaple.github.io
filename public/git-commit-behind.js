@@ -93,9 +93,8 @@
 
                 const target = document.querySelector('.label-branch:nth-child(4)~span');
 
-                const behindNumber = parseCommitBehindNumber(target);
-
                 if (target) {
+                    const behindNumber = parseCommitBehindNumber(target);
                     const commitBehind = document.createElement('span');
 
                     commitBehind.innerText = target.innerText;
