@@ -126,7 +126,9 @@ Device id: {device_id}
         try {
             const uri = location.href;
             const date = new Date();
-            const t_time = `${date.toLocaleDateString()} ${('0' + date.getHours()).substr(-2)}:${('0'+date.getMinutes()).substr(-2)}:${('0'+date.getSeconds()).substr(-2)}`;
+            const t_time = `${date.toLocaleDateString()} ${('0' + date.getHours()).substr(-2)}:${(
+                '0' + date.getMinutes()
+            ).substr(-2)}:${('0' + date.getSeconds()).substr(-2)}`;
             const b_version = get_version();
             const browser = get_browser();
             const group_org_site_device = get_group_org_site_device();
@@ -546,5 +548,164 @@ Device id: {device_id}
         fixedButton.appendChild(addRdButton);
         fixedButton.appendChild(createRmButton);
         document.body.appendChild(fixedButton);
+    }
+})();
+
+/**
+ * Inject AI assignees suggest
+ */
+(() => {
+    if (location.href.match(/projects\/blitz\/issues\/new/)) {
+        const originalAssignDom = document.querySelector('#issue_assigned_to_id');
+        const originalAssignOptionsDom = Array.from(originalAssignDom.querySelectorAll('option'));
+
+        async function getHistory() {
+            const uri =
+                'http://redmine.dc.zyxel.com.tw/projects/blitz/issues?c%5B%5D=tracker&c%5B%5D=status&c%5B%5D=priority&c%5B%5D=subject&c%5B%5D=assigned_to&c%5B%5D=start_date&f%5B%5D=author_id&f%5B%5D=start_date&f%5B%5D=&group_by=&op%5Bauthor_id%5D=%3D&op%5Bstart_date%5D=%3E%3D&per_page=25&set_filter=1&utf8=%E2%9C%93&v%5Bauthor_id%5D%5B%5D=582&v%5Bstart_date%5D%5B%5D=2021-01-01';
+
+            const parser = new DOMParser();
+
+            const content = await fetch(uri).then((res) => res.text());
+            const document = parser.parseFromString(content, 'text/html');
+
+            return document;
+        }
+
+        function parseAssignees(document) {
+            const list = Array.from(document.querySelectorAll('.assigned_to'));
+            const assigneesDict = {};
+            const assignees = [];
+
+            list.map((item, idx) => {
+                const assign = item.textContent.trim();
+
+                if (assigneesDict[assign] == null) {
+                    assigneesDict[assign] = 0;
+                }
+
+                assigneesDict[assign] += idx < 10 ? 1.5 : 1;
+            });
+
+            Object.entries(assigneesDict).map(([assign, weight]) => {
+                assignees.push({
+                    assign,
+                    weight,
+                });
+            });
+            assignees
+                .sort((self, other) => {
+                    return self.weight - other.weight;
+                })
+                .reverse();
+
+            const filterAssignees = assignees.filter(({ assign }) => {
+                return (
+                    assign !== '國麟 黃' &&
+                    assign !== 'David Kuo' &&
+                    assign !== 'sofina kuo' &&
+                    assign !== 'Ken Phung' &&
+                    assign !== 'yt lu'
+                );
+            });
+
+            return filterAssignees;
+        }
+
+        function unshiftSpecificAssignees(assignees) {
+            const list = JSON.parse(JSON.stringify(assignees));
+
+            list.unshift(
+                ...[
+                    {
+                        assign: '國麟 黃',
+                        weight: 99,
+                        specific: true,
+                    },
+                    {
+                        assign: 'David Kuo',
+                        weight: 99,
+                        specific: true,
+                    },
+                    null,
+                ]
+            );
+
+            return list;
+        }
+
+        function createAssigneesDom(assignees) {
+            const doms = [];
+
+            for (const assign of assignees) {
+                if (assign == null) {
+                    doms.push(null);
+                    continue;
+                }
+
+                const matchOption = originalAssignOptionsDom.find((option) => {
+                    return option.textContent.trim() === assign.assign;
+                });
+
+                if (matchOption) {
+                    const assignDom = document.createElement('a');
+                    assignDom.href = '#';
+                    assignDom.innerText = `${assign.assign}`;
+
+                    assignDom.addEventListener('click', (evt) => {
+                        evt.preventDefault();
+
+                        originalAssignDom.value = matchOption.value;
+                    });
+
+                    doms.push(assignDom);
+                }
+            }
+
+            return doms;
+        }
+
+        function injectDom(assignees) {
+            if (assignees.length < 1) {
+                return;
+            }
+
+            let firstDisplay = true;
+            const pDom = document.createElement('p');
+            for (const assign of assignees) {
+                if (assign == null) {
+                    pDom.append(' | ');
+                    firstDisplay = true;
+                    continue;
+                }
+
+                if (!firstDisplay) {
+                    pDom.append(', ');
+                }
+                firstDisplay = false;
+
+                pDom.appendChild(assign);
+            }
+
+            originalAssignDom.closest('p').after(pDom);
+        }
+
+        async function main() {
+            // inject style
+
+            // list original data
+            const document = await getHistory();
+
+            // analytics assignees weight
+            // assignees re-sorting by specific list
+            const assignees = unshiftSpecificAssignees(parseAssignees(document));
+
+            // generate dom
+            const assigneesDom = createAssigneesDom(assignees);
+
+            // inject dom
+            injectDom(assigneesDom);
+        }
+
+        main();
     }
 })();
