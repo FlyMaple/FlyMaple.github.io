@@ -83,41 +83,65 @@
     }
 
     async function core() {
-        const parser = new DOMParser();
+        if (
+            location.href.match(
+                /https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui2\/merge_requests\?scope=all&sort=id_desc&state=opened|https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui2\/merge_requests$/
+            )
+        ) {
+            const parser = new DOMParser();
 
-        const iterators = iteratorMrs();
+            const iterators = iteratorMrs();
 
-        for await (const { mr, content } of iterators) {
-            try {
-                const document = parser.parseFromString(content, 'text/html');
+            for await (const { mr, content } of iterators) {
+                try {
+                    const document = parser.parseFromString(content, 'text/html');
 
-                const target = document.querySelector('.label-branch:nth-child(4)~span');
+                    const target = document.querySelector('.label-branch:nth-child(4)~span');
 
-                if (target) {
-                    const behindNumber = parseCommitBehindNumber(target);
-                    const commitBehind = document.createElement('span');
+                    if (target) {
+                        const behindNumber = parseCommitBehindNumber(target);
+                        const commitBehind = document.createElement('span');
 
-                    commitBehind.innerText = target.innerText;
-                    commitBehind.classList.add('sk-commit-behind');
+                        commitBehind.innerText = target.innerText;
+                        commitBehind.classList.add('sk-commit-behind');
 
-                    if (behindNumber >= 20) {
-                        commitBehind.classList.add('sk-commit-behind--rebase');
+                        if (behindNumber >= 20) {
+                            commitBehind.classList.add('sk-commit-behind--rebase');
+                        }
+
+                        const nextElement = mr.nextElementSibling;
+                        if (nextElement) {
+                            nextElement.remove();
+                        }
+                        mr.after(commitBehind);
                     }
-
-                    const nextElement = mr.nextElementSibling;
-                    if (nextElement) {
-                        nextElement.remove();
-                    }
-                    mr.after(commitBehind);
+                } catch (e) {
+                    console.log(e);
                 }
-            } catch (e) {
-                console.log(e);
             }
         }
     }
 
+    function injectWatcher() {
+        const skcb = document.createElement('div');
+        skcb.classList.add('sk-commit-behind');
+
+        document.addEventListener('click', () => {
+            setTimeout(() => {
+                const skcb = document.querySelector('.sk-commit-behind');
+
+                if (skcb == null) {
+                    core();
+                }
+            }, 2000);
+        });
+
+        document.body.appendChild(skcb);
+    }
+
     async function main() {
         injectStyle();
+        injectWatcher();
         core();
     }
 
