@@ -4,17 +4,6 @@ date: 2021-07-09 16:18:21
 tags:
 ---
 
-<style>
-    .sk-h2 {
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .sk-h3 {
-        font-size: 16px;
-        font-weight: bold;
-    }
-</style>
-
 <div class="sk-h2">什麼是 :host(selector) ?</div>
 
 在 Angular component 中的樣式, 基本上會被 Shadow dom 所隔離, 在 Shadow dom 之中才會是 template 的內容.
