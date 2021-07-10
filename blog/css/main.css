@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cd5904;
+  background: #83ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2659,4 +2659,78 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.sk-h1,
+.sk-h2,
+.sk-h3,
+.sk-h4,
+.sk-h5,
+.sk-h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  line-height: 1.5;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.sk-h2,
+.sk-h3,
+.sk-h4,
+.sk-h5,
+.sk-h6 {
+  margin: 20px 0 15px;
+}
+.sk-h1 {
+  font-size: 22px;
+}
+@media (max-width: 767px) {
+  .sk-h1 {
+    font-size: 18px;
+  }
+}
+.sk-h2 {
+  font-size: 20px;
+}
+@media (max-width: 767px) {
+  .sk-h2 {
+    font-size: 16px;
+  }
+}
+.sk-h3 {
+  font-size: 18px;
+}
+@media (max-width: 767px) {
+  .sk-h3 {
+    font-size: 14px;
+  }
+}
+.sk-h4 {
+  font-size: 16px;
+}
+@media (max-width: 767px) {
+  .sk-h4 {
+    font-size: 12px;
+  }
+}
+.sk-h5 {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .sk-h5 {
+    font-size: 10px;
+  }
+}
+.sk-h6 {
+  font-size: 12px;
+}
+@media (max-width: 767px) {
+  .sk-h6 {
+    font-size: 8px;
+  }
+}
+.posts-expand .post-body .sk-h2,
+.posts-expand .post-body .sk-h3,
+.posts-expand .post-body .sk-h4,
+.posts-expand .post-body .sk-h5,
+.posts-expand .post-body .sk-h6 {
+  padding-top: 10px;
 }
