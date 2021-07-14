@@ -70,13 +70,13 @@
 
             if (p4) {
                 group_id = p4[1];
-                group_name = document.querySelector('.select-group').innerText.trim();
+                group_name = document.querySelector('.select-group').innerText.trim().replace(/_/g, '{backward_slash}');
             } else if (p2 == null) {
                 org_id = p ? p[0] : org_id;
-                org_name = org_id === 'N/A' ? 'N/A' : document.querySelector('.select-org').innerText.trim();
+                org_name = org_id === 'N/A' ? 'N/A' : document.querySelector('.select-org').innerText.trim().replace(/_/g, '{backward_slash}');
                 if (p && p.length === 2) {
                     site_id = p[1];
-                    site_name = document.querySelector('.select-site').innerText.trim();
+                    site_name = document.querySelector('.select-site').innerText.trim().replace(/_/g, '{backward_slash}');
                 }
                 if (p3) {
                     device_id = p3[0];
