@@ -2,51 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://flymaple.github.io/blog/2021/07/05/loop-with-async/</loc>
+    <loc>https://flymaple.github.io/blog/2021/07/16/angular-what-is-forward-ref/</loc>
     
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-16</lastmod>
     
   </url>
   
   <url>
     <loc>https://flymaple.github.io/blog/2021/07/09/angular-style-host/</loc>
     
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://flymaple.github.io/blog/2021/06/22/hexo-theme-rank/</loc>
+    <loc>https://flymaple.github.io/blog/2021/07/05/loop-with-async/</loc>
     
-    <lastmod>2021-06-26</lastmod>
+    <lastmod>2021-07-05</lastmod>
     
   </url>
   
   <url>
     <loc>https://flymaple.github.io/blog/googlea5c840ced3772fe8</loc>
     
-    <lastmod>2021-06-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://flymaple.github.io/blog/404</loc>
-    
-    <lastmod>2021-06-22</lastmod>
+    <lastmod>2021-07-05</lastmod>
     
   </url>
   
   <url>
     <loc>https://flymaple.github.io/blog/about/</loc>
     
-    <lastmod>2021-06-22</lastmod>
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://flymaple.github.io/blog/2021/06/22/hexo-theme-rank/</loc>
+    
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://flymaple.github.io/blog/404</loc>
+    
+    <lastmod>2021-07-05</lastmod>
     
   </url>
   
 
   <url>
     <loc>https://flymaple.github.io/blog</loc>
-    <lastmod>2021-07-10</lastmod>
+    <lastmod>2021-07-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
