@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://flymaple.github.io/blog/2021/07/23/angular-resolution-modifiers/</loc>
+    
+    <lastmod>2021-07-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://flymaple.github.io/blog/2021/07/20/form-control-set-value-and-value-changes/</loc>
     
     <lastmod>2021-07-21</lastmod>
@@ -74,7 +81,7 @@
 
   <url>
     <loc>https://flymaple.github.io/blog</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
