@@ -20,7 +20,7 @@
     function get_version() {
         try {
             const dom = document.querySelector('.copyright');
-            return dom && dom.innerText.match(/(?<=:\s)(.+\d|-\d+)$/)[0];
+            return dom && dom.innerText.match(/(?<=[:|：]\s)(.+\d|-\d+)$/)[0];
         } catch (e) {
             console.trace(e);
         }
@@ -73,10 +73,16 @@
                 group_name = document.querySelector('.select-group').innerText.trim().replace(/_/g, '{backward_slash}');
             } else if (p2 == null) {
                 org_id = p ? p[0] : org_id;
-                org_name = org_id === 'N/A' ? 'N/A' : document.querySelector('.select-org').innerText.trim().replace(/_/g, '{backward_slash}');
+                org_name =
+                    org_id === 'N/A'
+                        ? 'N/A'
+                        : document.querySelector('.select-org').innerText.trim().replace(/_/g, '{backward_slash}');
                 if (p && p.length === 2) {
                     site_id = p[1];
-                    site_name = document.querySelector('.select-site').innerText.trim().replace(/_/g, '{backward_slash}');
+                    site_name = document
+                        .querySelector('.select-site')
+                        .innerText.trim()
+                        .replace(/_/g, '{backward_slash}');
                 }
                 if (p3) {
                     device_id = p3[0];
