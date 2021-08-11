@@ -205,6 +205,7 @@ Device id: {device_id}
 (function () {
     const proxy = {
         'gamma.nebula.zyxel.com': 'gammaccapi.nebula.zyxel.com',
+        'ebeta.nebula.zyxel.com': 'ebetaccapi.nebula.zyxel.com',
         'omega.nebula.zyxel.com': 'omegaccapi.nebula.zyxel.com',
     };
 
