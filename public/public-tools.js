@@ -105,13 +105,13 @@
         return null;
     }
     function go() {
-        const title_tmpl = `[Phase11.1][CC]`;
+        const title_tmpl = `[Phase12][CC]`;
         const ctx_tmpl = `**[Page]**
 {uri}
 
 **[Reproduce step]**
-step 1.
-step 2.
+step 1. 
+step 2. 
 
 **[Result]**
 
