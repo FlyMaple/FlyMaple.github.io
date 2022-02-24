@@ -1,7 +1,7 @@
 /**
  * For each Nebula env to generate bug template
  */
-(function () {
+ (function () {
     function global_setting(opts) {
         const { copyFunc } = opts;
 
@@ -22,6 +22,9 @@
             const dom = document.querySelector('.copyright');
             return dom && dom.innerText.match(/(?<=[:|：]\s)(.+\d|-\d+)$/)[0];
         } catch (e) {
+            if (window.forGUI3) {
+                return 'developing';
+            }
             console.trace(e);
         }
 
@@ -226,9 +229,14 @@ Device id: {device_id}
     }
 
     function getProxy(hostname) {
+        if (window.forGUI3) {
+            return 'gammaccapi.nebula.zyxel.com';
+        }
+
         if (hostname.includes('aio')) {
             return `${hostname}:4430`;
         }
+
         return proxy[hostname];
     }
 
