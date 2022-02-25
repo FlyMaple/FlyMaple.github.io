@@ -108,7 +108,7 @@
         return null;
     }
     function go() {
-        const title_tmpl = `[Phase13][CC]`;
+        const title_tmpl = window.forGUI3 ? `[Phase14][GUI3][CC]` : `[Phase13][CC]`;
         const ctx_tmpl = `**[Page]**
 {uri}
 
