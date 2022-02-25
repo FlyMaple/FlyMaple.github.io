@@ -108,7 +108,16 @@
         return null;
     }
     function go() {
-        const title_tmpl = window.forGUI3 ? `[Phase14][GUI3][CC]` : `[Phase13][CC]`;
+        const { hostname } = location;
+        let title_tmpl;
+
+        if (hostname.includes('aio')) {
+            if (window.forGUI3) {
+                title_tmpl = `[Phase14][GUI3][CC]`;
+            }
+        } else {
+            title_tmpl = `[Phase13][CC]`;
+        }
         const ctx_tmpl = `**[Page]**
 {uri}
 
@@ -229,11 +238,12 @@ Device id: {device_id}
     }
 
     function getProxy(hostname) {
-        if (window.forGUI3) {
-            return 'gammaccapi.nebula.zyxel.com';
-        }
 
         if (hostname.includes('aio')) {
+            if (window.forGUI3) {
+                return 'gammaccapi.nebula.zyxel.com';
+            }
+
             return `${hostname}:4430`;
         }
 
