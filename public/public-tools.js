@@ -116,7 +116,7 @@
                 title_tmpl = `[Phase14][GUI3][CC]`;
             }
         } else {
-            title_tmpl = `[Phase13][CC]`;
+            title_tmpl = `[Phase14][CC]`;
         }
         const ctx_tmpl = `**[Page]**
 {uri}
