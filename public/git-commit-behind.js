@@ -56,7 +56,7 @@
 
                         if (mrHref != null) {
                             const content = await fetch(
-                                `https://gitlab.dc.zyxel.com.tw/nebula-fe/nfe.gui2/merge_requests/${mrHref[1]}`
+                                `https://gitlab.dc.zyxel.com.tw/nebula-fe/nfe.gui3/merge_requests/${mrHref[1]}`
                             )
                                 .then((res) => res.text())
                                 .catch((e) => '');
@@ -85,7 +85,7 @@
     async function core() {
         if (
             location.href.match(
-                /https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui2\/merge_requests\?scope=all&sort=id_desc&state=opened|https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui2\/merge_requests$/
+                /https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui3\/merge_requests\?scope=all&sort=id_desc&state=opened|https:\/\/gitlab.dc.zyxel.com.tw\/nebula-fe\/nfe.gui3\/merge_requests$/
             )
         ) {
             const parser = new DOMParser();
