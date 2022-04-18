@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="Skye - TechBlog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="來聊聊 Component 與 Directive 以及其 input &#x2F; output 設計模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular Directive &amp; Component input &#x2F; output design pattern">
+<meta property="og:url" content="https://flymaple.github.io/blog/2021/08/05/think-about-input-output-design-pattern/">
+<meta property="og:site_name" content="Skye - TechBlog">
+<meta property="og:description" content="來聊聊 Component 與 Directive 以及其 input &#x2F; output 設計模式">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://flymaple.github.io/blog/2021/08/05/think-about-input-output-design-pattern/demo1.gif">
+<meta property="article:published_time" content="2021-08-05T01:41:37.000Z">
+<meta property="article:modified_time" content="2021-08-05T07:49:48.444Z">
+<meta property="article:author" content="Skye Wu">
+<meta property="article:tag" content="前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,Typescript,RxJS,Git,爬蟲,HTML,CSS,SCSS,Angular,Vue,Vue.js,Side-project">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://flymaple.github.io/blog/2021/08/05/think-about-input-output-design-pattern/demo1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://flymaple.github.io/blog/2021/08/05/think-about-input-output-design-pattern/"/>
+
+
+
+
+
+  <title>Angular Directive & Component input / output design pattern | Skye - TechBlog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Skye - TechBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Blog yourself</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://flymaple.github.io/blog/blog/2021/08/05/think-about-input-output-design-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Skye - TechBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Angular Directive & Component input / output design pattern</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2021-08-05T09:41:37+08:00">
+                2021-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+      
+        <p>來聊聊 <code>Component</code> 與 <code>Directive</code> 以及其 input / output 設計模式</p>
+<span id="more"></span>
+
+<h1 id="緣起"><a href="#緣起" class="headerlink" title="緣起"></a>緣起</h1><p>最近看到一個範例是在描述如何用 <code>Directive</code> 來達到所需的目的</p>
+<p>程式看完了也理解完了, 但是心中又冒出一個很常見的問題</p>
+<p>why Directive? what is Directive?</p>
+<p>在學習 Angular 的時候常常會遇到包 <code>Component</code> 這種想法, 那什麼時候要包 <code>Component</code> 以及為什麼要包呢?</p>
+<p>那 <code>Directive</code> 又為何, 他和 <code>Component</code> 使用的時機又在哪呢?</p>
+<h1 id="Component-vs-Directive"><a href="#Component-vs-Directive" class="headerlink" title="Component vs Directive"></a>Component vs Directive</h1><p>兩者都有很重要的特性就是重用</p>
+<p><code>Component</code> 可以適用於大部分的情境, <code>Directive</code> 著重於對 DOM 的增強</p>
+<p>如果需要多個 HTML 元素(UI), 這種情境一定選擇 <code>Component</code>, <code>Component</code> 可以讓你完整地將寫在 template 中的內容控制在自身的範圍內</p>
+<h1 id="Input-Output"><a href="#Input-Output" class="headerlink" title="@Input / @Output"></a>@Input / @Output</h1><p>如何能達到重用? 在 Angular 中的 @Input / @Output 就佔了很大的成分</p>
+<p>藉由 @Input / @Output 可以讓父層與子層間進行無障礙的溝通, 有了溝通就可以衍伸出千變萬化的可能性</p>
+<p>也許有人會問, 一定只能透過 @Input / Output 來進行交互嗎?</p>
+<p>不, 還可以使用 Angular DI 的機制來將這些組件彼此串聯在一起, 但是 DI 是屬於全域面向的資料交互, 雖然也能做到父與子的溝通, 但是卻有點殺雞用牛刀了</p>
+<p>直覺使用 @Input / @Output 是最為恰當的</p>
+<p>那… 怎樣算是有效的去運用 @Input / @Output 以及相關的設計模式又有那些呢?</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="@Input"></a>@Input</h3><p>以下列出常用的幾種做法, 沒有絕對好和絕對壞, 能了解所處的場合該用哪一種方式就是最好的</p>
+<p>最為簡易的方式就是需要什麼變數就定義幾個 @Input</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ui-button</span> <span class="attr">text</span>=<span class="string">&quot;Click&quot;</span> <span class="attr">color</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ui-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote><p>在單純的元件上直接使用這種方式可以讓可讀性大大的提升</p>
+</blockquote>
+
+<p>如果狀況變複雜了, 很多必填的屬性都要填寫才可以讓這個元件正常運作</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ui-button</span></span></span><br><span class="line"><span class="tag">  <span class="attr">text</span>=<span class="string">&quot;Click&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrA</span>=<span class="string">&quot;attrA&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrB</span>=<span class="string">&quot;attrB&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrC</span>=<span class="string">&quot;attrC&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrD</span>=<span class="string">&quot;attrD&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrE</span>=<span class="string">&quot;attrE&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrF</span>=<span class="string">&quot;attrF&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">attrG</span>=<span class="string">&quot;attrG&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">ui-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote><p>這種也只是稍微複雜而以, 通常可以經過完善的文件以及 code comment 等方式來保有可讀性</p>
+</blockquote>
+
+<p>如果是同一種類型的 Input, 就不適合將之拆分, 就會像是下面一個 Input 包含大量的設定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">options = &#123;</span><br><span class="line">    radius: &#123;</span><br><span class="line">        rt: 5,</span><br><span class="line">        rb: 5,</span><br><span class="line">        lb: 5,</span><br><span class="line">        lt: 5,</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ui-button</span> <span class="attr">text</span>=<span class="string">&quot;Click&quot;</span> [<span class="attr">options</span>]=<span class="string">&quot;options&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ui-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote><p>這個模式會讓 template 變精簡, 但是可讀性變比較差, 但是好處就是可以填入大量的細節</p>
+</blockquote>
+
+<h3 id="Output"><a href="#Output" class="headerlink" title="@Output"></a>@Output</h3><p>Output 相較之下就比較單純, 基本上就一個蘿蔔一個坑</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ui-button</span></span></span><br><span class="line"><span class="tag">  <span class="attr">text</span>=<span class="string">&quot;Click&quot;</span></span></span><br><span class="line"><span class="tag">  (<span class="attr">click</span>)=<span class="string">&quot;onClicked()&quot;</span></span></span><br><span class="line"><span class="tag">  (<span class="attr">mouseenter</span>)=<span class="string">&quot;onMouseEnter()&quot;</span></span></span><br><span class="line"><span class="tag">  (<span class="attr">mouseleave</span>)=<span class="string">&quot;onMouseLeave()&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">ui-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要複雜的還是有，將 <code>Component</code> 內的 function 都 export 出來, 讓父層擁有直接操作 <code>Component</code> 的能力</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這裡是 Parent</span></span><br><span class="line"><span class="comment">// 當 `Component` 發生點擊時隱藏 Component, 並在 3 秒後重新顯示</span></span><br><span class="line"><span class="function"><span class="title">onClicked</span>(<span class="params">evt</span>)</span> &#123;</span><br><span class="line">    evt.hide();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        evt.show();</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ui-button</span> <span class="attr">text</span>=<span class="string">&quot;Click&quot;</span> (<span class="attr">click</span>)=<span class="string">&quot;onClicked($event)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ui-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這裡是 `Component` 裡面</span></span><br><span class="line"><span class="built_in">this</span>.click.emit(&#123;</span><br><span class="line">  <span class="attr">hide</span>: <span class="built_in">this</span>.hide.bind(<span class="built_in">this</span>),</span><br><span class="line">  <span class="attr">show</span>: <span class="built_in">this</span>.show.bind(<span class="built_in">this</span>),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote><p>這種寫法目前沒看到什麼值得一提的好處, 如果要讓父層操作 Component, 我們可以使用更標準的作法 <code>@ViewChild</code></p>
+</blockquote>
+
+<h3 id="物件導向-用於訂閱"><a href="#物件導向-用於訂閱" class="headerlink" title="物件導向? 用於訂閱?"></a>物件導向? 用於訂閱?</h3><p>以上對 @Input / @Output 介紹幾種常見的設計模式, 這邊來聊聊如果 input 內容是 <code>object</code>、<code>function</code>、<code>promise</code>、<code>observable</code>、<code>subject</code> 這些比較特殊一類, 會有什麼樣的變化呢?</p>
+<p>這邊說到的 <code>object</code> 泛指 <code>&#123;&#125;</code>、<code>[]</code>、<code>Map</code>、<code>Set</code> 這些 call by address 的變數</p>
+<p>基本上我們在 javascript 的概念中要有輸出不會去影響輸入的概念, 也盡量保持著低耦合性的設計</p>
+<p>所以在這種 call by address 的類型, 有很大的機會會在 <code>Component</code> / <code>Directive</code> 中 <strong>&quot;不小心&quot;</strong> 將值給改掉了，這點要非常小心</p>
+<p>–</p>
+<p>如果 input 傳來了是 <code>function</code>, 或是 <code>object</code> 裡面裝著 <code>function</code>, 都屬於 <code>function</code> 層面</p>
+<p>這種設計就會讓 <code>Component</code> 對父層有較高的耦合性, 這種設計模式會讓 <code>Component</code> 直接有能力對父層進行這些 function 的呼叫, 進而反向的去影響父層</p>
+<p>但是這樣不代表就是不好, 下面用兩個例子來說明</p>
+<p><strong>Bad</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這是父層</span></span><br><span class="line"><span class="comment">// input: dialog &#123;</span></span><br><span class="line"><span class="comment">//     show: () =&gt; &#123;&#125;,</span></span><br><span class="line"><span class="comment">//     close: () =&gt; &#123;&#125;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這是在 Component 裡面</span></span><br><span class="line">click() =&gt; &#123;</span><br><span class="line">    <span class="built_in">this</span>.dialog.show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dbClick() =&gt; &#123;</span><br><span class="line">    <span class="built_in">this</span>.dialog.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote><p><code>Component</code> 必須需要知道什麼時候要執行 <code>.show</code> 以及 <code>.close</code>, 然後這些特定的 function 也被寫死在裡面</p>
+</blockquote>
+
+<p><strong>Good</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這是父層</span></span><br><span class="line"><span class="comment">// input: clickHook &#123;</span></span><br><span class="line"><span class="comment">//     click: () =&gt; &#123;&#125;,</span></span><br><span class="line"><span class="comment">//     dbClick: () =&gt; &#123;&#125;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這是在 Component 裡面</span></span><br><span class="line">click() =&gt; &#123;</span><br><span class="line">    <span class="built_in">this</span>.clickHook.click();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dbClick() =&gt; &#123;</span><br><span class="line">    <span class="built_in">this</span>.clickHook.dbClick();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote><p>從 input 的命名開始就用狀態(動作)來命名, 不會綁死在 <code>dialog</code> 這個特定意義的命名, 然後 input 中也只是定義對應狀態所使用到的 function, 真正的 logic(show close) 則是在父層在去實現</p>
+<p>這樣的方式比完全耦合的方式好得多更多, 這邊的 <code>click</code>、<code>dbClick</code> 只是舉例, 不要認為這種 case 就用 @Output 就好啦的想法去看這個範例, 這樣是要表達妥善地去設計 input</p>
+</blockquote>
+
+<p>其實若 input 可以傳入 function 了, 某些時候就不用使用 @Output 了, 使用 @Output 的目的只是很明確地用於可讀性, 讓開發者知道會有這樣的事情被傳出來, 進而在父層做某些事</p>
+<p>會使用這樣子的 @Input, 所處的 case 就比較複雜一些了, 所以本來的可讀性就不會這麼高了</p>
+<p>–</p>
+<p>那麼 <code>promise</code>、<code>observable</code>、<code>subject</code> 呢? 它們只是更為複雜的 function 罷了</p>
+<p>所擁有的特性就是 等待、訂閱、成功要做什麼(resolve)、失敗又要如何(reject)</p>
+<p>如果父層傳入一個 <code>promise</code> 或是 <code>subject</code>, 只要 <code>Component</code> 去撰寫 then or catch or subscribe, 這樣父層發生什麼的時候, <code>Component</code> 都會自動反應, 而不用手動去呼叫</p>
+<p>這類自動反應、自動訂閱的方式可以用正向, 也可以用於反向, 全看開發者怎麼去設計</p>
+<p>因為 <code>observable</code> 比較抽象, 下面有個例子可以幫助理解</p>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>使用 <code>Directive</code> 將 select 下拉選單做一個即時儲存與狀態顯示</p>
+<ul>
+<li>改變選項時, 通知父層呼叫 api, 並顯示 loading</li>
+<li>若是成功就顯示打勾圖式, 1 秒後隱藏</li>
+<li>若是失敗就顯示錯誤圖式, 1 秒後隱藏</li>
+</ul>
+<p><img src="demo1.gif"></p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路 1"></a>思路 1</h3><p>@Input 傳入一個 Function, 並且在 select change 的時候去執行此 function 會得到一個 observable 然後訂閱他, 訂閱的時候就會讓父層發出 request</p>
+<p>因為是 observable，所以 request 的結果會是在 <code>Component</code> 這邊被處理</p>
+<figure class="highlight typescript"><figcaption><span>父層</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.dropdownObservable = <span class="function">(<span class="params">value</span>) =&gt;</span></span><br><span class="line">  <span class="built_in">this</span>.http.post(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span>, &#123; value &#125;).pipe(</span><br><span class="line">    switchMap(<span class="function">(<span class="params">r</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Math</span>.random() * <span class="number">2</span> &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> timer(<span class="number">1000</span>).pipe(switchMap(<span class="function">() =&gt;</span> throwError(<span class="string">&quot;Error&quot;</span>)));</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">of</span>(r);</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><figcaption><span>Component</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Input</span>(<span class="string">&quot;observableFn&quot;</span>) <span class="keyword">private</span> observableFn: <span class="built_in">Function</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@HostListener</span>(<span class="string">&quot;change&quot;</span>, [<span class="string">&quot;$event&quot;</span>])</span><br><span class="line"><span class="keyword">private</span> change(evt): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.addLoader();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.observableFn(evt.target.value).subscribe(</span><br><span class="line">        <span class="function">(<span class="params">_</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.handleSuccess();</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function">(<span class="params">_</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.handleError();</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路 2"></a>思路 2</h3><p>不用 @Input, 完全靠 @Output 將關聯的程式傳出去給父層做使用</p>
+<ul>
+<li>將值傳出</li>
+<li>將成功以後要做的 function 傳出</li>
+<li>將失敗以後要做的 function 傳出</li>
+</ul>
+<figure class="highlight typescript"><figcaption><span>父層</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dropdownChange(evt): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.http</span><br><span class="line">        .post(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span>, &#123; <span class="attr">value</span>: evt.value &#125;)</span><br><span class="line">        .pipe(</span><br><span class="line">            switchMap(<span class="function">(<span class="params">r</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">Math</span>.random() * <span class="number">2</span> &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> timer(<span class="number">1000</span>).pipe(switchMap(<span class="function">() =&gt;</span> throwError(<span class="string">&quot;Error&quot;</span>)));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">of</span>(r);</span><br><span class="line">            &#125;)</span><br><span class="line">        )</span><br><span class="line">        .subscribe(</span><br><span class="line">            <span class="function">(<span class="params">_</span>) =&gt;</span> &#123;</span><br><span class="line">                evt.success();</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function">(<span class="params">_</span>) =&gt;</span> &#123;</span><br><span class="line">                evt.error();</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Output</span>() dropdownChange = <span class="keyword">new</span> EventEmitter&lt;&#123;</span><br><span class="line">    <span class="attr">value</span>: <span class="built_in">string</span>;</span><br><span class="line">    success: <span class="built_in">Function</span>;</span><br><span class="line">    error: <span class="built_in">Function</span>;</span><br><span class="line">&#125;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="meta">@HostListener</span>(<span class="string">&quot;change&quot;</span>, [<span class="string">&quot;$event&quot;</span>])</span><br><span class="line"><span class="keyword">private</span> _change(evt): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.addLoader();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.dropdownChange.emit(&#123;</span><br><span class="line">        <span class="attr">value</span>: evt.target.value,</span><br><span class="line">        <span class="attr">success</span>: <span class="built_in">this</span>.handleSuccess.bind(<span class="built_in">this</span>),</span><br><span class="line">        <span class="attr">error</span>: <span class="built_in">this</span>.handleError.bind(<span class="built_in">this</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote><p>以上就使用 observable 訂閱 + 自動反應機制來完成, 當然用其他設計模式來完成也是可以的, 沒有最好的只有更好的, 或慘不忍睹的</p>
+</blockquote>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>同樣的需求, 可以用不同的設計模式去完成這件事, 但是其中會牽扯到可讀性, 合理性, 與複雜度等等</p>
+<p>在接觸設計模式之前, 我們能做的只能多聽多看多研究, 好好了解這些方式背後的優缺點</p>
+<p>程式碼: <a href="https://codesandbox.io/s/dropdown-slef-saving-qslm1" target="_blank">點我</a></p>
+<blockquote><p><a target="_blank" rel="noopener" href="https://indepth.dev/posts/1472/angular-self-saving-drop-downs-yet-another-Directive">https://indepth.dev/posts/1472/angular-self-saving-drop-downs-yet-another-Directive</a></p>
+</blockquote>
+
+        
+        
+        
+        
+        
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2021/07/26/flags-with-decimal-and-binary/" rel="next" title="Bitwise 狀態設計模式">
+                <i class="fa fa-chevron-left"></i> Bitwise 狀態設計模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/blog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/FlyMaple" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Skye Wu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
