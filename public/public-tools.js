@@ -1,7 +1,7 @@
 /**
  * For each Nebula env to generate bug template
  */
- (function () {
+(function () {
     function global_setting(opts) {
         const { copyFunc } = opts;
 
@@ -407,7 +407,8 @@ Device id: {device_id}
               width: 100%;
               height: auto;
           }
-          .sd-rd-button > span {
+          .sd-rd-button > span,
+          .sd-delete-org-button > span {
               display: none;
               color: #3c9f00;
           }
@@ -437,7 +438,17 @@ Device id: {device_id}
             box-shadow: 1px 1px 3px 1px #aada8d;
             cursor: pointer;
             background-color: #fff;
-            animation: item-2 0.5s 0.5s linear forwards;
+            animation: item-2 0.3s 0.3s linear forwards;
+          }
+          .skbutton.activate--init .sd-delete-org-button {
+            padding: 3px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 1px 1px 3px 1px #aada8d;
+            cursor: pointer;
+            background-color: #fff;
+            animation: item-3 0.3s 0.6s linear forwards;
           }
           .skbutton [class*=-button] {
             position: absolute;
@@ -471,11 +482,108 @@ Device id: {device_id}
               transform: translate(-50%, calc(-50% - 95px));
             }
           }
+          @keyframes item-3 {
+            0% {
+              opacity: 0;
+              transform: translate(-50%, calc(-50% - 95px));
+            }
+            100% {
+              opacity: 1;
+              transform: translate(-50%, calc(-50% - 140px));
+            }
+          }
+
+          /* delete org dialog */
+          .sk-delete-org-setup {
+          }
+          .sk-delete-org-setup .line {
+            display: flex;
+            margin-bottom: 0.5rem;
+          }
+          .sk-delete-org-setup .line b {
+            display: inline-block;
+            width: 150px;
+          }
+          .sk-delete-org-setup .line input, .sk-delete-org-setup .line textarea {
+            width: 300px;
+          }
+          .sk-delete-org-setup .footer {
+            text-align: right;
+          }
       `;
         document.head.appendChild(style);
     }
 
-    function createButton(classname, imgSrc) {
+    function insertDeleteOrgSetupDialog() {
+        const dialog_template = `
+            <dialog class="sk-delete-org-setup">
+                <div class="line">
+                    <b class="bold">Email: </b><input type="text" class="email" placeholder="your account email" disabled>
+                </div>
+                <div class="line">
+                    <b class="bold">License transfer to: </b><input type="text" class="transfer" placeholder="org id">
+                </div>
+                <div class="line">
+                    <b class="bold">Organizations: </b>
+                    <textarea class="orgs" cols="30" rows="5" placeholder="org_id_1&#10;org_id_2"></textarea>
+                </div>
+                <div class="footer">
+                    <button class="ok">Go</button>
+                </div>
+            </dialog>`;
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(dialog_template, 'text/html');
+        dialog = doc.querySelector('dialog');
+
+        dialog.querySelector('.ok').addEventListener('click', async () => {
+            const email = dialog.querySelector('.email').value.trim();
+            const transfer_org = dialog.querySelector('.transfer').value.trim();
+            const orgs = dialog
+                .querySelector('.orgs')
+                .value.trim()
+                .split(/\n/)
+                .map((org) => org.trim());
+
+            if (window.publicTool && window.publicTool.deleteOrg) {
+                const params = window.publicTool.deleteOrg.params;
+
+                window.publicTool.deleteOrg.params = {
+                    email,
+                    transfer_org,
+                    orgs,
+                };
+
+                const { img, span } = window.publicTool.deleteOrg.button;
+                img.style.display = 'none';
+                span.style.display = 'inline-block';
+
+                await window.publicTool.deleteOrg.main();
+
+                img.style.display = 'inline-block';
+                span.style.display = 'none';
+
+                // deleteOrg.email = email;
+                // deleteOrg.orgs = orgs;
+                // deleteOrg.transfer_org = transfer;
+
+                // localStorage.setItem(
+                //     'skye://deleteOrg',
+                //     JSON.stringify({
+                //         email,
+                //         transfer,
+                //         orgs,
+                //     })
+                // );
+            }
+
+            dialog.close();
+        });
+
+        document.body.appendChild(dialog);
+    }
+
+    function createButton(classname, imgSrc, title) {
         const _d = document.querySelector(`.${classname}`);
         if (_d) {
             return;
@@ -483,6 +591,7 @@ Device id: {device_id}
 
         const div = document.createElement('div');
         div.classList.add(classname);
+        div.setAttribute('title', title);
         const img = document.createElement('img');
         img.src = imgSrc;
         div.appendChild(img);
@@ -493,7 +602,8 @@ Device id: {device_id}
     function createAddSdd9Button() {
         const button = createButton(
             'sd-rd-button',
-            'https://i.pinimg.com/originals/ee/11/5e/ee115ead9702fecc987c92e8560977fc.png'
+            'https://i.pinimg.com/originals/ee/11/5e/ee115ead9702fecc987c92e8560977fc.png',
+            'Admin'
         );
 
         const span = document.createElement('span');
@@ -520,7 +630,8 @@ Device id: {device_id}
     function createCreateRmButton() {
         const button = createButton(
             'sd-rm-button',
-            'https://i.pinimg.com/originals/4b/14/79/4b14792cb7e482251bc71d47ec3b24e1.png'
+            'https://i.pinimg.com/originals/4b/14/79/4b14792cb7e482251bc71d47ec3b24e1.png',
+            '開 Bug'
         );
 
         button.addEventListener('click', async function (e) {
@@ -528,6 +639,40 @@ Device id: {device_id}
             setTimeout(() => {
                 window.tools.valid && open('http://redmine.dc.zyxel.com.tw/projects/blitz/issues/new');
             }, 500);
+        });
+        return button;
+    }
+
+    function createDeleteOrgButton() {
+        const button = createButton(
+            'sd-delete-org-button',
+            'https://i.pinimg.com/favicons/625f15fc2b4ff690e589859dee0026baa19f59b39b282971c0ed23d7.png',
+            '刪除 Org'
+        );
+
+        const span = document.createElement('span');
+        span.innerText = 'wait';
+
+        button.appendChild(span);
+
+        button.addEventListener('click', async function (e) {
+            e.stopPropagation();
+
+            const dialog = document.querySelector('.sk-delete-org-setup');
+            // const _storage = JSON.parse(localStorage.getItem('skye://deleteOrg') || '{}');
+            const email = dialog.querySelector('.email');
+            const transfer = dialog.querySelector('.transfer');
+            const orgs = dialog.querySelector('.orgs');
+            const currentEmail = document.querySelector('div.zynet-account-overlay .email');
+
+            email.value = currentEmail.textContent;
+            // transfer.value = _storage.transfer || '';
+            dialog.showModal();
+
+            const img = button.querySelector('img');
+
+            window.publicTool.deleteOrg.button.img = img;
+            window.publicTool.deleteOrg.button.span = span;
         });
         return button;
     }
@@ -567,9 +712,12 @@ Device id: {device_id}
         const fixedButton = createFixedButton();
         const addRdButton = createAddSdd9Button();
         const createRmButton = createCreateRmButton();
+        const deleteOrgButton = createDeleteOrgButton();
+        insertDeleteOrgSetupDialog();
 
         fixedButton.appendChild(addRdButton);
         fixedButton.appendChild(createRmButton);
+        fixedButton.appendChild(deleteOrgButton);
         document.body.appendChild(fixedButton);
     }
 })();
@@ -731,4 +879,550 @@ Device id: {device_id}
 
         main();
     }
+})();
+
+/**
+ * Inject AI assignees suggest
+ */
+(() => {
+    /*
+    window.publicTool = {
+        deleteOrg: {
+            // mzc email 每次 login 都要確認
+            email: '',
+
+            // 單個: ['org_id'],
+            // 多個: ['org_id', 'org_id']
+            orgs: [''],
+
+            // license 要轉移到哪
+            transfer_org: '',
+        }
+    };
+    */
+
+    let _deleteOrg = (ORG_ID, EMAIL) => {
+        console.clear();
+        /* eslint-disable */
+        const HEADERS = {
+            accept: 'application/json, text/plain, */*',
+            'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+            'cache-control': 'no-cache',
+            'Content-type': 'application/json; charset=UTF-8',
+            'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            'x-auth-renew': 'true',
+        };
+
+        const ENTRY = 'https://gammaccapi.nebula.zyxel.com';
+        const REFERRER = 'https://gamma.nebula.zyxel.com/';
+        const TRANSFER_ORG_ID = window.publicTool.deleteOrg.transfer_org;
+
+        function normalizeText(str) {
+            return str.replace(/<orgId>/, ORG_ID);
+        }
+
+        function getToken() {
+            const token = sessionStorage.getItem('nebula://session/x-auth-token');
+
+            return token ? token.replace(/"/g, '') : null;
+        }
+
+        function getHeaders(xAuthToken, xReferPage) {
+            return { ...HEADERS, 'x-auth-token': xAuthToken, 'x-refer-page': normalizeText(xReferPage) };
+        }
+
+        function throughError(funcName, response) {
+            if (response.request && response.response) {
+                throw new Error(`${funcName}\n${JSON.stringify(response, null, 4)}`);
+            }
+        }
+
+        async function f(url, options) {
+            const initObj = {
+                headers: getHeaders(getToken(), options.xReferPage),
+                referrer: REFERRER,
+                referrerPolicy: 'strict-origin-when-cross-origin',
+                body: JSON.stringify(options.body),
+                method: options.method,
+                mode: 'cors',
+                credentials: 'include',
+            };
+
+            const r = await fetch(normalizeText(`${ENTRY}${url}`), initObj);
+            if (options.method === 'DELETE') {
+                return r;
+            }
+
+            if (r.status !== 200) {
+                return {
+                    request: {
+                        url: r.url,
+                        methid: options.method,
+                        'x-auth-token': getToken(),
+                        'x-refer-page': normalizeText(options.xReferPage),
+                        payload: options.body,
+                    },
+                    response: {
+                        status: r.status,
+                        body: (await r.json()).body,
+                    },
+                };
+            }
+
+            return (await r.json()).body;
+        }
+
+        function assignLicenseToDevices(licenses, devices) {
+            return new Promise(async (resolve, reject) => {
+                const noLicenseDevices = devices.filter((d) => d.licenses.length > 0);
+                const noUseLicenses = licenses.filter((l) => l.registered_at == null);
+
+                if (noUseLicenses.length) {
+                    return resolve(
+                        await f('/nebula/v11/organization/<orgId>/inventory', {
+                            method: 'POST',
+                            xReferPage: '/<orgId>/organization-wide/configure/license-and-inventory',
+                            body: {
+                                devices: [],
+                                licenses: noUseLicenses.map((l) => {
+                                    return {
+                                        license_key: l.license_key,
+                                        mac_address: noLicenseDevices[0].mac_address,
+                                        serial_number: noLicenseDevices[0].serial_number,
+                                    };
+                                }),
+                                ncc_upgrade: null,
+                                dryrun: false,
+                            },
+                        })
+                    );
+                }
+
+                resolve();
+            });
+        }
+
+        async function transferLicenseToOrg(licenses) {
+            const noUseLicenses = licenses.filter((l) => l.device_id == null);
+
+            if (noUseLicenses.length) {
+                const response = await f('/nebula/v11/organization/inventory/transfer', {
+                    method: 'PUT',
+                    xReferPage: '/<orgId>/organization-wide/configure/license-and-inventory',
+                    body: {
+                        unused_license_keys: noUseLicenses.map((license) => {
+                            return {
+                                license_key: license.license_key,
+                                src_org_id: ORG_ID,
+                                dst_org_id: TRANSFER_ORG_ID,
+                            };
+                        }),
+                    },
+                });
+
+                throughError('transferLicenseToOrg', response);
+
+                return response;
+            }
+
+            return Promise.resolve(true);
+        }
+
+        async function getDevices() {
+            const response = await f('/nebula/v11/organization/<orgId>/inventory', {
+                method: 'GET',
+                xReferPage: '/<orgId>/organization-wide/configure/license-and-inventory',
+            });
+
+            throughError('getDevices', response);
+
+            const devices = response.devices;
+
+            // {
+            //     "status": 200,
+            //     "message": null,
+            //     "body": {
+            //       "epoch": 1645510807248,
+            //       "org_owner_id": "5b7e4cba30ed16364fd7e818",
+            //       "devices": [
+            //         {
+            //           "serial_number": "201806251751",
+            //           "mac_address": "20:18:06:25:17:51",
+            //           "model_name": "NSG100",
+            //           "model_variant": null,
+            //           "device_type": "GW",
+            //           "register_status": "REGISTERED",
+            //           "licenses": [
+            //             {
+            //               "license_type": "NSS",
+            //               "license_subtype": "EMPTY",
+            //               "description": null,
+            //               "expired_at": null,
+            //               "predicted_expired_at": null,
+            //               "grace_period_until": null,
+            //               "status": "EMPTY",
+            //               "details": []
+            //             }
+            //           ],
+            //           "available_promotions": [],
+            //           "device_id": "b283be18-c3a5-436b-bc1d-3a0d4e4a2a62",
+            //           "org_added_time": 1537508585920,
+            //           "country": null,
+            //           "site_id": null,
+            //           "device_name": null,
+            //           "device_labels": null,
+            //           "ztp_status": null
+            //         },
+
+            return devices;
+        }
+
+        async function removeDevices(devices) {
+            if (devices.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            const response = await f('/nebula/v11/organization/<orgId>/inventory', {
+                method: 'DELETE',
+                xReferPage: '/<orgId>/organization-wide/configure/license-and-inventory',
+                body: {
+                    devices: devices.map((d) => {
+                        return {
+                            serial_number: d.serial_number,
+                            mac_address: d.mac_address,
+                            remove_from_site: true,
+                        };
+                    }),
+                    dryrun: false,
+                },
+            });
+
+            throughError('removeDevices', response);
+
+            return response;
+        }
+
+        // 還未 assign 的要先 assign to device, 然後再跑 removeDevices
+        async function getLicenses() {
+            const response = await f('/nebula/v11/organization/<orgId>/inventory', {
+                method: 'GET',
+                xReferPage: '/<orgId>/organization-wide/configure/license-and-inventory',
+            });
+
+            throughError('getLicenses', response);
+
+            const licenses = response.licenses;
+            // "licenses": [
+            //     {
+            //       "license_key": "LIC-PLUS-1MO-202106170043",
+            //       "description": "Nebula Plus Pack License, 1MO",
+            //       "serial_number": null,
+            //       "mac_address": null,
+            //       "model_name": null,
+            //       "device_type": null,
+            //       "site_id": null,
+            //       "device_name": null,
+            //       "registered_at": 1645511464000,
+            //       "associated_at": 1645511464000,
+            //       "operated_at": null,
+            //       "expired_at": null,
+            return licenses;
+        }
+
+        async function getSites() {
+            const response = await f('/nebula/v9/organization/<orgId>/sites', {
+                method: 'POST',
+                xReferPage: '/<orgId>/overview',
+            });
+
+            throughError('getSites', response);
+
+            return response.sites;
+
+            // {
+            //     "status": 200,
+            //     "message": null,
+            //     "body": {
+            //       "organization_id": "<orgId>",
+            //       "sites": [
+            //         {
+            //           "site_id": "5ba484e67a3e7918e0be1b32",
+            //           "site_name": "180921-1",
+            //           "timezone": "Asia/Taipei",
+            //           "gateway_type": "NSG",
+            //           "gateway_flex_preset_model_name": null,
+            //           "is_gateway_flex_preset_model_name_set": null,
+            //           "deleted": null,
+            //           "gw_model_name": "NSG100",
+            //           "device_count": 0,
+            //           "device_count_by_type": {
+            //             "AP": 0,
+            //             "GW": 0,
+            //             "SW": 0,
+            //             "GW_FLX": 0,
+            //             "MGW": 0
+            //           },
+            //           "access": "FULL",
+            //           "extra_access": [],
+            //           "site_access": null,
+            //           "site_tag_access": {},
+            //           "model_variant": null
+            //         }
+            //       ],
+            //       "site_templates": [],
+            //       "ref_epoch": 1645512594366
+            //     }
+            //   }
+        }
+
+        async function removeSites(sites) {
+            if (sites.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            const promises = [];
+
+            for (let i = 0; i < sites.length; i++) {
+                ((_s, _i) => {
+                    setTimeout(() => {
+                        promises.push(
+                            new Promise((resolve) => {
+                                f(`/nebula/v9/organization/<orgId>/site/${_s.site_id}`, {
+                                    method: 'DELETE',
+                                    xReferPage: '/<orgId>/overview',
+                                }).then((response) => {
+                                    throughError('removeSites', response);
+                                    resolve();
+                                });
+                            })
+                        );
+                    }, _i * 1000);
+                })(sites[i], i);
+            }
+
+            return Promise.all(promises);
+        }
+
+        async function getUsers() {
+            const response = await f('/nebula/v3/organization/<orgId>/cloud-auth/user/accounts', {
+                method: 'GET',
+                xReferPage: '/<orgId>/organization-wide/configure/cloud-authentication',
+            });
+
+            throughError('getUsers', response);
+
+            return response;
+
+            // {
+            //     "status": 200,
+            //     "body": [
+            //       {
+            //         "_id": "621481dd6d4073ebe04fe129",
+            //         "description": "",
+            //         "notify_changes": true,
+            //         "authorization_level": "ORG_LEVEL",
+            //         "allow_methods": [],
+            //         "organization_id": "<orgId>",
+            //         "account_type": "user",
+            //         "creator": "skye.wu@zyxel.com.tw",
+            //         "created_time": 1645511133257,
+            //         "email": "aaaa@gmail.com",
+            //         "username": null,
+            //         "dppsk": null,
+            //         "dppsk_state": false,
+            //         "vlan_id": null,
+            //         "sites_configs": {},
+            //         "login_method": "EMAIL",
+            //         "password": "pLdlizpi",
+            //         "org_authorization": {
+            //           "authorized": false,
+            //           "last_updator": "skye.wu@zyxel.com.tw",
+            //           "updated_time": 1645511133221
+            //         },
+            //         "sites_authorization": {},
+            //         "mfa": {
+            //           "enrolled": false,
+            //           "bypass": false,
+            //           "code": null
+            //         }
+            //       }
+            //     ]
+            //   }
+        }
+
+        async function removeUsers(users) {
+            if (users.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            const response = await f('/nebula/v3/organization/<orgId>/cloud-auth/user/accounts', {
+                method: 'DELETE',
+                xReferPage: '/<orgId>/organization-wide/configure/cloud-authentication',
+                body: users.map((u) => {
+                    return {
+                        _id: u._id,
+                    };
+                }),
+            });
+
+            throughError('removeUsers', response);
+
+            return response;
+        }
+
+        async function getAdministrators() {
+            const response = await f('/nebula/v3/organization/<orgId>/administrator', {
+                method: 'GET',
+                xReferPage: '/<orgId>/organization-wide/configure/administrators',
+            });
+
+            throughError('getAdministrators', response);
+
+            return response.filter((a) => a.tier === 'ORGANIZATION');
+
+            // "body": [
+            //     {
+            //       "tier": "ORGANIZATION",
+            //       "user_id": "5b7e4cba30ed16364fd7e818",
+            //       "admin_email": "skye.wu@zyxel.com.tw",
+            //       "admin_last_active": 1645510401890,
+            //       "admin_name": "吳 智楷",
+            //       "add_time": 1537508581137,
+            //       "status_change_time": 1537508581137,
+            //       "verified": true,
+            //       "activated": true,
+            //       "is_org_owner": true,
+            //       "delegated": false,
+            //       "org_priv": {
+            //         "granted_time": 1537508581137,
+            //         "access": "FULL"
+            //       },
+            //       "sitetag_priv": {},
+            //       "site_priv": {},
+        }
+
+        async function removeAdministrators(admins) {
+            if (admins.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            const promises = admins
+                .filter((a) => !a.is_org_owner)
+                .map((a) => {
+                    return f(`/nebula/v3/organization/<orgId>/administrator/${a.user_id}`, {
+                        method: 'DELETE',
+                        xReferPage: '/<orgId>/organization-wide/configure/administrators',
+                    });
+                });
+
+            return Promise.all(promises);
+        }
+
+        async function removeOrg() {
+            return new Promise((r) => {
+                setTimeout(() => {
+                    r(
+                        f('/nebula/v3/organization/<orgId>', {
+                            method: 'DELETE',
+                            xReferPage: '/<orgId>/organization-wide/configure/settings',
+                        })
+                    );
+                }, 500);
+            });
+        }
+
+        async function main() {
+            // Get administrators
+            const admins = await getAdministrators();
+            const owner = admins.find((a) => a.admin_email === EMAIL && a.is_org_owner);
+
+            if (Boolean(owner)) {
+                // Get licenses
+                const licenses = await getLicenses();
+                // Get devices
+                const devices = await getDevices();
+                // Get sites
+                const sites = await getSites();
+                // Get user
+                const users = await getUsers();
+
+                if (sites.length > 10) {
+                    console.warn(`///////// ${ORG_ID} have much site, program will skip this org.`);
+                    return Promise.resolve(true);
+                } else if (admins.length > 10) {
+                    console.warn(`///////// ${ORG_ID} have much admin, program will skip this org.`);
+                    return Promise.resolve(true);
+                }
+
+                // Assign license to device
+                // await assignLicenseToDevices(licenses, devices);
+
+                // Transfer license to target org
+                await transferLicenseToOrg(licenses);
+
+                // Remove device from org
+                await removeDevices(devices);
+
+                // Remove user
+                await removeUsers(users);
+
+                // Remove administrators
+                await removeAdministrators(admins);
+
+                // Remove sites
+                await removeSites(sites);
+
+                // Remove org
+                await removeOrg();
+
+                console.warn(`///////// Delete ${ORG_ID} success.`);
+            } else {
+                console.warn(`///////// This ${ORG_ID} isn't owner.`);
+            }
+
+            return Promise.resolve(true);
+        }
+
+        return main();
+    };
+
+    function global_setting(opts) {
+        window.publicTool = {
+            valid: true,
+            deleteOrg: {
+                main,
+                params: null,
+                button: {}
+            },
+        };
+
+        return window.publicTool;
+    }
+
+    async function main() {
+        if (window.publicTool == null || window.publicTool.deleteOrg == null || window.publicTool.deleteOrg.params == null) {
+            throw new Error('Please setup options.');
+        }
+
+        let list = window.publicTool.deleteOrg.params.orgs;
+
+        const eList = [];
+        for (const orgId of list) {
+            try {
+                await _deleteOrg(orgId, window.publicTool.deleteOrg.params.email);
+            } catch (e) {
+                console.log(e);
+                eList.push(orgId);
+                // console.warn(`///////// Delete ${orgId} failure.`);
+            }
+        }
+        console.log(`///////// Still have these org:`, eList);
+    }
+
+    global_setting()
 })();
