@@ -60,7 +60,7 @@
     function get_group_org_site_device() {
         try {
             const p = location.href.match(/(?<=\/)(\w){24}/g);
-            const p2 = location.href.match(/(group-wide|help|msp)/);
+            const p2 = location.href.match(/(group-wide|msp)/);
             const p3 = location.href.match(/((\w+-){4}\w+)/);
             const p4 = location.href.match(/(?<=\/)(\w{24})\/group-wide/);
             let group_id = 'N/A',
