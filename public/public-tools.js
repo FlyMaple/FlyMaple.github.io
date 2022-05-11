@@ -521,7 +521,7 @@ Device id: {device_id}
                     <b class="bold">Email: </b><input type="text" class="email" placeholder="your account email" disabled>
                 </div>
                 <div class="line">
-                    <b class="bold">License transfer to: </b><input type="text" class="transfer" placeholder="org id">
+                    <b class="bold">License transfer to: </b><input type="text" class="transfer" placeholder="org id" value="60efdc78a086d3a892dc205c" disabled>
                 </div>
                 <div class="line">
                     <b class="bold">Organizations: </b>
@@ -550,7 +550,7 @@ Device id: {device_id}
 
                 window.publicTool.deleteOrg.params = {
                     email,
-                    transfer_org,
+                    transfer_org: '60efdc78a086d3a892dc205c',
                     orgs,
                 };
 
