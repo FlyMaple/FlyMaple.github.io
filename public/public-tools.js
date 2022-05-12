@@ -521,7 +521,7 @@ Device id: {device_id}
                     <b class="bold">Email: </b><input type="text" class="email" placeholder="your account email" disabled>
                 </div>
                 <div class="line">
-                    <b class="bold">License transfer to: </b><input type="text" class="transfer" placeholder="org id" value="60efdc78a086d3a892dc205c" disabled>
+                    <b class="bold">License transfer to: </b><input type="text" class="transfer" placeholder="org id" value="60efdc78a086d3a892dc205c">
                 </div>
                 <div class="line">
                     <b class="bold">Organizations: </b>
