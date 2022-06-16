@@ -109,11 +109,11 @@
     }
     function go() {
         const { hostname } = location;
-        let title_tmpl = `[Phase14][CC]`;
+        let title_tmpl = `[Phase15][CC]`;
 
         if (hostname.includes('aio')) {
             if (window.forGUI3) {
-                title_tmpl = `[Phase14][GUI3][CC]`;
+                title_tmpl = `[Phase15][GUI3][CC]`;
             }
         }
         const ctx_tmpl = `**[Page]**
