@@ -178,7 +178,7 @@ Email: {email}
                 .replace(/{org_id}/, group_org_site_device.org_id)
                 .replace(/{site_id}/, group_org_site_device.site_id)
                 .replace(/{device_id}/, group_org_site_device.device_id)
-                .replace(/{email}/, group_org_site_device.device_id);
+                .replace(/{email}/, email);
 
             return {
                 subject: title_tmpl,
