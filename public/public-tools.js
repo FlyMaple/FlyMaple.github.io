@@ -107,6 +107,13 @@
 
         return null;
     }
+
+    function get_email() {
+        const dom = document.querySelector('div.zynet-account-overlay .email');
+
+        return dom ? dom.textContent : 'N/A';
+    }
+
     function go() {
         const { hostname } = location;
         let title_tmpl = `[Phase15][CC]`;
@@ -129,7 +136,7 @@ step 2.
 
 **[Env]**
 Test Time: {t_time}
-Build version: {version}
+{version}
 Browser: {browser}
 Group name: {group_name}
 Group id: {group_id}
@@ -138,6 +145,7 @@ Site name: {site_name}
 Org id: {org_id}
 Site id: {site_id}
 Device id: {device_id}
+Email: {email}
             `;
         try {
             const uri = location.href;
@@ -148,6 +156,7 @@ Device id: {device_id}
             const b_version = get_version();
             const browser = get_browser();
             const group_org_site_device = get_group_org_site_device();
+            const email = get_email();
             if (b_version == null) {
                 throw 'Build version not found.';
             }
@@ -168,7 +177,8 @@ Device id: {device_id}
                 .replace(/{group_id}/, group_org_site_device.group_id)
                 .replace(/{org_id}/, group_org_site_device.org_id)
                 .replace(/{site_id}/, group_org_site_device.site_id)
-                .replace(/{device_id}/, group_org_site_device.device_id);
+                .replace(/{device_id}/, group_org_site_device.device_id)
+                .replace(/{email}/, group_org_site_device.device_id);
 
             return {
                 subject: title_tmpl,
