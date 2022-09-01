@@ -60,7 +60,7 @@
                             )
                                 .then((res) => res.text())
                                 .catch((e) => '');
-                            const done = index === mrs.length - 1 ? true : false;
+                            const done = index === mrs.length ? true : false;
 
                             index += 1;
 
