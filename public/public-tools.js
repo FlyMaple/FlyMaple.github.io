@@ -20,7 +20,7 @@
     function get_version() {
         try {
             const dom = document.querySelector('.copyright');
-            return dom && dom.innerText.match(/(?<=[:|：]\s)(.+\d|-\d+)$/)[0];
+            return dom && dom.innerHTML.match(/Version:.+$/)[0].trim();
         } catch (e) {
             if (window.forGUI3) {
                 return 'developing';
@@ -246,7 +246,6 @@ Email: {email}
     }
 
     function getProxy(hostname) {
-
         if (hostname.includes('aio')) {
             if (window.forGUI3) {
                 return 'gammaccapi.nebula.zyxel.com';
@@ -1407,7 +1406,7 @@ Email: {email}
             deleteOrg: {
                 main,
                 params: null,
-                button: {}
+                button: {},
             },
         };
 
@@ -1415,7 +1414,11 @@ Email: {email}
     }
 
     async function main() {
-        if (window.publicTool == null || window.publicTool.deleteOrg == null || window.publicTool.deleteOrg.params == null) {
+        if (
+            window.publicTool == null ||
+            window.publicTool.deleteOrg == null ||
+            window.publicTool.deleteOrg.params == null
+        ) {
             throw new Error('Please setup options.');
         }
 
@@ -1434,5 +1437,5 @@ Email: {email}
         console.log(`///////// Still have these org:`, eList);
     }
 
-    global_setting()
+    global_setting();
 })();
