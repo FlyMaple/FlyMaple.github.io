@@ -20,7 +20,19 @@
     function get_version() {
         try {
             const dom = document.querySelector('.copyright');
-            return dom && dom.innerHTML.match(/Version:.+$/)[0].trim();
+
+            if (dom) {
+                const _version_1 = dom.innerText.match(/(?<=[:|：]\s)(.+\d|-\d+)$/);
+                const _version_2 = dom.innerHTML.match(/Version:.+$/);
+
+                if (_version_1) {
+                    return _version_1[0].trim();
+                }
+
+                if (_version_2) {
+                    return _version_2[0].trim();
+                }
+            }
         } catch (e) {
             if (window.forGUI3) {
                 return 'developing';
