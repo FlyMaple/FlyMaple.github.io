@@ -407,8 +407,10 @@ Email: {email}
         style.innerText = `
           .skbutton {
                   position: fixed;
-                  right: 35px;
-                  bottom: 45px;
+                //   right: 35px;
+                //   bottom: 45px;
+                  right: 100px;
+                  bottom: 28px;
                   display: inline-flex;
                   border-radius: 50%;
                   border: 1px solid #3c9f00;
