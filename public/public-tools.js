@@ -669,7 +669,7 @@ Email: {email}
     function createDeleteOrgButton() {
         const button = createButton(
             'sd-delete-org-button',
-            'https://i.pinimg.com/favicons/625f15fc2b4ff690e589859dee0026baa19f59b39b282971c0ed23d7.png',
+            'https://reality.inc/assets/images/tie-up/snoopy/item14_l.png',
             '刪除 Org'
         );
 
