@@ -85,7 +85,9 @@
 
             if (p4) {
                 group_id = p4[1];
-                group_name = document.querySelector('.select-group').innerText.trim().replace(/_/g, '{backward_slash}');
+                group_name = (document.querySelector('.select-group')?.innerText || 'N/A')
+                    .trim()
+                    .replace(/_/g, '{backward_slash}');
             } else if (p2 == null) {
                 org_id = p ? p[0] : org_id;
                 org_name =
@@ -703,7 +705,8 @@ Email: {email}
     function createFixedButton() {
         const button = createButton(
             'skbutton',
-            'https://stickershop.line-scdn.net/stickershop/v1/product/10629/LINEStorePC/main.png;compress=true'
+            'https://stickershop.line-scdn.net/stickershop/v1/product/10629/LINEStorePC/main.png;compress=true',
+            '小工具'
         );
         button.addEventListener(
             'click',
