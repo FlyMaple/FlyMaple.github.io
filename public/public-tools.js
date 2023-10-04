@@ -130,7 +130,7 @@
 
     function go() {
         const { hostname } = location;
-        let title_tmpl = `[Phase15][CC]`;
+        let title_tmpl = `[17.20][CC]`;
 
         if (hostname.includes('aio')) {
             if (window.forGUI3) {
