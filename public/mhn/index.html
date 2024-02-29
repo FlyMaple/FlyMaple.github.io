@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的 PWA 網站</title>
-  <link rel="manifest" href="./manifest.json">
+    <title>WebPush iOS example</title>
+    <base href="https://flymaple.github.io/public/mhn/">
+    <link rel="manifest" href="./manifest.json"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="./styles.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="./images/favicon.png"> <!-- needed for phone PWA app icon -->
 </head>
 <body>
-  <h1>歡迎來到我的 PWA 網站</h1>
-  <p>這是一個最少程式碼的 PWA 範例。</p>
-  <script>
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      alert('Service Worker and Push is supported');
-    } else {
-      alert('Push is not supported');
-    }
-    // if ('serviceWorker' in navigator) {
-    //     window.addEventListener('load', () => {
-    //         navigator.serviceWorker.register('service-worker.js')
-    //         .then(registration => {
-    //             console.log('Service Worker registered with scope:', registration.scope);
-    //         })
-    //         .catch(err => {
-    //             console.error('Service Worker registration failed:', err);
-    //         });
-    //     });
-    // }
-  </script>
+<div class="wrapper">
+    <h1>WebPush iOS example</h1>
+
+    <div id="add-to-home-screen">
+        For WebPush work you may need to add this website to Home Screen at your iPhone or iPad (window.navigator is not
+        standalone).
+        <img src="images/webpush-add-to-home-screen.jpg" alt="webpush add to some screen">
+    </div>
+
+    <div id="scan-qr-code">Open this page at your iPhone/iPad:
+        <img src="images/qrcode.png" alt="qrCode"><br><br>
+    </div>
+
+    <button id="subscribe_btn" onclick="subscribeToPush()">Subscribe to notifications</button>
+
+    <div id="active_sub"></div>
+    <button id="test_send_btn" onclick="testSend()">Send test push</button>
+
+    <a id="source_link" href="https://github.com/andreinwald/webpush-ios-example">Code of this page</a>
+</div>
+
+<script src="frontend.js"></script>
 </body>
 </html>
