@@ -3,7 +3,7 @@ if (navigator.serviceWorker) {
 }
 
 async function initServiceWorker() {
-    let swRegistration = await navigator.serviceWorker.register('./serviceworker.js')
+    let swRegistration = await navigator.serviceWorker.register('./serviceworker.js', {scope: '/public/mhn/'})
     let pushManager = swRegistration.pushManager;
 
     if (!isPushManagerActive(pushManager)) {
