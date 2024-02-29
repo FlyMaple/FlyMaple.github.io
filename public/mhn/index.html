@@ -1,34 +1,33 @@
 <html lang="en">
 <head>
-    <title>WebPush iOS example</title>
+    <title>WebPush iOS 範例</title>
     <base href="https://flymaple.github.io/public/mhn/">
     <link rel="manifest" href="./manifest.json"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="./styles.css" rel="stylesheet">
-    <link rel="apple-touch-icon" href="./images/favicon.png"> <!-- needed for phone PWA app icon -->
+    <link rel="apple-touch-icon" href="./images/favicon.png"> <!-- 需要用於手機 PWA 應用程序圖標 -->
 </head>
 <body>
 <div class="wrapper">
-    <h1>WebPush iOS example</h1>
+    <h1>WebPush iOS 範例</h1>
 
     <div id="add-to-home-screen">
-        For WebPush work you may need to add this website to Home Screen at your iPhone or iPad (window.navigator is not
-        standalone).
-        <img src="images/webpush-add-to-home-screen.jpg" alt="webpush add to some screen">
+        若要使 WebPush 正常工作，您可能需要將此網站添加到 iPhone 或 iPad 的主屏幕上（window.navigator 不是獨立的）。
+        <img src="images/webpush-add-to-home-screen.jpg" alt="添加到某個屏幕的 WebPush">
     </div>
 
-    <div id="scan-qr-code">Open this page at your iPhone/iPad:
-        <img src="images/qrcode.png" alt="qrCode"><br><br>
+    <div id="scan-qr-code">在您的 iPhone/iPad 上打開此頁面：
+        <img src="images/qrcode.png" alt="QR 碼"><br><br>
     </div>
 
-    <button id="subscribe_btn" onclick="subscribeToPush()">Subscribe to notifications</button>
+    <button id="subscribe_btn" onclick="subscribeToPush()">訂閱通知</button>
 
     <div id="active_sub"></div>
-    <button id="test_send_btn" onclick="testSend()">Send test push</button>
+    <button id="test_send_btn" onclick="testSend()">發送測試推送</button>
 
-    <a id="source_link" href="https://github.com/andreinwald/webpush-ios-example">Code of this page</a>
+    <a id="source_link" href="https://github.com/andreinwald/webpush-ios-example">此頁面的代碼</a>
 </div>
 
 <script src="frontend.js"></script>
