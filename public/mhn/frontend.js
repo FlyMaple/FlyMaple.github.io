@@ -1,8 +1,5 @@
 if (navigator.serviceWorker) {
     initServiceWorker();
-    setInterval(() => {
-        testSend();
-    }, 1 * 60 * 1000);
 }
 
 async function initServiceWorker() {
