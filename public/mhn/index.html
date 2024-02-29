@@ -10,17 +10,22 @@
   <h1>歡迎來到我的 PWA 網站</h1>
   <p>這是一個最少程式碼的 PWA 範例。</p>
   <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('service-worker.js')
-            .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(err => {
-                console.error('Service Worker registration failed:', err);
-            });
-        });
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      alert('Service Worker and Push is supported');
+    } else {
+      alert('Push is not supported');
     }
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener('load', () => {
+    //         navigator.serviceWorker.register('service-worker.js')
+    //         .then(registration => {
+    //             console.log('Service Worker registered with scope:', registration.scope);
+    //         })
+    //         .catch(err => {
+    //             console.error('Service Worker registration failed:', err);
+    //         });
+    //     });
+    // }
   </script>
 </body>
 </html>
