@@ -1,0 +1,8 @@
+{
+    "name": "我的 PWA",
+    "short_name": "我的 PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2196f3"
+  }
