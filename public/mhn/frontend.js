@@ -42,7 +42,7 @@ function isPushManagerActive(pushManager) {
 async function subscribeToPush() {
     // Public part of VAPID key, generation of that covered in README
     // All subscription tokens associated with that key, so if you change it - you may lose old subscribers
-    const VAPID_PUBLIC_KEY = 'BD1D2lP9BG0MA-y4gHD4FE1f8-KepbctSPcZd-c5A--MUmcTsszpj83OYzITL8y81A-YYYRvfLNM';
+    const VAPID_PUBLIC_KEY = 'BJsZeBGDaUrV6HfGnqNFuZ3bY9og1LMj0QKfBQJfhetq4viYp056_elzKSciokN-DP9eUmAU7Yl4hVK7HHBv3-U';
 
     let swRegistration = await navigator.serviceWorker.getRegistration();
     let pushManager = swRegistration.pushManager;
