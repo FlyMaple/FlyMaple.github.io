@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>狩獵點</title>
+        <link rel="manifest" href="./manifest.json" />
+        <link rel="icon" type="image/png" href="./images/favicon.ico" />
+        <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+        <style>
+            @charset "UTF-8";
+            body {
+                font-family: Arial, sans-serif;
+                margin: 10px 0;
+                padding: 0;
+            }
+
+            .container {
+                margin-bottom: 30px;
+            }
+
+            .hour-selector,
+            .minute-selector,
+            .frequency-selector {
+                margin-bottom: 10px;
+            }
+
+            label {
+                margin-right: 5px;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            ul li.disabled {
+                opacity: 0.5;
+                text-decoration: line-through;
+            }
+
+            .time-list-ul {
+                margin-top: 10px;
+            }
+
+            .time-list-ul li {
+                background-color: #f0f0f0;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                display: flex;
+                align-items: center;
+            }
+
+            .time-list-ul li::before {
+                content: '⏰';
+                margin-right: 10px;
+            }
+
+            .time-list-ul li:last-child {
+                margin-bottom: 0;
+            }
+
+            .info-row {
+                padding: 10px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                color: #fff;
+            }
+            .info-row p {
+                margin: 0;
+            }
+            .info-row.position-company {
+                background-color: #34577b;
+            }
+            .info-row.position-home {
+                background-color: #cf5d26;
+            }
+
+            .info-row p {
+                margin: 0;
+            }
+
+            pre {
+                display: none;
+                border: 1px solid #dee2e6;
+                border-radius: 0.25rem;
+                padding: 1rem;
+                overflow-x: auto;
+                background-color: #f8f9fa;
+            }
+            pre.show {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <pre></pre>
+
+        <script>
+            (function () {
+                let db;
+
+                // 定義資料
+                const groups_template = [
+                    {
+                        id: 'group1',
+                        info: '三層門(Layer1)',
+                        position: 'home',
+                    },
+                    {
+                        id: 'group2',
+                        info: '土地公(Layer2)',
+                        position: 'home',
+                    },
+                    {
+                        id: 'group3',
+                        info: '遊戲區(Layer3)',
+                        position: 'home',
+                    },
+                    {
+                        id: 'group4',
+                        info: '遊戲區(社區)',
+                        position: 'home',
+                    },
+                    {
+                        id: 'group5',
+                        info: '公司',
+                        position: 'company',
+                    },
+                ];
+
+                function generateHTML() {
+                    // 使用 forEach 來動態產生 HTML
+                    groups_template.forEach((group) => {
+                        // 創建 container
+                        const container = document.createElement('div');
+                        container.classList.add('container');
+                        container.id = group.id;
+
+                        // 創建 info-row
+                        const infoRowDiv = document.createElement('div');
+                        infoRowDiv.classList.add('row');
+                        const infoColDiv = document.createElement('div');
+                        infoColDiv.classList.add('col');
+                        const infoDiv = document.createElement('div');
+                        infoDiv.classList.add('info-row', `position-${group.position}`);
+                        const infoParagraph = document.createElement('p');
+                        infoParagraph.textContent = group.info;
+                        infoDiv.appendChild(infoParagraph);
+                        infoColDiv.appendChild(infoDiv);
+                        infoRowDiv.appendChild(infoColDiv);
+
+                        // 創建 hour-selector, minute-selector, frequency-selector
+                        const selectorsRowDiv = document.createElement('div');
+                        selectorsRowDiv.classList.add('row');
+                        ['hour', 'minute', 'frequency'].forEach((selector) => {
+                            const selectorColDiv = document.createElement('div');
+                            selectorColDiv.classList.add(`${selector}-selector`, 'col');
+                            const formGroupDiv = document.createElement('div');
+                            formGroupDiv.classList.add('form-group');
+                            const label = document.createElement('label');
+                            label.setAttribute('for', `${selector}Selector`);
+                            label.textContent = `${
+                                selector === 'frequency' ? '頻率' : selector === 'minute' ? '分鐘' : '小時'
+                            }`;
+                            const select = document.createElement('select');
+                            select.id = `${selector}Selector`;
+                            select.classList.add('form-control', `${selector}-select`);
+                            if (selector === 'frequency') {
+                                [4, 6].forEach((value) => {
+                                    const option = document.createElement('option');
+                                    option.value = value;
+                                    option.textContent = value;
+                                    select.appendChild(option);
+                                });
+                            } else if (selector === 'minute') {
+                                for (let i = 10; i <= 20; i++) {
+                                    const option = document.createElement('option');
+                                    option.value = i;
+                                    option.textContent = i < 10 ? `0${i}` : i;
+                                    select.appendChild(option);
+                                }
+                            } else if (selector === 'hour') {
+                                // Populate hour selector here
+                                for (let i = 7; i < 23; i++) {
+                                    const option = document.createElement('option');
+                                    option.value = i.toString().padStart(2, '0');
+                                    option.textContent = option.value;
+                                    select.appendChild(option);
+                                }
+                            }
+                            if (selector === 'frequency') {
+                                select.value = '6';
+                            }
+                            formGroupDiv.appendChild(label);
+                            formGroupDiv.appendChild(select);
+                            selectorColDiv.appendChild(formGroupDiv);
+                            selectorsRowDiv.appendChild(selectorColDiv);
+                        });
+
+                        // 創建 time-list
+                        const timeListRowDiv = document.createElement('div');
+                        timeListRowDiv.classList.add('row');
+                        const timeListColDiv = document.createElement('div');
+                        timeListColDiv.classList.add('col', 'time-list');
+                        const timeListUl = document.createElement('ul');
+                        timeListUl.classList.add('list-group', 'time-list-ul');
+                        timeListColDiv.appendChild(timeListUl);
+                        timeListRowDiv.appendChild(timeListColDiv);
+
+                        // 將所有元素加入 container
+                        container.appendChild(infoRowDiv);
+                        container.appendChild(selectorsRowDiv);
+                        container.appendChild(timeListRowDiv);
+
+                        // 將 container 加入到 document 中
+                        document.body.appendChild(container);
+                    });
+                }
+
+                // 切換排序方式的函式
+                function toggleSort(sortBy) {
+                    if (sortBy === 'companyFirst') {
+                        // 公司優先排序
+                        groups_template.sort(customSort);
+                    } else if (sortBy === 'originalOrder') {
+                        // 原始順序排序
+                        groups_template.sort((a, b) => a.id.localeCompare(b.id)); // 根據 id 排序
+                    }
+                    return groups_template;
+                }
+
+                // Function to initialize indexedDB
+                function initDB(groups) {
+                    const request = window.indexedDB.open('skye://mhn', 1);
+
+                    request.onerror = function (event) {
+                        console.error('Database error:', event.target.errorCode);
+                    };
+
+                    request.onsuccess = function (event) {
+                        db = event.target.result;
+                        // Load saved values from indexedDB for each group
+                        let deletedGroups = false;
+                        groups.forEach((group) => {
+                            const groupId = group.id;
+                            // Load values only if data is for today
+                            const today = new Date();
+                            const transaction = db.transaction(['pointTimeValues'], 'readwrite');
+                            const objectStore = transaction.objectStore('pointTimeValues');
+                            const request = objectStore.get(groupId);
+
+                            request.onsuccess = function (event) {
+                                const result = event.target.result;
+                                if (result) {
+                                    const savedDate = new Date(result.timestamp);
+                                    if (savedDate.getDate() !== today.getDate()) {
+                                        // If saved data is not for today, clear it
+                                        const deleteRequest = objectStore.delete(groupId);
+                                        deleteRequest.onsuccess = function () {
+                                            deletedGroups = true;
+                                            if (deletedGroups === false) {
+                                                alert(`Data cleared for group ${groupId}`);
+                                            }
+                                        };
+                                    } else {
+                                        loadValues(groupId);
+                                    }
+                                }
+                            };
+                        });
+                    };
+
+                    request.onupgradeneeded = function (event) {
+                        const db = event.target.result;
+
+                        db.createObjectStore('pointTimeValues', { keyPath: 'id' });
+                    };
+                }
+
+                // Function to save selected values to indexedDB for a specific group
+                function saveValues(groupId) {
+                    const group = document.getElementById(groupId);
+                    const transaction = db.transaction(['pointTimeValues'], 'readwrite');
+                    const objectStore = transaction.objectStore('pointTimeValues');
+                    const request = objectStore.get(groupId);
+
+                    request.onsuccess = function (event) {
+                        const hourSelector = group.querySelector('.hour-selector .hour-select');
+                        const minuteSelector = group.querySelector('.minute-selector .minute-select');
+
+                        const frequencySelector = group.querySelector('.frequency-selector .frequency-select');
+
+                        const timestamp = Date.now();
+                        const hour = hourSelector.value;
+                        const minute = minuteSelector.value;
+                        const frequency = frequencySelector.value;
+
+                        objectStore.put({ id: groupId, timestamp, hour, minute, frequency });
+                    };
+
+                    transaction.oncomplete = function () {
+                        console.log(`Values saved to indexedDB for group ${groupId}`);
+                    };
+                }
+
+                // Function to load saved values from indexedDB for a specific group
+                function loadValues(groupId) {
+                    const transaction = db.transaction(['pointTimeValues'], 'readonly');
+                    const objectStore = transaction.objectStore('pointTimeValues');
+                    const request = objectStore.get(groupId);
+
+                    request.onsuccess = function (event) {
+                        const result = event.target.result;
+                        if (result) {
+                            const group = document.getElementById(groupId);
+                            const hourSelector = group.querySelector('.hour-selector .hour-select');
+                            const minuteSelector = group.querySelector('.minute-selector .minute-select');
+
+                            const frequencySelector = group.querySelector('.frequency-selector .frequency-select');
+
+                            hourSelector.value = result.hour;
+                            minuteSelector.value = result.minute;
+                            frequencySelector.value = result.frequency;
+                        }
+                        // Display updated time points for the specific group
+                        displayTimePoints(groupId);
+                    };
+
+                    request.onerror = function (event) {
+                        console.error(`Error reading values from indexedDB for group ${groupId}:`, event.target.error);
+                    };
+                }
+
+                // Function to calculate and display time points for a specific group
+                function displayTimePoints(groupId) {
+                    const group = document.getElementById(groupId);
+                    const timeList = group.querySelector('.time-list .time-list-ul');
+                    const hourSelector = group.querySelector('.hour-selector .hour-select');
+                    const minuteSelector = group.querySelector('.minute-selector .minute-select');
+
+                    const frequencySelector = group.querySelector('.frequency-selector .frequency-select');
+
+                    const selectedHour = parseInt(hourSelector.value);
+                    const selectedMinute = parseInt(minuteSelector.value);
+                    const frequency = parseInt(frequencySelector.value);
+
+                    // Clear previous time points
+                    timeList.innerHTML = '';
+
+                    // Calculate and display time points
+                    const now = new Date();
+                    for (let i = selectedHour; i < 24; i += frequency) {
+                        if (i >= 7) {
+                            const timePoint = document.createElement('li');
+                            const time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), i, selectedMinute);
+                            timePoint.textContent = `${String(i).padStart(2, '0')}:${String(selectedMinute).padStart(
+                                2,
+                                '0'
+                            )}`;
+                            if (now.getTime() - time.getTime() >= +20 * 60 * 1000) {
+                                timePoint.classList.add('disabled');
+                            }
+                            timeList.appendChild(timePoint);
+                        }
+                    }
+                }
+
+                // Function to handle change events on selectors for a specific group
+                function handleSelectorChange(groupId) {
+                    // Save selected values to indexedDB for the specific group
+                    saveValues(groupId);
+
+                    // Display updated time points for the specific group
+                    displayTimePoints(groupId);
+                }
+
+                function main() {
+                    generateHTML();
+
+                    const groups = document.querySelectorAll('.container');
+
+                    // Attach onchange event listeners to selectors for each group
+                    groups.forEach((group) => {
+                        const groupId = group.id;
+                        const hourSelector = group.querySelector('.hour-selector .hour-select');
+                        const minuteSelector = group.querySelector('.minute-selector .minute-select');
+
+                        const frequencySelector = group.querySelector('.frequency-selector .frequency-select');
+
+                        hourSelector.addEventListener('change', () => handleSelectorChange(groupId));
+
+                        minuteSelector.addEventListener('change', () => handleSelectorChange(groupId));
+
+                        frequencySelector.addEventListener('change', () => handleSelectorChange(groupId));
+                    });
+
+                    // Initialize indexedDB
+                    initDB(groups);
+                }
+
+                try {
+                    main();
+                } catch (error) {
+                    const pre = document.querySelector('pre');
+                    pre.classList.add('show');
+                    document.querySelector('pre').textContent = error.stack;
+                }
+            })();
+        </script>
+        <script src="./frontend.js"></script>
+    </body>
+</html>
